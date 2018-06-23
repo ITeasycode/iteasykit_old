@@ -2,7 +2,7 @@ module Iteasykit
   class Entity < ApplicationRecord
     translates :slug
     extend FriendlyId
-    friendly_id :machine_name, :use => [:slugged, :finders, :globalize, :history]
+    friendly_id :slug, :use => [:slugged, :finders, :globalize, :history]
     belongs_to :iteasykit_entity_type, class_name: "Iteasykit::EntityType"
     belongs_to :iteasykit_seomore, optional: true
     has_many :fcis, as: :fciable

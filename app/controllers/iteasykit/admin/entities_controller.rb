@@ -56,8 +56,9 @@ module Iteasykit
 
     # DELETE /entities/1
     def destroy
+      @entity_type = @entity.iteasykit_entity_type
       @entity.destroy
-      redirect_to admin_entities_url, notice: 'Entity was successfully destroyed.'
+      redirect_to admin_entity_type_url(@entity_type), notice: 'Entity was successfully destroyed.'
     end
 
     private
@@ -69,7 +70,8 @@ module Iteasykit
 
     # Only allow a trusted parameter "white list" through.
     def entity_params
-      params.require(:entity).permit(:machine_name, :iteasykit_entity_type_id, :active, :sticky, :iteasykit_seomore_id)
+      params.require(:entity).permit(:machine_name, :iteasykit_entity_type_id, :active, :sticky, :iteasykit_seomore_id,
+                                     :slug)
     end
   end
 end

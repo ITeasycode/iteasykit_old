@@ -36,17 +36,19 @@ module Iteasykit
     private
 
     def theme_resolver
-        'capital'
+        'kbetheme'
     end
 
     def fci_saver(instance, params)
-      params[:fcis].as_json.each do |field|
-        m = ('Iteasykit::'+field[1].keys[0].camelize).constantize
-        if field[1].keys[0] == "fci_image"
-          image = FciImage.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id})
-          image.file.attach(params[:fcis][field[0]]["fci_image"]["file"])
-        else
-          m.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id}, {value: field[1].values[0]})
+      if @entity_type.fcis.present?
+        params[:fcis].as_json.each do |field|
+          m = ('Iteasykit::'+field[1].keys[0].camelize).constantize
+          if field[1].keys[0] == "fci_image"
+            image = FciImage.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id})
+            image.file.attach(params[:fcis][field[0]]["fci_image"]["file"])
+          else
+            m.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id}, {value: field[1].values[0]})
+          end
         end
       end
     end

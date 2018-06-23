@@ -1,0 +1,5 @@
+<% @modesl.fcis.includes(:translations).each do |namefield| %>
+    <% if namefield.active? %>
+        <%= @model.field(namefield.machine_name) %>
+    <% end %>
+<% end %>

@@ -1,5 +1,6 @@
 module Iteasykit
   module ApplicationHelper
+
     def link_to_add_fields(name, f, type)
       new_object = f.object.send "build_#{type}"
       id = "new_#{type}"
@@ -8,6 +9,7 @@ module Iteasykit
       end
       link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
     end
+
     def theme_resolver
       if cookies.permanent[:theme] and cookies.permanent[:theme] != ''
         if params[:theme].presence.present?
@@ -21,7 +23,7 @@ module Iteasykit
           cookies.permanent[:theme] = params[:theme].presence
           cookies.permanent[:theme]
         else
-          'capital'
+          'kbetheme'
         end
       end
     end

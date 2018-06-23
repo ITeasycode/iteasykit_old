@@ -1,12 +1,59 @@
 <aside class="sidebar sidebar-default" style="min-height: 400px;">
   <ul class="nav metismenu">
-    <li><a href="<%= admin_entities_url %>"><i class="zmdi zmdi-collection-text"></i>Entities</a></li>
+    <% if entity_type("Entity").present? %>
+    <li>
+      <a href="#"><i class="zmdi zmdi-collection-text"></i>Entities<span class="zmdi arrow"></span></a>
+      <ul class="nav nav-inside collapse">
+        <li class="inside-title">Entities list</li>
+        <% entity_type("Entity").each do |item| %>
+          <li><a href="<%= admin_entity_type_url(item) %>"><i class="zmdi zmdi-library"></i>List <%= item.name %></a></li>
+        <% end %>
+        <li class="inside-title">Add new entity</li>
+        <% entity_type("Entity").each do |item| %>
+          <li><a href="/admin/<%= item.rel_model.pluralize.downcase %>/new?entity_type=<%= item.id %>">
+            <i class="zmdi zmdi-library"></i>New <%= item.name %></a></li>
+        <% end %>
+      </ul>
+    </li>
+    <% end %>
     <li><a href="<%= admin_entity_types_url %>"><i class="zmdi zmdi-library"></i>Entities Type</a></li>
     <li><a href="<%= admin_menus_url %>"><i class="zmdi zmdi-menu"></i>Menus</a></li>
     <li><a href="<%= admin_blocks_url %>"><i class="zmdi zmdi-collection-item"></i>Blocks</a></li>
-    <li><a href="<%= admin_taxonomies_url %>"><i class="zmdi zmdi-bookmark"></i>Taxonomies</a></li>
-    <li><a href="<%= admin_cells_url %>"><i class="zmdi zmdi-layers"></i>Cells</a></li>
-    <li class="current-block active">
+    <% if entity_type("Taxonomy").present? %>
+    <li>
+      <a href="#"><i class="zmdi zmdi-bookmark"></i>Taxonomies<span class="zmdi arrow"></span></a>
+      <ul class="nav nav-inside collapse">
+        <li class="inside-title">Taxonomies list</li>
+        <% entity_type("Taxonomy").each do |item| %>
+          <li><a href="<%= admin_entity_type_url(item) %>"><i class="zmdi zmdi-library"></i>List <%= item.name %></a></li>
+        <% end %>
+        <li class="inside-title">Add new taxonomy</li>
+        <% entity_type("Taxonomy").each do |item| %>
+          <li><a href="/admin/<%= item.rel_model.pluralize.downcase %>/new?entity_type=<%= item.id %>">
+            <i class="zmdi zmdi-library"></i>New <%= item.name %></a></li>
+        <% end %>
+
+      </ul>
+    </li>
+      <% end %>
+    <% if entity_type("Cell").present? %>
+    <li>
+      <a href="#"><i class="zmdi zmdi-layers"></i>Cells<span class="zmdi arrow"></span></a>
+      <ul class="nav nav-inside collapse">
+        <li class="inside-title">Cells list</li>
+        <% entity_type("Cell").each do |item| %>
+          <li><a href="<%= admin_cell_url(item) %>"><i class="zmdi zmdi-library"></i>List <%= item.name %></a></li>
+        <% end %>
+        <li class="inside-title">Add new cell</li>
+        <% entity_type("Cell").each do |item| %>
+          <li><a href="/admin/<%= item.rel_model.pluralize.downcase %>/new?entity_type=<%= item.id %>">
+            <i class="zmdi zmdi-library"></i>New <%= item.name %></a></li>
+        <% end %>
+
+      </ul></li>
+    <% end %>
+    <!--class="current-block active"-->
+    <li>
       <a href="#"><i class="zmdi zmdi-settings"></i>Setting<span class="zmdi arrow"></span></a>
       <ul class="nav nav-inside collapse">
         <li class="inside-title">Administration site</li>

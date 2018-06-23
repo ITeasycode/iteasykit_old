@@ -63,7 +63,7 @@ module Iteasykit
       # Only allow a trusted parameter "white list" through.
       def entity_type_params
         params.require(:entity_type).permit(:name, :machine_name, :description, :help, :active, :nesting, :relation,
-                                            :path_root_url, :comment, :position, :rel_model)
+                                            :path_root_url, :comment, :position, :rel_model, :id_title_fci)
       end
   end
 end
