@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  noindex: false
+  nofollow: false
+  title: MyString
+  keywords: MyString
+  description: MyText
+  canonical: MyString
+  author: MyString
+  publisher: MyString
+  alternate: MyString
+  refresh: MyString
+
+two:
+  noindex: false
+  nofollow: false
+  title: MyString
+  keywords: MyString
+  description: MyText
+  canonical: MyString
+  author: MyString
+  publisher: MyString
+  alternate: MyString
+  refresh: MyString

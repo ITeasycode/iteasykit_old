@@ -1,0 +1,103 @@
+<%= form_with(model: [:admin, entity_type], local: true) do |form| %>
+  <% if entity_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(entity_type.errors.count, "error") %> prohibited this entity_type from being saved:</h2>
+
+      <ul>
+        <% entity_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label class="control-label">Name</label>
+      <%= form.text_field :name, class: "form-control input-sm" %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label class="control-label">Machine name</label>
+      <%= form.text_field :machine_name, class: "form-control input-sm" %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label class="control-label">Machine name</label>
+      <%= form.select(:rel_model, ['Entity', 'Taxonomy', 'Block', 'Cell', 'Form'], {include_blank: false}, class: "form-control input-sm input-warning") %>
+    </div>
+  </div>
+  <div class="col-md-6">
+
+    <div class="form-group">
+      <label class="control-label">Description</label>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label class="control-label">Help</label>
+      <%= form.text_area :help, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        Active:
+        <%= form.check_box :active, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        Nesting:
+        <%= form.check_box :nesting, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        Relation:
+        <%= form.check_box :relation, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        Path root url:
+        <%= form.check_box :path_root_url, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        Comment:
+        <%= form.check_box :comment, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        Position:
+        <%= form.check_box :position, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit 'Save', class: "btn-success btn-lg" %>
+  </div>
+<% end %>

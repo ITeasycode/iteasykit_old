@@ -1,0 +1,31 @@
+Iteasykit::Engine.routes.draw do
+  filter :pagination, :uuid
+  filter :locale
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :forms
+  root :to => 'entities#index'
+  resources :taxonomies
+  resources :entities
+  devise_for :users, class_name: "Iteasykit::User", module: :devise, :controllers => { :registrations => :registrations }
+  namespace :admin do
+    resources :taxonomies
+    resources :fcis
+    resources :entities
+    resources :seomores
+    resources :forms
+    resources :cells
+    resources :menus
+    resources :menu_items do
+      post :sort, on: :collection
+    end
+    resources :blocks do
+      post :sort, on: :collection
+    end
+    resources :entity_types
+  end
+  get 'admin/entity_types/:id/fields' => 'admin/entity_types#fields', as: 'admin_entity_type_fields'
+  get 'admin/entity/:id/custom_fields' => 'admin/entities#custom_fields', as: 'admin_entity_custom_fields'
+
+  Iteasykit::DynamicRouter.load
+
+end

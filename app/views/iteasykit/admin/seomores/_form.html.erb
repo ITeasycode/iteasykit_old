@@ -1,0 +1,67 @@
+<%= form_with(model: seomore, local: true) do |form| %>
+  <% if seomore.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(seomore.errors.count, "error") %> prohibited this seomore from being saved:</h2>
+
+      <ul>
+        <% seomore.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :noindex %>
+    <%= form.check_box :noindex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nofollow %>
+    <%= form.check_box :nofollow %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :keywords %>
+    <%= form.text_field :keywords %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :canonical %>
+    <%= form.text_field :canonical %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publisher %>
+    <%= form.text_field :publisher %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alternate %>
+    <%= form.text_field :alternate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :refresh %>
+    <%= form.text_field :refresh %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

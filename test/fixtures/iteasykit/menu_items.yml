@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  itemable: one
+  name: MyString
+  title: MyString
+  url: MyString
+  menu: one
+  ancestry: MyString
+  active: false
+  position: 1
+  blocked: false
+  elementcls: MyString
+  idcls: MyString
+  csscls: MyString
+
+two:
+  itemable: two
+  name: MyString
+  title: MyString
+  url: MyString
+  menu: two
+  ancestry: MyString
+  active: false
+  position: 1
+  blocked: false
+  elementcls: MyString
+  idcls: MyString
+  csscls: MyString

@@ -1,0 +1,36 @@
+a.btn.btn-info.btn-lg.waves-effect {
+    color: #ffffff;
+}
+.danger-bg {
+    background: #efefef !important;
+}
+.danger-bg .content-title {
+     color: black!important;
+ }
+.content-box a {
+    color: black!important;
+}
+nav.navbar {
+    background: #f39700!important;
+}
+.icon-logo {
+    display: none;
+    background: none;
+    height: 70px;
+    width: 65px;
+    margin-left: 14px;
+}
+
+.form-group.add_conditions a {
+    color: #ffbb33!important;
+    font-weight: bolder;
+}
+
+.sortable-block li.no-nest div {
+    float: left;
+    border: 1px solid grey;
+    padding: 5px 10px;
+}
+li.no-nest {
+    list-style: none;
+}

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fcis</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Help</th>
+    <th>Placeholder</th>
+    <th>Value</th>
+    <th>Prefix</th>
+    <th>Suffix</th>
+    <th>Elementcls</th>
+    <th>Idcls</th>
+    <th>Classcls</th>
+    <th>Machine name</th>
+    <th>Active</th>
+    <th>Is required</th>
+    <th>Position</th>
+    <th>Is filter</th>
+    <th>Is multi</th>
+    <th>Fciable type</th>
+    <th>Fciable</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @fcis.each do |fci| %>
+    <tr>
+      <td><%= fci.name %></td>
+      <td><%= fci.help %></td>
+      <td><%= fci.placeholder %></td>
+      <td><%= fci.value %></td>
+      <td><%= fci.prefix %></td>
+      <td><%= fci.suffix %></td>
+      <td><%= fci.elementcls %></td>
+      <td><%= fci.idcls %></td>
+      <td><%= fci.classcls %></td>
+      <td><%= fci.machine_name %></td>
+      <td><%= fci.active %></td>
+      <td><%= fci.is_required %></td>
+      <td><%= fci.position %></td>
+      <td><%= fci.is_filter %></td>
+      <td><%= fci.is_multi %></td>
+      <td><%= fci.fciable_type %></td>
+      <td><%= fci.fciable_id %></td>
+      <td><%= link_to 'Show', fci %></td>
+      <td><%= link_to 'Edit', edit_fci_path(fci) %></td>
+      <td><%= link_to 'Destroy', fci, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fci', new_fci_path %>

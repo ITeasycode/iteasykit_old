@@ -1,0 +1,79 @@
+<div class="row">
+  <%= form_with(model: [:admin, entity], local: true, multipart: true) do |form| %>
+    <% if entity.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
+
+        <ul>
+          <% entity.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="col-md-8">
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color">Field and objects:</h5>
+        </div>
+
+        <div class="content">
+          <%= render 'iteasykit/shared/fields/field_list', locals: [@entity_type, @object = @entity] %>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color">Settings:</h5>
+        </div>
+
+        <div class="content">
+
+          <div class="form-group">
+            <label class="control-label">Url</label>
+            <%= form.text_field :slug, class: "form-control input-sm" %>
+            <span class="help-block"><small>No edit</small></span>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Entity Type</label>
+            <%= form.select(:iteasykit_entity_type_id, Iteasykit::EntityType.where(rel_model: 'Entity').map {|et| [et.name, et.id]},
+                            {include_blank: false}, class: "form-control input-sm input-warning") %>
+            <span class="help-block"><small>No edit</small></span>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Machine name</label>
+            <%= form.text_field :machine_name, class: "form-control input-sm" %>
+            <span class="help-block"><small>Machine name for theme</small></span>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label warning-color">
+                  Active:
+                  <%= form.check_box :active, class: "toggle toggle-success" %>
+                  <i></i>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label warning-color">
+
+                  Sticky:
+                  <%= form.check_box :sticky, class: "toggle toggle-success" %>
+                  <i></i>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="actions"  style="position: fixed;bottom: 0px;right: 0px;" >
+        <%= form.submit 'Save', class: "btn-success btn-lg"%>
+      </div>
+  <% end %>
+  </div>

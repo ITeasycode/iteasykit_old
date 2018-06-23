@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seomores</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Noindex</th>
+    <th>Nofollow</th>
+    <th>Title</th>
+    <th>Keywords</th>
+    <th>Description</th>
+    <th>Canonical</th>
+    <th>Author</th>
+    <th>Publisher</th>
+    <th>Alternate</th>
+    <th>Refresh</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @seomores.each do |seomore| %>
+    <tr>
+      <td><%= seomore.noindex %></td>
+      <td><%= seomore.nofollow %></td>
+      <td><%= seomore.title %></td>
+      <td><%= seomore.keywords %></td>
+      <td><%= seomore.description %></td>
+      <td><%= seomore.canonical %></td>
+      <td><%= seomore.author %></td>
+      <td><%= seomore.publisher %></td>
+      <td><%= seomore.alternate %></td>
+      <td><%= seomore.refresh %></td>
+      <td><%= link_to 'Show', seomore %></td>
+      <td><%= link_to 'Edit', edit_seomore_path(seomore) %></td>
+      <td><%= link_to 'Destroy', seomore, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Seomore', new_seomore_path %>

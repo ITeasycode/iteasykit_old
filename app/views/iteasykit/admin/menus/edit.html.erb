@@ -1,0 +1,119 @@
+<% content_for :entity_title do %>Editing Menu <%= @menu.name %>
+<% end %>
+
+<% content_for :pull_right do %>
+  <%= link_to '<i class="zmdi zmdi-long-arrow-return zmdi-hc-fw"></i>'.html_safe, admin_menus_path %>
+<% end %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-8">
+      <div class="content-box">
+        <div class="head head-border danger-color">
+          <h5 class="content-title danger-color">List menu items
+            <a class="fullscreen-btn" href="#"><i class="zmdi zmdi-fullscreen"></i></a></h5>
+
+
+        </div>
+
+        <div class="content">
+
+          <div class="content-box">
+            <div class="head primary-bg clearfix">
+              <h5 class="content-title pull-left">Add new item menu</h5>
+              <div class="functions-btns pull-right">
+                <a class="collapse-btn" href="#"><i class="zmdi zmdi-plus"></i></a>
+              </div>
+            </div>
+
+            <div class="content" style="display:none;">
+              <div class="row">
+                <div class="col-md-12">
+                  <%= form_with(model: [:admin, @menu_item], local: true, remote: true) do |f| %>
+                    <div class="col-md-12">
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">Name</label>
+                          <%= f.text_field :name, class: "form-control input-sm" %>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">Title</label>
+                          <%= f.text_field :title, class: "form-control input-sm" %>
+                          <span class="help-block"><small>Title.</small></span>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="control-label">Element html</label>
+                            <%= f.text_field :elementcls, class: "form-control input-sm" %>
+                            <span class="help-block"><small>span, p, etc. Default - div</small></span>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="control-label">Id element</label>
+                            <%= f.text_field :idcls, class: "form-control input-sm" %>
+                            <span class="help-block"><small>Not default</small></span>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="control-label">Class element</label>
+                            <%= f.text_field :csscls, class: "form-control input-sm" %>
+                            <span class="help-block"><small>Default - machine name</small></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">URL</label>
+                          <%= f.text_field :url, class: "form-control input-sm" %>
+                          <span class="help-block"><small>Administrative name.</small></span>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label warning-color">
+                            Active:
+                            <%= f.check_box :active, class: "toggle toggle-danger" %>
+                            <i></i>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+
+                      <%= f.hidden_field :iteasykit_menu_id, value: @menu.id %>
+                      <div class="actions">
+                        <%= f.submit 'Save', class: "btn-warning raised waves-effect" %>
+                      </div>
+                    </div>
+                  <% end %>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <%= render_sortable_tree(@items, {name_method: :name, sort_url: sort_admin_menu_items_url, max_levels: 5, sorting_attribute: 'position', controls_partial: 'controls'}) %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="content-box">
+        <div class="head head-border danger-color">
+          <h5 class="content-title danger-color">Editing menu</h5>
+        </div>
+
+        <div class="content">
+          <%= render 'form', menu: @menu %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

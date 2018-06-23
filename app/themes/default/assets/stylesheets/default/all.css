@@ -1,0 +1,21 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require bootstrap/dist/css/bootstrap
+ *= require material-design-iconic-font/dist/css/material-design-iconic-font.min
+ *= require ../animate.min.css
+ *= require metismenu/dist/metisMenu
+ *= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar
+ *= require node-waves/dist/waves.min
+ *= require toastr/build/toastr.min
+ *= require bootstrap-select/dist/css/bootstrap-select
+ *= require eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker
+ *= require nouislider/distribute/nouislider
+ *= require style
+ *= require demo
+ *= require custom
+ *= require_self
+ *= require_tree .
+*/

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Taxonomies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ancestry</th>
+      <th>Ancestry depth</th>
+      <th>Active</th>
+      <th>Position</th>
+      <th>Blocked</th>
+      <th>Sticky</th>
+      <th>Iteasykit entity type</th>
+      <th>Iteasykit seomore</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @taxonomies.each do |taxonomy| %>
+      <tr>
+        <td><%= taxonomy.ancestry %></td>
+        <td><%= taxonomy.ancestry_depth %></td>
+        <td><%= taxonomy.active %></td>
+        <td><%= taxonomy.position %></td>
+        <td><%= taxonomy.blocked %></td>
+        <td><%= taxonomy.sticky %></td>
+        <td><%= taxonomy.iteasykit_entity_type %></td>
+        <td><%= taxonomy.iteasykit_seomore %></td>
+        <td><%= link_to 'Show', taxonomy %></td>
+        <td><%= link_to 'Edit', edit_taxonomy_path(taxonomy) %></td>
+        <td><%= link_to 'Destroy', taxonomy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Taxonomy', new_taxonomy_path %>

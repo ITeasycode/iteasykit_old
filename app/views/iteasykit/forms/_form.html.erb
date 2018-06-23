@@ -1,0 +1,62 @@
+<%= form_with(model: form, local: true) do |form| %>
+  <% if form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(form.errors.count, "error") %> prohibited this form from being saved:</h2>
+
+      <ul>
+      <% form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :iteasykit_entity_type_id %>
+    <%= form.text_field :iteasykit_entity_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sticky %>
+    <%= form.check_box :sticky %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.number_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :group %>
+    <%= form.text_field :group %>
+  </div>
+
+  <div class="field">
+    <%= form.label :machine_name %>
+    <%= form.text_field :machine_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :iteasykit_seomore_id %>
+    <%= form.text_field :iteasykit_seomore_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :slug %>
+    <%= form.text_field :slug %>
+  </div>
+
+  <div class="field">
+    <%= form.label :calc %>
+    <%= form.check_box :calc %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

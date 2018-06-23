@@ -1,0 +1,17 @@
+<% content_for :entity_title do %>New block
+<% end %>
+<% content_for :pull_right do %>
+  <%= link_to '<i class="zmdi zmdi-long-arrow-return zmdi-hc-fw"></i>'.html_safe, admin_blocks_url %>
+<% end %>
+
+<ul class="nav nav-tabs text-right">
+  <li>
+    <a href="<%= admin_blocks_url %>">All blocks</a>
+  </li>
+  <li class="active">
+    <a href="" >New Block</a>
+  </li>
+
+
+</ul>
+<%= render 'form', block: @block %>

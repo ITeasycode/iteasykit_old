@@ -1,0 +1,2 @@
+<%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, admin_menu_item_url(item) %>
+<%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, admin_menu_item_url(item), :method => :delete, :data => {:confirm => 'Are you sure?'} %>

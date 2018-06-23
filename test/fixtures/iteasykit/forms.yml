@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  iteasykit_entity_type: one
+  active: false
+  sticky: false
+  position: 1
+  group: MyString
+  machine_name: MyString
+  iteasykit_seomore: one
+  slug: MyString
+  calc: false
+
+two:
+  iteasykit_entity_type: two
+  active: false
+  sticky: false
+  position: 1
+  group: MyString
+  machine_name: MyString
+  iteasykit_seomore: two
+  slug: MyString
+  calc: false
