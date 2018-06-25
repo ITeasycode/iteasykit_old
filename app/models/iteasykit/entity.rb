@@ -26,6 +26,17 @@ module Iteasykit
         end
       end
     end
-    
+
+    def title
+      if iteasykit_entity_type.id_title_fci.present?
+        fci = Iteasykit::Fci.find(iteasykit_entity_type.id_title_fci)
+        mf = FciString.find_by(iteasykit_fci_id: fci.id, fieldable_type: 'Iteasykit::Entity', fieldable_id: id)
+        if mf
+          mf.value.html_safe
+        end
+      end
+    end
+
+
   end
 end

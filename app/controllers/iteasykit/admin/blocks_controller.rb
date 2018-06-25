@@ -2,15 +2,21 @@ require_dependency "iteasykit/application_controller"
 
 module Iteasykit
   class Admin::BlocksController < Admin::AdminController
-    before_action :set_block, only: [:show, :edit, :update, :destroy]
+    before_action :set_block, only: [:show, :edit, :update, :destroy, :custom_fields]
 
     # GET /blocks
     def index
+      @block_entity_types = Iteasykit::EntityType.where(rel_model: 'Block')
       @blocks = Block.all
     end
 
     # GET /blocks/1
     def show
+    end
+
+    def custom_fields
+      @fci = Iteasykit::Fci.new
+      @fcis = Iteasykit::Fci.order(:position).where(fciable_id: @block.id, fciable_type: "Iteasykit::Block")
     end
 
     # GET /blocks/new
@@ -21,6 +27,7 @@ module Iteasykit
 
     # GET /blocks/1/edit
     def edit
+      @object_list = @block.rel_cells
     end
 
     # POST /blocks
@@ -67,7 +74,8 @@ module Iteasykit
 
       # Only allow a trusted parameter "white list" through.
       def block_params
-        params.require(:block).permit(:admin_name, :region, :type_url, :url, :etl_type, :entity_type_lists, :description_admin, :machine_name, :active, :position, :system, :iteasykit_entity_type_id, :elementcls, :idcls, :csscls)
+        params.require(:block).permit(:admin_name, :region, :type_url, :url, :etl_type, :entity_type_lists, :description_admin,
+                                      :machine_name, :active, :position, :system, :iteasykit_entity_type_id, :elementcls, :idcls, :csscls)
       end
   end
 end

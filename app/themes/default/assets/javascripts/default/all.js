@@ -15,8 +15,8 @@
 //= require underscore/underscore
 //= require rails_sortable
 //= require ckeditor/init
-//= require_directory .
-//= require_tree .
+
+
 
 $(function() {
     $('.sortable').railsSortable();

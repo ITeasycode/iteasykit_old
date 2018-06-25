@@ -5,13 +5,26 @@
 <% end %>
 
 <ul class="nav nav-tabs text-right">
-  <li>
-    <a href="<%= admin_blocks_url %>">All blocks</a>
-  </li>
+
   <li class="active">
-    <a href="" >New Block</a>
+    <a href="/admin/blocks/new/?entity_type=<%= @entity_type.id %>"><%= t('new') %> <%= @entity_type.name %></a>
+  </li>
+  <li>
+    <a href="<%= admin_entity_type_url(@entity_type) %>">List <%= @entity_type.name %></a>
   </li>
 
+  <li>
+<div class="btn-group no-bg">
+  <button type="button" class="btn btn-no-bg warning-color dropdown-toggle waves-effect" data-toggle="dropdown" aria-expanded="false">
+    <i class="zmdi zmdi-settings"></i>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="warning-color" href="<%= admin_blocks_url %>">Blocks for region</a></li>
+    <li><a class="warning-color" href="<%= edit_admin_entity_type_url(@entity_type) %>">Edit entity type</a></li>
+    <li><a class="warning-color" href="<%= admin_entity_type_fields_url(@entity_type) %>">Field entity type</a></li>
 
+  </ul>
+</div></li>
 </ul>
 <%= render 'form', block: @block %>

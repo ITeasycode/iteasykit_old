@@ -40,7 +40,7 @@ module Iteasykit
     end
 
     def fci_saver(instance, params)
-      if @entity_type.fcis.present?
+      if params[:fcis].present?
         params[:fcis].as_json.each do |field|
           m = ('Iteasykit::'+field[1].keys[0].camelize).constantize
           if field[1].keys[0] == "fci_image"

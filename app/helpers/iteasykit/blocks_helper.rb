@@ -1,6 +1,6 @@
 module Iteasykit
   module BlocksHelper
-    def blocks(region)
+    def region(region)
       @blocks = Block.where(region: region)
       render 'iteasykit/shared/blocks/list', locale: @blocks
     end

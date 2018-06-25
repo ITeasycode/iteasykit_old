@@ -25,6 +25,7 @@
         </div>
       </div>
       <% end %>
+
       <div class="content-box">
         <div class="head head-border warning-color">
           <h5 class="content-title warning-color">Visible area:</h5>
@@ -35,7 +36,7 @@
           <div class="form-group">
             <label class="control-label">Type url</label>
 
-            <%= form.select(:type_url, ['none', 'only', 'exept'],
+            <%= form.select(:type_url, ['none', 'only', 'except'],
                             {include_blank: false}, class: "form-control input-sm input-warning") %>
             <span class="help-block"><small></small></span>
           </div>
@@ -47,8 +48,8 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label">Admin description</label>
-            <%= form.select(:etl_type, ['none', 'only', 'exept'],
+            <label class="control-label">Type Entity Type</label>
+            <%= form.select(:etl_type, ['none', 'only', 'except'],
                             {include_blank: false}, class: "form-control input-sm input-warning") %>
             <span class="help-block"><small></small></span>
           </div>
@@ -143,4 +144,27 @@
       <%= form.submit 'Save', class: "btn-success btn-lg"%>
     </div>
   <% end %>
+
+
 </div>
+<% if @entity_type.relation? %>
+  <div class="content-box">
+    <div class="head head-border warning-color">
+      <h5 class="content-title warning-color">Relation cells:</h5>
+    </div>
+
+    <div class="content">
+      <% Iteasykit::EntityType.where(rel_model: 'Cell').each do |cet| %>
+        <%= link_to "New "+cet.name, "", class: "btn btn-info waves-effect",
+                    'data-toggle'=>"modal", 'data-target'=>"#modal-largenew#{cet.id}" %>
+        <div class="modal fade" id="modal-largenew<%=cet.id %>" role="dialog" aria-hidden="true">
+          <%= render 'iteasykit/admin/cells/popup_form', locals: [@entity_type=cet, @cell = Iteasykit::Cell.new, @objectrel=@block] %>
+        </div>
+      <% end %>
+<br>
+<br>
+      <%= render 'iteasykit/admin/cells/rel_list_objects', locals: [@object_list, ] %>
+    </div>
+  </div>
+
+<% end %>

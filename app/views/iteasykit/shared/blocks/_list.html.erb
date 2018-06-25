@@ -3,13 +3,13 @@
         <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
     <% else %>
         <% case block.type_url %>
-<% when 'enter' %>
+<% when 'none' %>
             <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
-        <% when 'only_urls' %>
+        <% when 'only' %>
             <% if block.url.split("\r\n").collect { |n| n== request.path.gsub(locale.to_s+'/', '') }.include?(true) == true %>
                 <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
             <% end %>
-        <% when 'except_urls' %>
+        <% when 'except' %>
             <% if block.url.split("\r\n").collect { |n| n== request.path.gsub(locale.to_s+'/', '')}.include?(true) != true %>
                 <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
             <% end %>

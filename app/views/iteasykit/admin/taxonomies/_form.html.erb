@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
           <label class="control-label">Taxonomy Type</label>
-          <%= form.select(:iteasykit_entity_type_id, Iteasykit::EntityType.where(rel_model: 'Texonomy').map {|et| [et.name, et.id]},
+          <%= form.select(:iteasykit_entity_type_id, Iteasykit::EntityType.where(rel_model: 'Taxonomy').map {|et| [et.name, et.id]},
                           {include_blank: false}, class: "form-control input-sm input-warning") %>
           <span class="help-block"><small>No edit</small></span>
         </div>

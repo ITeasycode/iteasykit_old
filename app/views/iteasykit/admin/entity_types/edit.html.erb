@@ -5,16 +5,16 @@
 <% end %>
 <ul class="nav nav-tabs text-right">
   <li>
-    <a href="/admin/<%= @entity_type.rel_model.downcase %>s/new/?entity_type=<%= @entity_type.id %>">New <%= @entity_type.name %></a>
+    <a href="/admin/<%= @entity_type.rel_model.downcase %>s/new/?entity_type=<%= @entity_type.id %>"><%= t('new') %> <%= @entity_type.name %></a>
   </li>
   <li>
-    <a href="<%= admin_entity_type_url(@entity_type) %>">List <%= @entity_type.name %></a>
+    <a href="<%= admin_entity_type_url(@entity_type) %>"><%= t('list') %> <%= @entity_type.name %></a>
   </li>
   <li class="active">
-    <a href="<%= edit_admin_entity_type_url(@entity_type) %>">Edit entity type <%= @entity_type.name %></a>
+    <a href="<%= edit_admin_entity_type_url(@entity_type) %>"><%= t('edit_entity_type') %> <%= @entity_type.name %></a>
   </li>
   <li class="">
-    <a href="<%= admin_entity_type_fields_url(@entity_type) %>">Field entity type <%= @entity_type.name %></a>
+    <a href="<%= admin_entity_type_fields_url(@entity_type) %>"><%= t('fields_entity_type') %> <%= @entity_type.name %></a>
   </li>
 </ul>
 <%= render 'form', entity_type: @entity_type %>

@@ -3,6 +3,7 @@
   <thead>
   <tr>
     <th>Id</th>
+    <th>Title</th>
     <th>Name</th>
     <th>Active</th>
     <th>Sticky</th>
@@ -14,6 +15,7 @@
   <% @object_list.each do |entity| %>
     <tr>
       <td><%= entity.id %></td>
+      <td><%= entity.title %></td>
       <td><%= entity.machine_name %></td>
       <td><i class="zmdi zmdi-<%= entity.active ? 'check' : 'close' %>"></i></td>
       <td><i class="zmdi zmdi-<%= entity.sticky ? 'check' : 'close' %>"></i></td>

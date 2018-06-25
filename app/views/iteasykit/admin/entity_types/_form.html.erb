@@ -10,41 +10,48 @@
       </ul>
     </div>
   <% end %>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <div class="form-group">
-      <label class="control-label">Name</label>
+      <label class="control-label"><%= t('name') %></label>
       <%= form.text_field :name, class: "form-control input-sm" %>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <div class="form-group">
-      <label class="control-label">Machine name</label>
+      <label class="control-label"><%= t('machine_name') %></label>
       <%= form.text_field :machine_name, class: "form-control input-sm" %>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <div class="form-group">
-      <label class="control-label">Machine name</label>
+      <label class="control-label"><%= t('type') %></label>
       <%= form.select(:rel_model, ['Entity', 'Taxonomy', 'Block', 'Cell', 'Form'], {include_blank: false}, class: "form-control input-sm input-warning") %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label"><%= t('set_title') %></label>
+      <%= form.select(:id_title_fci, @entity_type.fcis.where(type_fci: 'string').map {|et| [et.name, et.id]},
+                      {include_blank: true}, class: "form-control input-sm input-warning") %>
     </div>
   </div>
   <div class="col-md-6">
 
     <div class="form-group">
-      <label class="control-label">Description</label>
+      <label class="control-label"><%= t('description') %></label>
       <%= form.text_area :description, class: "form-control" %>
     </div>
   </div>
   <div class="col-md-6">
     <div class="form-group">
-      <label class="control-label">Help</label>
+      <label class="control-label"><%= t('help') %></label>
       <%= form.text_area :help, class: "form-control" %>
     </div>
   </div>
   <div class="col-md-2">
     <div class="form-group">
       <label class="control-label text-color">
-        Active:
+        <%= t('active') %>
         <%= form.check_box :active, class: "toggle toggle-success" %>
         <i></i>
       </label>
@@ -53,7 +60,7 @@
   <div class="col-md-2">
     <div class="form-group">
       <label class="control-label text-color">
-        Nesting:
+        <%= t('nesting') %>
         <%= form.check_box :nesting, class: "toggle toggle-success" %>
         <i></i>
       </label>
@@ -62,7 +69,7 @@
   <div class="col-md-2">
     <div class="form-group">
       <label class="control-label text-color">
-        Relation:
+        <%= t('relation') %>
         <%= form.check_box :relation, class: "toggle toggle-success" %>
         <i></i>
       </label>
@@ -71,7 +78,7 @@
   <div class="col-md-2">
     <div class="form-group">
       <label class="control-label text-color">
-        Path root url:
+        <%= t('path_root_url') %>
         <%= form.check_box :path_root_url, class: "toggle toggle-success" %>
         <i></i>
       </label>
@@ -80,7 +87,7 @@
   <div class="col-md-2">
     <div class="form-group">
       <label class="control-label text-color">
-        Comment:
+        <%= t('comment') %>
         <%= form.check_box :comment, class: "toggle toggle-success" %>
         <i></i>
       </label>
@@ -89,7 +96,7 @@
   <div class="col-md-2">
     <div class="form-group">
       <label class="control-label text-color">
-        Position:
+        <%= t('position') %>
         <%= form.check_box :position, class: "toggle toggle-success" %>
         <i></i>
       </label>

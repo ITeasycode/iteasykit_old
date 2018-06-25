@@ -29,8 +29,15 @@ module Iteasykit
       @cell = Cell.new(cell_params)
 
       if @cell.save
-        fci_saver(@cell, params[:fcis])
-        redirect_to edit_admin_cell_url(@cell), notice: 'Cell was successfully created.'
+        if params[:object_relable].present?
+          Iteasykit::RelCell.create(iteasykit_cell_id: @cell.id, relable_type: params[:object_relable], relable_id: params[:object_relable_id])
+        end
+        fci_saver(@cell, params)
+        if params[:object_relable].present?
+          redirect_back(fallback_location: edit_admin_cell_url(@cell))
+        else
+          redirect_to edit_admin_cell_url(@cell), notice: 'Cell was successfully created.'
+        end
       else
         render :new
       end
@@ -39,8 +46,12 @@ module Iteasykit
     # PATCH/PUT /cells/1
     def update
       if @cell.update(cell_params)
-        fci_saver(@cell, params[:fcis])
-        redirect_to edit_admin_cell_url(@cell), notice: 'Cell was successfully updated.'
+        fci_saver(@cell, params)
+        if params[:object_relable].present?
+          redirect_back(fallback_location: edit_admin_cell_url(@cell))
+        else
+          redirect_to edit_admin_cell_url(@cell), notice: 'Cell was successfully updated.'
+        end
       else
         render :edit
       end
