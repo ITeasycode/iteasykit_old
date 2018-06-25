@@ -87,7 +87,8 @@
         </div>
 
         <div class="content">
-          <%= render 'iteasykit/admin/fcis/form', fci: @fci %>
+     
+             <%= render 'iteasykit/admin/fcis/form', locals: [@fci, @type = "Iteasykit::EntityType", @id = @entity_type.id] %>
         </div>
       </div>
 

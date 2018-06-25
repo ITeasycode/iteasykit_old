@@ -5,7 +5,7 @@ class Iteasykit::DynamicRouter
         Iteasykit::EntityType.all.each do |rt|
           if ActiveRecord::Base.connection.column_exists?(:iteasykit_entity_types, :path_root_url)
             if rt.path_root_url
-              if rt.model == 'Iteasykit::Taxonomy'
+              if rt.rel_model == 'Iteasykit::Taxonomy'
                  get '/*id', :to => "#{rt.rel_model.downcase.tableize}#show", :constraints => lambda { |r| Iteasykit::Taxonomy.friendly.find_by(iteasykit_entity_id: rt.id, url: r.params[:id]).present? }
               else
                 get '/:id', :to => "#{rt.rel_model.downcase.tableize}#show", :constraints => lambda { |r| rt.rel_model.constantize.friendly.find_by(iteasykit_entity_id: rt.id, url: r.params[:id]).present? }

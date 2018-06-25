@@ -148,6 +148,7 @@
 
 </div>
 <% if @entity_type.relation? %>
+<% unless @object_list.nil? %>
   <div class="content-box">
     <div class="head head-border warning-color">
       <h5 class="content-title warning-color">Relation cells:</h5>
@@ -166,5 +167,5 @@
       <%= render 'iteasykit/admin/cells/rel_list_objects', locals: [@object_list, ] %>
     </div>
   </div>
-
+<% end %>
 <% end %>
