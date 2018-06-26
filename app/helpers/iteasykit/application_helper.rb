@@ -45,5 +45,23 @@ module Iteasykit
       end
     end
 
+    def easy_url(model)
+      if model.iteasykit_entity_type.path_root_url?
+
+        if params[:locale]
+          '/'+params[:locale]+'/'+model.slug
+        else
+          '/'+model.slug
+        end
+      else
+        if params[:locale]
+          '/'+params[:locale]+'/'+model.iteasykit_entity_type.machine_name+'/'+model.slug
+        else
+          '/'+model.iteasykit_entity_type.machine_name+'/'+model.slug
+        end
+      end
+
+    end
+
   end
 end

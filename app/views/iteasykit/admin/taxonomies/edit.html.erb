@@ -6,7 +6,7 @@
 
 <ul class="nav nav-tabs text-right">
   <li >
-    <a href="<%= new_admin_taxonomy_path %>?entity_type=<%= @taxonomy.id %>">New <%= @entity_type.name %></a>
+    <a href="<%= new_admin_taxonomy_path %>?entity_type=<%= @entity_type.id %>">New <%= @entity_type.name %></a>
   </li>
   <li class="active">
     <a href="<%= edit_admin_taxonomy_path(@taxonomy) %>?entity_type=<%= @taxonomy.id %>">Edit <%= @entity_type.name %></a>

@@ -1,5 +1,5 @@
-<% if @entity.machine_name.nil? %>
-  hello!!!
+<% if @entity.machine_name.nil? || @entity.machine_name == '' %>
+  <%= render @entity.iteasykit_entity_type.machine_name %>
 <% else %>
   <%= render @entity.machine_name %>
 <% end %>

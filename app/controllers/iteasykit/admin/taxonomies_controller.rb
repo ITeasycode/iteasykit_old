@@ -11,6 +11,9 @@ module Iteasykit
 
     # GET /taxonomies/1
     def show
+      if params[:reltaxentity].present?
+        Iteasykit::RelTaxonomy.create()
+      end
     end
 
     def custom_fields
