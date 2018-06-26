@@ -6,6 +6,7 @@ module Iteasykit
     belongs_to :iteasykit_entity_type, class_name: "Iteasykit::EntityType"
     belongs_to :iteasykit_seomore, optional: true
     has_many :fcis, as: :fciable
+    has_many :iteasykit_rel_taxonomies, class_name: "Iteasykit::RelTaxonomy", foreign_key: :iteasykit_taxonomy_id
     has_ancestry
 
     def field(name)

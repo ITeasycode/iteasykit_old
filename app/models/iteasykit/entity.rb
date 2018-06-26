@@ -6,6 +6,9 @@ module Iteasykit
     belongs_to :iteasykit_entity_type, class_name: "Iteasykit::EntityType"
     belongs_to :iteasykit_seomore, optional: true
     has_many :fcis, as: :fciable
+    has_many :rel_cells, as: :relable, class_name: "Iteasykit::RelCell", foreign_key: :relable_id
+    has_many :rel_taxonomies, as: :relable, class_name: "Iteasykit::RelTaxonomy", foreign_key: :relable_id
+
 
 
     def field(name)

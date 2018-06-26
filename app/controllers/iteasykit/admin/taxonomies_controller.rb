@@ -12,7 +12,15 @@ module Iteasykit
     # GET /taxonomies/1
     def show
       if params[:reltaxentity].present?
-        Iteasykit::RelTaxonomy.create()
+        Iteasykit::RelTaxonomy.create(iteasykit_taxonomy_id: @taxonomy.id, relable_type: params[:reltaxtype],
+                                      relable_id: params[:reltaxentity].to_s)
+        redirect_back(fallback_location: admin_entity_types_url)
+      end
+      if params[:delreltaxentity].present?
+        rel = Iteasykit::RelTaxonomy.find_by(iteasykit_taxonomy_id: @taxonomy.id, relable_type: params[:reltaxtype],
+                                      relable_id: params[:delreltaxentity].to_s)
+        rel.destroy if rel
+        redirect_back(fallback_location: admin_entity_types_url)
       end
     end
 
