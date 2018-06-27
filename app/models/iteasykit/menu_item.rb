@@ -5,5 +5,6 @@ module Iteasykit
     translates :name, :title, :url
     has_ancestry
     acts_as_list scope: [:ancestry]
+    default_scope { order("position ASC") }
   end
 end

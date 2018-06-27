@@ -23,7 +23,7 @@ module Iteasykit
     # GET /menus/1/edit
     def edit
       @menu_item = MenuItem.new
-      @items = Iteasykit::MenuItem.all.arrange(:order => :position)
+      @items = @menu.menu_items.arrange(:order => :position)
 
     end
 
