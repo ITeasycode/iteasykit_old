@@ -1,0 +1,4 @@
+<%= "<input multiple type='file' name='fcis[#{@f.id}[][fci_#{@f.type_fci}[file]]' id='fcis_fci_#{@f.type_fci}'  accept='image/*'>".html_safe %>
+<% @m.each do |f| %>
+<img src='<%= Rails.application.routes.url_helpers.rails_representation_path(f.file.variant(resize: "100x100"), only_path: true) %>'/>
+<% end %>

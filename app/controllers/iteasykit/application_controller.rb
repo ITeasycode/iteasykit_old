@@ -42,12 +42,26 @@ module Iteasykit
     def fci_saver(instance, params)
       if params[:fcis].present?
         params[:fcis].as_json.each do |field|
-          m = ('Iteasykit::'+field[1].keys[0].camelize).constantize
-          if field[1].keys[0] == "fci_image"
-            image = FciImage.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id})
-            image.file.attach(params[:fcis][field[0]]["fci_image"]["file"])
+          if Fci.find(field[0]).is_multi?
+            m = ('Iteasykit::'+field[1].first.keys[0].camelize).constantize
+            n = 0
+            field[1].each do |i|
+              if i.keys[0] == "fci_image"
+                image = FciImage.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id})
+                image.file.attach(params[:fcis][field[0]][n]["fci_image"]["file"])
+                n += 1
+              else
+                m.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id}, {value: field[1].values[0]})
+              end
+            end
           else
-            m.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id}, {value: field[1].values[0]})
+            m = ('Iteasykit::'+field[1].keys[0].camelize).constantize
+            if field[1].keys[0] == "fci_image"
+              image = FciImage.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id})
+              image.file.attach(params[:fcis][field[0]]["fci_image"]["file"])
+            else
+              m.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id}, {value: field[1].values[0]})
+            end
           end
         end
       end

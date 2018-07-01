@@ -33,7 +33,12 @@ module Iteasykit
     def type_field(ent)
       id_ent = ent.id
       m = ('Iteasykit::Fci'+type_fci.camelize).constantize
-      m = m.find_by(fieldable_type: "Iteasykit::#{ent.class.class_name.gsub("Iteasykit", '')}", fieldable_id: id_ent, iteasykit_fci_id: id )
+
+      if self.is_multi?
+        m = m.where(fieldable_type: "Iteasykit::#{ent.class.class_name.gsub("Iteasykit", '')}", fieldable_id: id_ent, iteasykit_fci_id: id )
+      else
+        m = m.find_by(fieldable_type: "Iteasykit::#{ent.class.class_name.gsub("Iteasykit", '')}", fieldable_id: id_ent, iteasykit_fci_id: id )
+      end
 
       case type_fci
       when "string"
@@ -49,14 +54,21 @@ module Iteasykit
         m = m.value if m
         "<input class='toggle toggle-danger' type='checkbox' value='#{m}' name='fcis[#{id}[fci_#{type_fci}]]' id='fcis_fci_#{type_fci}'>".html_safe
       when 'image'
-        if m
-        "<input multiple='multiple' type='file' name='fcis[#{id}[fci_#{type_fci}[file]]' id='fcis_fci_#{type_fci}'  accept='image/*'>".html_safe+
-        "<img src='#{Rails.application.routes.url_helpers.rails_representation_path(m.file.variant(resize: "100x100"), only_path: true)}'/>".html_safe
+        if self.is_multi?
+          if m
+            ApplicationController.render(template: 'iteasykit/shared/fields/type/_multi_fci_images', layout: false, assigns: {m: m, f: self})
+          else
+            "<input multiple type='file' name='fcis[#{id}[][fci_#{type_fci}[file]]' id='fcis_fci_#{type_fci}'  accept='image/*'>".html_safe
+          end
         else
-          "<input multiple='multiple' type='file' name='fcis[#{id}[fci_#{type_fci}[file]]' id='fcis_fci_#{type_fci}'  accept='image/*'>".html_safe
+          if m
+            "<input type='file' name='fcis[#{id}[fci_#{type_fci}[file]]' id='fcis_fci_#{type_fci}'  accept='image/*'>".html_safe+
+            "<img src='#{Rails.application.routes.url_helpers.rails_representation_path(m.file.variant(resize: "100x100"), only_path: true)}'/>".html_safe
+          else
+            "<input type='file' name='fcis[#{id}[fci_#{type_fci}[file]]' id='fcis_fci_#{type_fci}'  accept='image/*'>".html_safe
+          end
         end
-
-    end
+      end
     end
 
     def destroy_field
