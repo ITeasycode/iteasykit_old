@@ -6,23 +6,23 @@
 
 <ul class="nav nav-tabs text-right">
   <li>
-    <a href="<%= edit_admin_entity_path(@entity) %>">Editing <%= @entity.id %></a>
+    <a href="<%= edit_admin_entity_path(@entity) %>"><%= t('editing') %> <%= @entity.id %></a>
   </li>
   <li class="active">
-    <a href="<%= admin_entity_custom_fields_path(@entity) %>" >Custom field <%= @entity.machine_name %></a>
+    <a href="<%= admin_entity_custom_fields_path(@entity) %>" ><%= t('custom_field') %> <%= @entity.machine_name %></a>
   </li>
   <li>
-    <a href="<%= new_admin_entity_path %>?entity_type=<%= @entity_type.id %>">New <%= @entity_type.name %></a>
+    <a href="<%= new_admin_entity_path %>?entity_type=<%= @entity_type.id %>"><%= t('new') %> <%= @entity_type.name %></a>
   </li>
 
   <li>
-    <a href="<%= admin_entity_type_url(@entity_type) %>" title="List <%= @entity_type.name %>"><i class="zmdi zmdi-playlist-plus"></i></a>
+    <a href="<%= admin_entity_type_url(@entity_type) %>" title="<%= t('list') %> <%= @entity_type.name %>"><i class="zmdi zmdi-playlist-plus"></i></a>
   </li>
   <li class="">
-    <a href="<%= edit_admin_entity_type_url(@entity_type) %>" title="Edit entity type <%= @entity_type.name %>"><i class="zmdi zmdi-settings"></i></a>
+    <a href="<%= edit_admin_entity_type_url(@entity_type) %>" title="<%= t('edit_entity_type') %> <%= @entity_type.name %>"><i class="zmdi zmdi-settings"></i></a>
   </li>
   <li>
-    <a href="<%= admin_entity_type_fields_url(@entity_type) %>" title="Field entity type <%= @entity_type.name %>"><i class="zmdi zmdi-border-color"></i></a>
+    <a href="<%= admin_entity_type_fields_url(@entity_type) %>" title="<%= t('fields_entity_type') %> <%= @entity_type.name %>"><i class="zmdi zmdi-border-color"></i></a>
   </li>
 
 </ul>
@@ -32,7 +32,7 @@
     <div class="col-md-8">
       <div class="content-box">
         <div class="head head-border warning-color">
-          <h5 class="content-title warning-color">List field
+          <h5 class="content-title warning-color"><%= t('list_field') %>
             <a class="fullscreen-btn" href="#"><i class="zmdi zmdi-fullscreen"></i></a></h5>
 
 
@@ -42,19 +42,19 @@
           <table class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
-              <th>Drop</th>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Machine name</th>
-              <th>Help</th>
+              <th><%= t('drop') %></th>
+              <th><%= t('id') %></th>
+              <th><%= t('name') %></th>
+              <th><%= t('type') %></th>
+              <th><%= t('machine_name') %></th>
+              <th><%= t('help') %></th>
 
-              <th>Active</th>
-              <th>Is required</th>
-              <th>Is multi</th>
-              <th>Is filter</th>
+              <th><%= t('active') %></th>
+              <th><%= t('is_required') %></th>
+              <th><%= t('is_multi') %></th>
+              <th><%= t('is_filter') %></th>
 
-              <th>Action</th>
+              <th><%= t('action') %></th>
             </tr>
             </thead>
             <tbody class="sortable">  <!-- sortable target -->
@@ -89,7 +89,7 @@
     <div class="col-md-4">
       <div class="content-box">
         <div class="head head-border warning-color">
-          <h5 class="content-title warning-color">Add new field</h5>
+          <h5 class="content-title warning-color"><%= t('add_new_field') %></h5>
         </div>
 
         <div class="content">

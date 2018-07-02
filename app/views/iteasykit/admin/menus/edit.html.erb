@@ -1,4 +1,4 @@
-<% content_for :entity_title do %>Editing Menu <%= @menu.name %>
+<% content_for :entity_title do %><%= t('editing_menu') %> <%= @menu.name %>
 <% end %>
 
 <% content_for :pull_right do %>
@@ -9,7 +9,7 @@
     <div class="col-md-8">
       <div class="content-box">
         <div class="head head-border danger-color">
-          <h5 class="content-title danger-color">List menu items
+          <h5 class="content-title danger-color"><%= t('list_menu_items') %>
             <a class="fullscreen-btn" href="#"><i class="zmdi zmdi-fullscreen"></i></a></h5>
 
 
@@ -19,7 +19,7 @@
 
           <div class="content-box">
             <div class="head primary-bg clearfix">
-              <h5 class="content-title pull-left">Add new item menu</h5>
+              <h5 class="content-title pull-left"><%= t('add_new_item_menu') %></h5>
               <div class="functions-btns pull-right">
                 <a class="collapse-btn" href="#"><i class="zmdi zmdi-plus"></i></a>
               </div>
@@ -42,7 +42,7 @@
     <div class="col-md-4">
       <div class="content-box">
         <div class="head head-border danger-color">
-          <h5 class="content-title danger-color">Editing menu</h5>
+          <h5 class="content-title danger-color"><%= t('editing_menu') %></h5>
         </div>
 
         <div class="content">

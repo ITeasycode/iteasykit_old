@@ -16,15 +16,7 @@ module Iteasykit
     end
 
     def set_locale
-      if params[:locale].present?
-        I18n.locale = params[:locale]
-      else
-        #if http_accept_language.compatible_language_from(I18n.available_locales) == System.find_by_key(:locale).value.to_sym
-        #I18n.locale = System.find_by_key(:locale).value.to_sym
-        #else
-        I18n.locale = :en
-        #end
-      end
+      I18n.locale = params[:locale] || I18n.default_locale
       cookies.permanent[:educator_locale] = I18n.locale
     end
 
@@ -47,11 +39,12 @@ module Iteasykit
             n = 0
             field[1].each do |i|
               if i.keys[0] == "fci_image"
-                image = FciImage.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id})
+                image = FciImage.create({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id})
                 image.file.attach(params[:fcis][field[0]][n]["fci_image"]["file"])
                 n += 1
               else
                 m.update_or_create_by({iteasykit_fci_id: field[0], fieldable_type: "Iteasykit::#{instance.class.class_name.gsub("Iteasykit", '')}", fieldable_id: instance.id}, {value: field[1].values[0]})
+                n += 1
               end
             end
           else

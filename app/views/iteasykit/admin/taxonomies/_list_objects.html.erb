@@ -2,14 +2,12 @@
 <table class="table table-bordered table-hover table-striped">
   <thead>
   <tr>
-    <th>Title</th>
-    <th>Ancestry</th>
-    <th>Ancestry depth</th>
-    <th>Active</th>
-    <th>Position</th>
-    <th>Blocked</th>
-    <th>Sticky</th>
-    <th>Action</th>
+    <th><%= t('title') %></th>
+    <th><%= t('active') %></th>
+    <th><%= t('position') %></th>
+    <th><%= t('blocked') %></th>
+    <th><%= t('sticky') %></th>
+    <th><%= t('action') %></th>
   </tr>
   </thead>
 
@@ -17,8 +15,6 @@
   <% @object_list.each do |taxonomy| %>
   <tr>
     <td><%= taxonomy.title %></td>
-    <td><%= taxonomy.ancestry %></td>
-    <td><%= taxonomy.ancestry_depth %></td>
     <td><i class="zmdi zmdi-<%= taxonomy.active ? 'check' : 'close' %>"></i></td>
     <td><%= taxonomy.position %></td>
     <td><i class="zmdi zmdi-<%= taxonomy.blocked ? 'check' : 'close' %>"></i></td>

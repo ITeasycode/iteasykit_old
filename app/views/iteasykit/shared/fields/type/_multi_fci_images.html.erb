@@ -1,4 +1,6 @@
 <%= "<input multiple type='file' name='fcis[#{@f.id}[][fci_#{@f.type_fci}[file]]' id='fcis_fci_#{@f.type_fci}'  accept='image/*'>".html_safe %>
 <% @m.each do |f| %>
 <img src='<%= Rails.application.routes.url_helpers.rails_representation_path(f.file.variant(resize: "100x100"), only_path: true) %>'/>
+  <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, admin_fci_destroy_fields_path(@f.id)+"?delfield=#{f.id}&relabletype=Iteasykit::FciImage", class: "btn btn-danger raised icon waves-effect",
+              data: {confirm: 'Are you sure?'} %>
 <% end %>

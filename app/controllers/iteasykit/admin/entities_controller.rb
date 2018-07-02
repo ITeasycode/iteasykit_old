@@ -27,7 +27,7 @@ module Iteasykit
 
     # GET /entities/1/edit
     def edit
-
+      @object_list = @entity.rel_cells
     end
 
     # POST /entities

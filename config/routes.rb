@@ -27,6 +27,7 @@ Iteasykit::Engine.routes.draw do
   get 'admin/entity/:id/custom_fields' => 'admin/entities#custom_fields', as: 'admin_entity_custom_fields'
   get 'admin/blocks/:id/custom_fields' => 'admin/blocks#custom_fields', as: 'admin_block_custom_fields'
   get 'admin/taxonomy/:id/custom_fields' => 'admin/taxonomies#custom_fields', as: 'admin_taxonomy_custom_fields'
+  get 'admin/fcis/:id/destroy_fields' => 'admin/fcis#destroy_fields', as: 'admin_fci_destroy_fields'
 
   Iteasykit::DynamicRouter.load
 

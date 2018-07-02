@@ -15,15 +15,30 @@ module Iteasykit
       fci = Iteasykit::Fci.find_by_machine_name(name)
       if fci
         m = ('Iteasykit::Fci'+fci.type_fci.camelize).constantize
-        mf = m.find_by(iteasykit_fci_id: fci.id, fieldable_type: 'Iteasykit::Entity', fieldable_id: id)
-        if mf
-          if m.class_name == "IteasykitFciImage"
-            mf.file
-          else
-            if mf.value.class == Integer
-              mfv = mf.value
+        if fci.is_multi?
+          mf = m.where(iteasykit_fci_id: fci.id, fieldable_type: 'Iteasykit::Entity', fieldable_id: id)
+          if mf
+            if m.class_name == "IteasykitFciImage"
+              mf.map{|f| f.file}.compact
             else
-              mfv = mf.value.html_safe
+              if mf.value.class == Integer
+                mfv = mf.value
+              else
+                mfv = mf.value.html_safe
+              end
+            end
+          end
+        else
+          mf = m.find_by(iteasykit_fci_id: fci.id, fieldable_type: 'Iteasykit::Entity', fieldable_id: id)
+          if mf
+            if m.class_name == "IteasykitFciImage"
+              mf.file
+            else
+              if mf.value.class == Integer
+                mfv = mf.value
+              else
+                mfv = mf.value.html_safe
+              end
             end
           end
         end

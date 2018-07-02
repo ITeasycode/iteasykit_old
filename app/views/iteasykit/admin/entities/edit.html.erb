@@ -6,23 +6,23 @@
 
 <ul class="nav nav-tabs text-right">
   <li class="active">
-    <a href="#">Editing <%= @entity.id %></a>
+    <a href="#"><%= t('editing') %> <%= @entity.id %></a>
   </li>
   <li>
-    <a href="<%= admin_entity_custom_fields_path(@entity) %>" >Custom field <%= @entity.machine_name %></a>
+    <a href="<%= admin_entity_custom_fields_path(@entity) %>" ><%= t('custom_field') %> <%= @entity.machine_name %></a>
   </li>
   <li>
-    <a href="<%= new_admin_entity_path %>?entity_type=<%= @entity_type.id %>">New <%= @entity_type.name %></a>
+    <a href="<%= new_admin_entity_path %>?entity_type=<%= @entity_type.id %>"><%= t('new') %> <%= @entity_type.name %></a>
   </li>
 
   <li>
-    <a href="<%= admin_entity_type_url(@entity_type) %>" title="List <%= @entity_type.name %>"><i class="zmdi zmdi-playlist-plus"></i></a>
+    <a href="<%= admin_entity_type_url(@entity_type) %>" title="<%= t('list') %> <%= @entity_type.name %>"><i class="zmdi zmdi-playlist-plus"></i></a>
   </li>
   <li class="">
-    <a href="<%= edit_admin_entity_type_url(@entity_type) %>" title="Edit entity type <%= @entity_type.name %>"><i class="zmdi zmdi-settings"></i></a>
+    <a href="<%= edit_admin_entity_type_url(@entity_type) %>" title="<%= t('edit_entity_type') %> <%= @entity_type.name %>"><i class="zmdi zmdi-settings"></i></a>
   </li>
   <li>
-    <a href="<%= admin_entity_type_fields_url(@entity_type) %>" title="Field entity type <%= @entity_type.name %>"><i class="zmdi zmdi-border-color"></i></a>
+    <a href="<%= admin_entity_type_fields_url(@entity_type) %>" title="<%= t('fields_entity_type') %> <%= @entity_type.name %>"><i class="zmdi zmdi-border-color"></i></a>
   </li>
 
 </ul>

@@ -2,7 +2,7 @@ require_dependency "iteasykit/application_controller"
 
 module Iteasykit
   class Admin::FcisController < Admin::AdminController
-    before_action :set_fci, only: [:show, :edit, :update, :destroy]
+    before_action :set_fci, only: [:show, :edit, :update, :destroy, :destroy_fields]
 
     # GET /fcis
     def index
@@ -11,6 +11,12 @@ module Iteasykit
 
     # GET /fcis/1
     def show
+    end
+
+    def destroy_fields
+      field = params[:relabletype].constantize.find(params[:delfield].to_i)
+      field.destroy!
+      redirect_back(fallback_location: root_path)
     end
 
     # GET /fcis/new
