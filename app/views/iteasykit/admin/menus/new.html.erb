@@ -1,5 +1,6 @@
-<% content_for :entity_title do %>New Menu
+<% content_for :entity_title do %><%= t('new_menu') %>
 <% end %>
+<p><%= t(:create_new_menu) %></p>
 <%= render 'form', menu: @menu %>
 
-<%= link_to 'Back', admin_menus_path %>
+

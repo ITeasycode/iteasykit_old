@@ -19,4 +19,5 @@
     <a href="<%= admin_entity_type_fields_url(@entity_type) %>"><%= t('fields_entity_type') %> <%= @entity_type.name %></a>
   </li>
 </ul>
+
 <%= render "iteasykit/admin/#{@entity_type.rel_model.pluralize.downcase}/list_objects" %>

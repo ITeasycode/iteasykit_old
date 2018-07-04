@@ -1,6 +1,7 @@
 module Iteasykit
   class FciString < ApplicationRecord
     belongs_to :iteasykit_fci, class_name: "Iteasykit::Fci", optional: true
+    belongs_to :fieldable, polymorphic: true, optional: true
     translates :value
 
     def self.update_or_create_by(args, attributes)

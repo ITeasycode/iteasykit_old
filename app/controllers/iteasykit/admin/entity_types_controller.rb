@@ -33,7 +33,7 @@ module Iteasykit
       @entity_type = EntityType.new(entity_type_params)
 
       if @entity_type.save
-        redirect_to admin_entity_types_url, notice: 'Entity type was successfully created.'
+        redirect_to edit_admin_entity_type_url(@entity_type), notice: 'Entity type was successfully created.'
       else
         render :new
       end
@@ -42,7 +42,7 @@ module Iteasykit
     # PATCH/PUT /entity_types/1
     def update
       if @entity_type.update(entity_type_params)
-        redirect_to admin_entity_types_url, notice: 'Entity type was successfully updated.'
+        redirect_to edit_admin_entity_type_url(@entity_type), notice: 'Entity type was successfully updated.'
       else
         render :edit
       end

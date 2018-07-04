@@ -45,6 +45,11 @@ module Iteasykit
       end
     end
 
+    def field_name(name)
+      fci = Iteasykit::Fci.find_by_machine_name(name)
+      fci.name if fci
+    end
+
     def title
       if iteasykit_entity_type.id_title_fci.present?
         fci = Iteasykit::Fci.find(iteasykit_entity_type.id_title_fci)
@@ -52,6 +57,13 @@ module Iteasykit
         if mf
           mf.value.html_safe
         end
+      end
+    end
+
+    def cells(mid)
+      rel_cells.joins(:iteasykit_cell).where(iteasykit_cells: {iteasykit_entity_type_id: mid}).each do |rel|
+				cell = rel.iteasykit_cell
+        yield(cell)
       end
     end
 

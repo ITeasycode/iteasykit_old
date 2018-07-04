@@ -81,7 +81,7 @@
         </div>
 
         <div class="content">
-          <%= link_to 'Set category', "", class: "btn btn-success waves-effect",
+          <%= link_to t('set_category'), "", class: "btn btn-success waves-effect",
                                                  'data-toggle'=>"modal", 'data-target'=>"#modal-largecat" %>
           <div class="modal fade" id="modal-largecat" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-lg">
@@ -150,7 +150,7 @@
 
     </div>
       <div class="actions"  style="position: fixed;bottom: 0px;right: 0px;" >
-        <%= form.submit 'Save', class: "btn-success btn-lg"%>
+        <%= form.submit t('save'), class: "btn-success btn-lg"%>
       </div>
   <% end %>
   </div>

@@ -2,7 +2,7 @@ module Iteasykit
   class Cell < ApplicationRecord
     belongs_to :iteasykit_entity_type, class_name: "Iteasykit::EntityType"
     has_many :fcis, as: :fciable
-    has_many :iteasykit_rel_cells, class_name: "Iteasykit::RelCell", foreign_key: :iteasykit_cell_id
+    has_many :iteasykit_rel_cells, class_name: "Iteasykit::RelCell", foreign_key: :iteasykit_cell_id, dependent: :destroy
     #before_destroy :destroy_field
 
     default_scope { order("position ASC") }
@@ -25,6 +25,11 @@ module Iteasykit
           end
         end
       end
+    end
+
+    def field_name(name)
+      fci = Iteasykit::Fci.find_by_machine_name(name)
+      fci.name if fci
     end
 
     def title

@@ -26,7 +26,7 @@
                           <div class="form-group">
                             <label class="control-label"><%= t('id_element') %></label>
                             <%= f.text_field :idcls, class: "form-control input-sm" %>
-                            <span class="help-block"><small>Not default</small></span>
+                            <span class="help-block"><small><%= t('not_default') %></small></span>
                           </div>
                         </div>
                         <div class="col-md-4">
@@ -47,7 +47,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="control-label warning-color">
-                            Active:
+                            <%= t('active') %>
                             <%= f.check_box :active, class: "toggle toggle-danger" %>
                             <i></i>
                           </label>
@@ -59,7 +59,7 @@
 
                       <%= f.hidden_field :iteasykit_menu_id, value: @menu.id %>
                       <div class="actions">
-                        <%= f.submit 'Save', class: "btn-warning raised waves-effect" %>
+                        <%= f.submit t('save'), class: "btn-warning raised waves-effect" %>
                       </div>
                     </div>
                   <% end %>

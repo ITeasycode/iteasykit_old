@@ -1,5 +1,5 @@
 <% if @entity_type.fcis.present? %>
-<h4 style="border-bottom: 4px solid #49ceff;">Standart field</h4>
+<h4 style="border-bottom: 4px solid #49ceff;"><%= t('standard_fields') %></h4>
 <% @entity_type.fcis.each do |fci| %>
   <div class="form-group">
     <label class="control-label"><%= fci.name %></label>
@@ -10,7 +10,7 @@
 <% end %>
 <% end %>
 <% if @object.fcis.present? %>
-<h4 style="border-bottom: 4px solid #49ceff;">Custom current entity field</h4>
+<h4 style="border-bottom: 4px solid #49ceff;"><%= t('custom_current_entity_field') %></h4>
 <% @object.fcis.each do |fci| %>
   <div class="form-group">
     <label class="control-label"><%= fci.name %></label>

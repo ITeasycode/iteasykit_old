@@ -11,6 +11,8 @@ module Iteasykit
 
     # GET /entities/1
     def show
+      @global_search = Iteasykit::FciString.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
+      @lists = @global_search.result.page(params[:page])
     end
 
     # GET /entities/new

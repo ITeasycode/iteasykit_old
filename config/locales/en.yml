@@ -91,4 +91,18 @@ en:
   position_on_list: "Position on list"
   blocked: "Blocked"
   edit: "Edit"
+  add_new: "Add new"
+  standard_fields: "Standard fields"
+  custom_current_entity_field: "Custom current entity field"
+  help_list_menu: "Help list menu"
+  create_new_menu: "Create a new menu"
+  control_menu: "Menu management. Here you can change the data of your menu, as well as manage the menu list"
+  help_list_entity: "List of records is models with their own paths, have their own menu items, meta tags and are available for self-viewing
+                     on the site. Used for pages, articles, blogs, products, etc."
+  add_new_object: "Add new object"
+  edit_type_objectnews: "Here you can edit the type of object and news"
+  field_type_object: "Here you can see the list of fields. Adding new fields for objects"
+  set_category: "Set category"
+
+
 
