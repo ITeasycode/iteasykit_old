@@ -1,6 +1,10 @@
 module Iteasykit
   module ApplicationHelper
 
+    def global_search
+      @global_search = Iteasykit::FciString.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
+    end
+
     def link_to_add_fields(name, f, type)
       new_object = f.object.send "build_#{type}"
       id = "new_#{type}"

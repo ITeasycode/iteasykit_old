@@ -20,7 +20,9 @@ module Iteasykit
       cookies.permanent[:educator_locale] = I18n.locale
     end
 
-
+    def global_search
+      @global_search = Iteasykit::FciString.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
+    end
 
     def default_url_options(options={})
       {locale: I18n.locale}
