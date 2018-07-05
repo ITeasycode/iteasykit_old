@@ -103,6 +103,8 @@ en:
   edit_type_objectnews: "Here you can edit the type of object and news"
   field_type_object: "Here you can see the list of fields. Adding new fields for objects"
   set_category: "Set category"
+  dashboard: "Dashboard"
+  total_entities: "Total Entities"
 
 
 

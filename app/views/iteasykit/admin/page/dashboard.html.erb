@@ -1,0 +1,33 @@
+<% content_for :entity_title do %><%= t('dashboard') %>
+<% end %>
+<% content_for :pull_right do %>
+
+<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="content-box p-20 warning-bg white f-s-16 text-center">
+
+      <div class="text-right">
+        <span class="current-date"></span>
+      </div>
+      <span class="time"></span>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="content-box warning-bg white">
+      <div class="head clearfix">
+        <h5 class="content-title pull-left"><%= t('entities') %></h5>
+        <div class="functions-btns pull-right" style="color: white">
+          <a class="refresh-btn" href="#"  style="color: white"><i class="zmdi zmdi-refresh"  style="color: white"></i></a>
+          <a class="fullscreen-btn" href="#"><i class="zmdi zmdi-fullscreen" style="color: white"></i></a>
+          <a class="close-btn" href="#"><i class="zmdi zmdi-close" style="color: white"></i></a>
+        </div>
+      </div>
+      <div class="content">
+        <div id="line-chart-3" class="flot-chart"></div>
+        <p class="text-uppercase zero-m"><%= t('total_entities') %></p>
+        <p class="zero-m f-30"><%= Iteasykit::Entity.count %></p>
+      </div>
+    </div>
+  </div>
+</div>

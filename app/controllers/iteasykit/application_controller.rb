@@ -4,6 +4,7 @@ module Iteasykit
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :set_paper_trail_whodunnit
     before_action :set_locale
+    #protect_from_forgery with: :null_session
 
     theme :theme_resolver
 
@@ -63,11 +64,53 @@ module Iteasykit
       end
     end
 
+    def after_sign_in_path_for(resource)
+      sign_in_url = new_user_session_url
+      if request.referer == sign_in_url
+        super
+      else
+        request.referer || root_path
+      end
+    end
+
+    def after_sign_out_path_for(resource)
+      sign_in_url = new_user_session_url
+      if request.referer == sign_in_url
+        super
+      else
+        request.referer || root_path
+      end
+    end
+
+
     protected
 
     def configure_permitted_parameters
-      added_attrs = [:email, :password, :password_confirmation, :remember_me]
+      added_attrs = [:email, :password, :remember_me]
       devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     end
+
+    private
+
+    def resource_name
+      :user
+    end
+    helper_method :resource_name
+
+    def resource
+      @resource ||= User.new
+    end
+    helper_method :resource
+
+    def devise_mapping
+      @devise_mapping ||= Devise.mappings[:user]
+    end
+    helper_method :devise_mapping
+
+    def resource_class
+      User
+    end
+    helper_method :resource_class
+
   end
 end

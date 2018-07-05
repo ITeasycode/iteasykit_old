@@ -1,4 +1,5 @@
 Iteasykit::Engine.routes.draw do
+
   filter :pagination, :uuid
   filter :locale
   mount Ckeditor::Engine => '/ckeditor'
@@ -22,12 +23,15 @@ Iteasykit::Engine.routes.draw do
       post :sort, on: :collection
     end
     resources :entity_types
+    get 'page/dashboard'
+    get 'page/help'
   end
   get 'admin/entity_types/:id/fields' => 'admin/entity_types#fields', as: 'admin_entity_type_fields'
   get 'admin/entity/:id/custom_fields' => 'admin/entities#custom_fields', as: 'admin_entity_custom_fields'
   get 'admin/blocks/:id/custom_fields' => 'admin/blocks#custom_fields', as: 'admin_block_custom_fields'
   get 'admin/taxonomy/:id/custom_fields' => 'admin/taxonomies#custom_fields', as: 'admin_taxonomy_custom_fields'
   get 'admin/fcis/:id/destroy_fields' => 'admin/fcis#destroy_fields', as: 'admin_fci_destroy_fields'
+
 
   Iteasykit::DynamicRouter.load
 
