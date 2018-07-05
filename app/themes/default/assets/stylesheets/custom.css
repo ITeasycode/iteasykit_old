@@ -1,18 +1,19 @@
 a.btn.btn-info.btn-lg.waves-effect {
-     color: #ffffff;
- }
+    color: #ffffff;
+}
+
 .danger-bg {
     background: #efefef !important;
 }
+
 .danger-bg .content-title {
     color: black!important;
 }
+
 .content-box a {
     color: black!important;
 }
-nav.navbar {
-    background: #f39700!important;
-}
+
 .icon-logo {
     display: none;
     background: none;
@@ -29,8 +30,9 @@ nav.navbar {
 .sortable-block li.no-nest div {
     float: left;
     border: 1px solid grey;
-    padding: 5px 10px;
+    padding: 5px 15px;
 }
+
 li.no-nest {
     list-style: none;
 }
@@ -49,10 +51,6 @@ a.btn.btn-info.btn-lg.waves-effect {
 
 .content-box a {
     color: black!important;
-}
-
-nav.navbar {
-    background: #f39700!important;
 }
 
 .icon-logo {
@@ -228,7 +226,18 @@ select.form-control+.chosen-container-multi .chosen-results li.result-selected {
     margin-top: 20px;
 }
 
-html,
-body {
-    min-width: 1200px;
+li.inside-title {
+    font-size: 20px!important;
+    line-height: 30px!important;
+}
+
+li.lang {
+    list-style: none;
+    color: black;
+}
+
+.lang-switcher .lang a {
+    color: black;
+    line-height: 10px;
+    padding: 2px;
 }
