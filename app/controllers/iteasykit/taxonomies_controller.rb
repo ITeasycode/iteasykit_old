@@ -31,6 +31,7 @@ module Iteasykit
       @taxonomy = Taxonomy.new(taxonomy_params)
 
       if @taxonomy.save
+
         redirect_to @taxonomy, notice: 'Taxonomy was successfully created.'
       else
         render :new

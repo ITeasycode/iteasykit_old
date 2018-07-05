@@ -43,9 +43,6 @@
               <th><%= t('help') %></th>
 
               <th><%= t('active') %></th>
-              <th><%= t('is_required') %></th>
-              <th><%= t('is_multi') %></th>
-              <th><%= t('is_filter') %></th>
 
               <th><%= t('action') %></th>
             </tr>
@@ -60,10 +57,6 @@
                 <td><%= item.machine_name %></td>
                 <td><%= item.help %></td>
                 <td><i class="zmdi zmdi-<%= item.active ? 'check' : 'close' %>"></i></td>
-                <td><i class="zmdi zmdi-<%= item.is_required ? 'check' : 'close' %>"></i></td>
-                <td><i class="zmdi zmdi-<%= item.is_multi ? 'check' : 'close' %>"></i></td>
-                <td><i class="zmdi zmdi-<%= item.is_filter ? 'check' : 'close' %>"></i></td>
-
                 <td class="text-center">
                   <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, "", class: "btn btn-success raised icon waves-effect",
                               'data-toggle'=>"modal", 'data-target'=>"#modal-large#{item.id}" %>

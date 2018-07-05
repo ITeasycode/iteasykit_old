@@ -15,11 +15,6 @@
     <th><%= t('description') %></th>
     <th><%= t('help') %></th>
     <th><%= t('active') %></th>
-    <th><%= t('nesting') %></th>
-    <th><%= t('relation') %></th>
-    <th><%= t('path_root_url') %></th>
-    <th><%= t('Comment') %></th>
-    <th><%= t('position') %></th>
     <th><%= t('action') %></th>
   </tr>
   </thead>
@@ -34,11 +29,6 @@
       <td><%= entity_type.description %></td>
       <td><%= entity_type.help %></td>
       <td><i class="zmdi zmdi-<%= entity_type.active ? 'check' : 'close' %>"></i></td>
-      <td><i class="zmdi zmdi-<%= entity_type.nesting ? 'check' : 'close' %>"></i></td>
-      <td><i class="zmdi zmdi-<%= entity_type.relation ? 'check' : 'close' %>"></i></td>
-      <td><i class="zmdi zmdi-<%= entity_type.path_root_url ? 'check' : 'close' %>"></i></td>
-      <td><i class="zmdi zmdi-<%= entity_type.comment ? 'check' : 'close' %>"></i></td>
-      <td><i class="zmdi zmdi-<%= entity_type.position ? 'check' : 'close' %>"></i></td>
       <td class="text-center">
         <%= link_to '<i class="zmdi zmdi-playlist-plus"></i>'.html_safe, admin_entity_type_path(entity_type), class: "btn btn-info raised icon waves-effect" %>
         <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, edit_admin_entity_type_path(entity_type), class: "btn btn-success raised icon waves-effect" %>

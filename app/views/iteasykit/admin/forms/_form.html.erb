@@ -1,62 +1,105 @@
-<%= form_with(model: form, local: true) do |form| %>
-  <% if form.errors.any? %>
+<div class="row">
+  <%= form_with(model: [:admin, formt], local: true, multipart: true) do |form| %>
+  <% if formt.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(form.errors.count, "error") %> prohibited this form from being saved:</h2>
+      <h2><%= pluralize(formt.errors.count, "error") %> prohibited this form from being saved:</h2>
 
       <ul>
-      <% form.errors.full_messages.each do |message| %>
+      <% formt.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+    <div class="col-md-8">
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color"><%= t('field_and_objects') %></h5>
+        </div>
 
-  <div class="field">
-    <%= form.label :iteasykit_entity_type_id %>
-    <%= form.text_field :iteasykit_entity_type_id %>
-  </div>
+        <div class="content">
+          <%= render 'iteasykit/shared/fields/field_list', locals: [@entity_type, @object = @form] %>
 
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
-  </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :sticky %>
-    <%= form.check_box :sticky %>
-  </div>
 
-  <div class="field">
-    <%= form.label :position %>
-    <%= form.number_field :position %>
-  </div>
 
-  <div class="field">
-    <%= form.label :group %>
-    <%= form.text_field :group %>
-  </div>
+      <div class="col-md-4">
+        <div class="content-box">
+          <div class="head head-border warning-color">
+            <h5 class="content-title warning-color"><%= t('settings') %></h5>
+          </div>
 
-  <div class="field">
-    <%= form.label :machine_name %>
-    <%= form.text_field :machine_name %>
-  </div>
+          <div class="content">
 
-  <div class="field">
-    <%= form.label :iteasykit_seomore_id %>
-    <%= form.text_field :iteasykit_seomore_id %>
-  </div>
+            <div class="form-group">
+              <label class="control-label"><%= t('url') %></label>
+              <%= form.text_field :slug, class: "form-control input-sm" %>
+              <span class="help-block"><small><%= t('no_edit') %></small></span>
+            </div>
+            <div class="form-group">
+              <label class="control-label"><%= t('entity_type') %></label>
+              <%= form.select(:iteasykit_entity_type_id, Iteasykit::EntityType.where(rel_model: 'Form').map {|et| [et.name, et.id]},
+                              {include_blank: false}, class: "form-control input-sm input-warning") %>
+              <span class="help-block"><small><%= t('no_edit') %></small></span>
+            </div>
+            <div class="form-group">
+              <label class="control-label"><%= t('machine_name') %></label>
+              <%= form.text_field :machine_name, class: "form-control input-sm" %>
+              <span class="help-block"><small><%= t('machine_name_for_theme') %></small></span>
+            </div>
+            <div class="form-group">
+              <label class="control-label"><%= t('position') %></label>
+              <%= form.text_field :position, class: "form-control input-sm" %>
+              <span class="help-block"><small><%= t('no_edit') %></small></span>
+            </div>
+            <div class="form-group">
+              <label class="control-label"><%= t('group') %></label>
+              <%= form.text_field :group, class: "form-control input-sm" %>
+              <span class="help-block"><small><%= t('group_forms_available') %> <%= @group_list.join(', ') %></small></span>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label warning-color">
+                    <%= t('active') %>
+                    <%= form.check_box :active, class: "toggle toggle-success" %>
+                    <i></i>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label warning-color">
 
-  <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug %>
-  </div>
+                    <%= t('sticky') %>
+                    <%= form.check_box :sticky, class: "toggle toggle-success" %>
+                    <i></i>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label warning-color">
 
-  <div class="field">
-    <%= form.label :calc %>
-    <%= form.check_box :calc %>
-  </div>
+                    <%= t('calc') %>
+                    <%= form.check_box :calc, class: "toggle toggle-success" %>
+                    <i></i>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      </div>
+
+
+    </div>
+    <div class="actions"  style="position: fixed;bottom: 0px;right: 0px;" >
+      <%= form.submit t('save'), class: "btn-success btn-lg"%>
+    </div>
+  <% end %>
   </div>
-<% end %>

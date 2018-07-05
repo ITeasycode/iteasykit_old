@@ -18,8 +18,8 @@ module Iteasykit
 
     def translit
       if self.machine_name.blank?
-        @translit = name
-        self.machine_name = @translit.parameterize(separator: "_")
+        @translit = I18n.transliterate(name)
+        self.machine_name = @translit.parameterize(separator: "_")+fciable.id.to_s
       end
     end
 

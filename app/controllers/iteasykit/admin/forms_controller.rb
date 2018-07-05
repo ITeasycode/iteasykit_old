@@ -15,11 +15,15 @@ module Iteasykit
 
     # GET /forms/new
     def new
+      @entity_type = Iteasykit::EntityType.find(params[:entity_type])
       @form = Form.new
+      @group_list = Iteasykit::Form.all.map{|e| e.group}.uniq
     end
 
     # GET /forms/1/edit
     def edit
+      @group_list = Iteasykit::Form.all.map{|e| e.group}.uniq
+
     end
 
     # POST /forms
@@ -27,7 +31,8 @@ module Iteasykit
       @form = Form.new(form_params)
 
       if @form.save
-        redirect_to @form, notice: 'Form was successfully created.'
+        fci_saver(@form, params)
+        redirect_back(fallback_location: root_path)
       else
         render :new
       end
@@ -36,7 +41,8 @@ module Iteasykit
     # PATCH/PUT /forms/1
     def update
       if @form.update(form_params)
-        redirect_to @form, notice: 'Form was successfully updated.'
+        fci_saver(@form, params)
+        redirect_back(fallback_location: root_path)
       else
         render :edit
       end
@@ -52,6 +58,7 @@ module Iteasykit
       # Use callbacks to share common setup or constraints between actions.
       def set_form
         @form = Form.find(params[:id])
+        @entity_type = @form.iteasykit_entity_type
       end
 
       # Only allow a trusted parameter "white list" through.
