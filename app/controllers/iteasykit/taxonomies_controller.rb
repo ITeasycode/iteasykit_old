@@ -7,10 +7,14 @@ module Iteasykit
     # GET /taxonomies
     def index
       @taxonomies = Taxonomy.all
+      @global_search = Iteasykit::FciString.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
+      @lists = @global_search.result.page(params[:page])
     end
 
     # GET /taxonomies/1
     def show
+      @global_search = Iteasykit::FciString.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
+      @lists = @global_search.result.page(params[:page])
     end
 
     # GET /taxonomies/new
