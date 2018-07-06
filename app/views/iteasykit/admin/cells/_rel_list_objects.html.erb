@@ -6,7 +6,7 @@
     <th><%= t('title') %></th>
     <th><%= t('active') %></th>
     <th><%= t('sticky') %></th>
-    <th><%= t('position') %></th>
+    <th><%= t('entity_type') %></th>
     <th><%= t('group') %></th>
     <th><%= t('machine_name') %></th>
     <th><%= t('action') %></th>
@@ -21,7 +21,7 @@
       <td><%= cell.title %></td>
       <td><i class="zmdi zmdi-<%= cell.active ? 'check' : 'close' %>"></i></td>
       <td><i class="zmdi zmdi-<%= cell.sticky ? 'check' : 'close' %>"></i></td>
-      <td><%= cell.position %></td>
+      <td><%= cell.iteasykit_entity_type.name if cell.iteasykit_entity_type %></td>
       <td><%= cell.group %></td>
       <td><%= cell.machine_name %></td>
       <td class="text-center">
