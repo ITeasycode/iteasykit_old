@@ -175,6 +175,17 @@ en:
   forms: "Forms"
   forms_list: "List forms"
   add_new_form: "Add new forms"
+  brand: "Logo"
+  navigation: "Navigation"
+  sidebar: "sidebar"
+  fixed_header: "Fixed header"
+  boxed_layout: "Boxed Layout"
+  fixed_sidebar: "Fixed Sidebar"
+  light_menu: "Light Menu"
+  icon_menu: "Icon Menu"
+  horizontal_icon_menu: "Horizontal Icon Menu"
+  reset: "Reset"
+  new_entity_type: "new entity type"
 
 
 

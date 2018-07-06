@@ -42,9 +42,9 @@ module Iteasykit
         I18n.available_locales.each do |loc|
           locale_param = request.path == root_path ? root_path(locale: loc) : params.merge(locale: loc)
           if locale_param == "/" || locale_param == "/"+loc.to_s
-            concat content_tag(:li, (link_to loc, locale_param), class: (locale == loc ? aclass : ""), class: liclass)
+            concat content_tag(:li, (link_to loc.to_s.upcase, locale_param), class: (locale == loc ? aclass : ""), class: liclass)
           else
-            concat content_tag(:li, (link_to loc, locale_param.permit!), class: (locale == loc ? aclass : ""), class: liclass)
+            concat content_tag(:li, (link_to loc.to_s.upcase, locale_param.permit!), class: (locale == loc ? aclass : ""), class: liclass)
           end
         end
       end
