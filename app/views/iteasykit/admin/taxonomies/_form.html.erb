@@ -77,7 +77,7 @@
             <div class="form-group">
               <label class="control-label warning-color">
 
-                <%= t('sticky') %>
+                <%= t('blocked') %>
                 <%= form.check_box :blocked, class: "toggle toggle-success" %>
                 <i></i>
               </label>
@@ -88,7 +88,7 @@
     </div>
   </div>
   <div class="actions"  style="position: fixed;bottom: 0px;right: 0px;" >
-    <%= form.submit 'Save', class: "btn-success btn-lg"%>
+    <%= form.submit t('save'), class: "btn-success btn-lg"%>
   </div>
   <% end %>
 </div>
