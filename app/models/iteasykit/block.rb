@@ -5,6 +5,7 @@ module Iteasykit
     has_many :fcis, as: :fciable, class_name: "Iteasykit::Fci", foreign_key: :fciable_id
     has_many :rel_cells, as: :relable, class_name: "Iteasykit::RelCell", foreign_key: :relable_id
 
+    default_scope { order("position ASC") }
 
     def field(name)
       fci = Iteasykit::Fci.find_by_machine_name(name)
