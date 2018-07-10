@@ -186,6 +186,11 @@ uk:
   horizontal_icon_menu: "Горизонтальне меню іконок"
   reset: "Скинути"
   new_entity_type: "Новий тип об'єкту"
+  calc: "Калькуляція"
+  list_blocks: "Список блоків"
+  region_theme: "Регіон теми"
+  block_info: "Информация"
+  not_activated: "Не активний"
 
 
 

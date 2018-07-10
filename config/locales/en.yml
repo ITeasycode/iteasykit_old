@@ -185,7 +185,12 @@ en:
   icon_menu: "Icon Menu"
   horizontal_icon_menu: "Horizontal Icon Menu"
   reset: "Reset"
-  new_entity_type: "new entity type"
+  new_entity_type: "New entity type"
+  calc: "Calculation"
+  list_blocks: "List blocks"
+  region_theme: "Region theme"
+  block_info: "Block info"
+  not_activated: "Not activated"
 
 
 

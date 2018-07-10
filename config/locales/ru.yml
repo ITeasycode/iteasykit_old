@@ -186,4 +186,9 @@ ru:
   horizontal_icon_menu: "Горизонтальное меню иконок"
   reset: "Сброс"
   new_entity_type: "Новый тип объекта"
+  calc: "Калькуляция"
+  list_blocks: "Список блоков"
+  region_theme: "регион темы"
+  block_info: "Информация"
+  not_activated: "Не активный"
 
