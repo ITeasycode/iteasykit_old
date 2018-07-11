@@ -41,7 +41,11 @@ module Iteasykit
         locale = params[:locale] || I18n.locale
         locale = locale.to_sym
         I18n.available_locales.each do |loc|
-          locale_param = (I18n.default_locale == loc) ? request.path.gsub(locale.to_s+'/', '') : request.path.gsub(locale.to_s, loc.to_s)
+          if params[:locale].nil? && I18n.default_locale != loc
+            locale_param = '/'+loc.to_s+request.path
+          else
+            locale_param = ((I18n.default_locale == loc) ? request.path.gsub(locale.to_s+'/', '') : request.path.gsub(locale.to_s, loc.to_s))
+          end
             concat content_tag(li, (link_to loc.to_s.upcase, locale_param, class: (locale == loc ? aclass : "")), class: liclass)
         end
       end
