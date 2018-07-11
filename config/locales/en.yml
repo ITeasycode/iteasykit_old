@@ -192,6 +192,13 @@ en:
   block_info: "Block info"
   not_activated: "Not activated"
   fields_in: "Fields in"
+  list_of_type_object: "List of object types here you can create the necessary types of all kinds of site data (Pages, blocks,
+   comments, taxonomies, etc."
+  new_type_object: "Here you can create a new object type"
+  editing_category_news: "Here you can edit the news category"
+
+
+
 
 
 

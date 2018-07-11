@@ -1,0 +1,26 @@
+<% unless @model.nil? %>
+        <% @seo=@model.iteasykit_seomore %>
+        <% unless @seo.nil? %>
+            <% if @seo.title.nil? %>
+                <% @sst=title(@model) %>
+                <%= display_meta_tags :title => @sst %>
+            <% end %>
+            <%= display_meta_tags :title => @seo.title,
+                                  :description => @seo.desc,
+                                  :keywords => @seo.keywords,
+                                  :author => @seo.author,
+                                  :publisher => @seo.publisher,
+                                  :refresh => @seo.refresh
+            %>
+            <%= display_meta_tags :noindex => true if @seo.noindex? %>
+            <%= display_meta_tags :nofollow => true if @seo.nofollow? %>
+            <% if @seo.canonical.nil? %>
+                <%= display_meta_tags :canonical => root_url+request.fullpath.gsub("/", "") %>
+            <% else %>
+                <%= display_meta_tags :canonical => @seo.canonical %>
+            <% end %>
+        <% else %>
+            <% @sst=title(@model) %>
+            <%= display_meta_tags :title => @sst %>
+        <% end %>
+<% end %>

@@ -1,11 +1,11 @@
-<% content_for :entity_title do %>Fields in<%= t('fields_in') %> <%= @entity_type.name %> entity types
+<% content_for :entity_title do %>Fields in custom <%= @taxonomy.machine_name %> entity
 <% end %>
 <% content_for :pull_right do %>
-  <%= link_to '<i class="zmdi zmdi-long-arrow-return zmdi-hc-fw"></i>'.html_safe, admin_entity_types_url %>
+  <%= link_to '<i class="zmdi zmdi-long-arrow-return zmdi-hc-fw"></i>'.html_safe, admin_entity_url(@taxonomy) %>
 <% end %>
 
-<%= render 'iteasykit/shared/admin/type_tabs' %>
-<p><%= t(:field_type_object) %></p>
+<%= render 'iteasykit/shared/admin/type_tabs', locals: [@obj_current = @taxonomy] %>
+
 <div class="row">
   <div class="col-md-12">
     <div class="col-md-8">
@@ -46,13 +46,11 @@
                 <td class="text-center">
                   <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, "", class: "btn btn-success raised icon waves-effect",
                               'data-toggle'=>"modal", 'data-target'=>"#modal-large#{item.id}" %>
-
                   <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, [:admin, item], class: "btn btn-danger raised icon waves-effect", method: :delete,
                               data: {confirm: 'Are you sure?'} %></td>
               </tr>
-
               <div class="modal fade" id="modal-large<%=item.id %>" role="dialog" aria-hidden="true">
-                      <%= render 'iteasykit/admin/fcis/edit_form', fci: item %>
+                <%= render 'iteasykit/admin/fcis/edit_form', fci: item %>
               </div>
             <% end %>
             </tbody>
@@ -67,15 +65,10 @@
         </div>
 
         <div class="content">
-     
-             <%= render 'iteasykit/admin/fcis/form', locals: [@fci, @type = "Iteasykit::EntityType", @id = @entity_type.id] %>
+              <%= render 'iteasykit/admin/fcis/form', locals: [@fci, @type = "Iteasykit::Taxonomy", @id = @taxonomy.id] %>
         </div>
       </div>
 
     </div>
-
-
-
-
   </div>
 </div>

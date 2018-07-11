@@ -32,7 +32,7 @@ module Iteasykit
     private
 
     def theme_resolver
-        'simb'
+        'kbetheme'
     end
 
     def fci_saver(instance, params)

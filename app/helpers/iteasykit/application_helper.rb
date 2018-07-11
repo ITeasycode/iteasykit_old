@@ -36,15 +36,16 @@ module Iteasykit
       YAML.load_file('app/themes/'+theme_resolver+'/setting.yml')
     end
 
-    def lang_switcher(ulclass = 'lang-switcher clearfix',liclass = 'lang', aclass = 'active')
-      content_tag(:ul, class: ulclass) do
+    def lang_switcher(ulclass = 'lang-switcher clearfix',liclass = 'lang', aclass = 'active', ul = :ul, li = :li)
+      content_tag(ul, class: ulclass) do
         locale = params[:locale] || I18n.locale
+        locale = locale.to_sym
         I18n.available_locales.each do |loc|
           locale_param = request.path == root_path ? root_path(locale: loc) : params.merge(locale: loc)
           if locale_param == "/" || locale_param == "/"+loc.to_s
-            concat content_tag(:li, (link_to loc.to_s.upcase, locale_param), class: (locale == loc ? aclass : ""), class: liclass)
+            concat content_tag(li, (link_to loc.to_s.upcase, locale_param, class: (locale == loc ? aclass : "")), class: liclass)
           else
-            concat content_tag(:li, (link_to loc.to_s.upcase, locale_param.permit!), class: (locale == loc ? aclass : ""), class: liclass)
+            concat content_tag(li, (link_to loc.to_s.upcase, locale_param.permit!, class: (locale == loc ? aclass : "")), class: liclass)
           end
         end
       end

@@ -23,11 +23,13 @@ module Iteasykit
     def new
       @entity_type = Iteasykit::EntityType.find(params[:entity_type])
       @entity = Entity.new
+      @entity.build_iteasykit_seomore
     end
 
     # GET /entities/1/edit
     def edit
       @object_list = @entity.rel_cells
+      @entity.build_iteasykit_seomore if @entity.iteasykit_seomore.nil?
     end
 
     # POST /entities
@@ -71,7 +73,9 @@ module Iteasykit
     # Only allow a trusted parameter "white list" through.
     def entity_params
       params.require(:entity).permit(:machine_name, :iteasykit_entity_type_id, :active, :sticky, :iteasykit_seomore_id,
-                                     :slug)
+                                     :slug, iteasykit_seomore_attributes: [:id, :noindex, :nofollow, :title, :keywords,
+                                                                           :description, :canonical, :author, :publisher,
+                                                                           :alternate, :refresh])
     end
   end
 end

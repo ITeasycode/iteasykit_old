@@ -23,9 +23,10 @@ Iteasykit::Engine.routes.draw do
       post :sort, on: :collection
     end
     resources :entity_types
-    get 'page/dashboard'
-    get 'page/help'
+
   end
+  get 'admin/dashboard' => 'admin/page#dashboard', as: 'admin_dashboard'
+  get 'admin/help' => 'admin/page#help', as: 'admin_help'
   get 'admin/entity_types/:id/fields' => 'admin/entity_types#fields', as: 'admin_entity_type_fields'
   get 'admin/entity/:id/custom_fields' => 'admin/entities#custom_fields', as: 'admin_entity_custom_fields'
   get 'admin/blocks/:id/custom_fields' => 'admin/blocks#custom_fields', as: 'admin_block_custom_fields'

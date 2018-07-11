@@ -26,7 +26,7 @@ module Iteasykit
 
     def custom_fields
       @fci = Iteasykit::Fci.new
-      @fcis = Iteasykit::Fci.order(:position).where(fciable_id: @taxonomy.id, fciable_type: "Iteasykit::Entity")
+      @fcis = Iteasykit::Fci.order(:position).where(fciable_id: @taxonomy.id, fciable_type: "Iteasykit::Taxonomy")
     end
 
     # GET /taxonomies/new

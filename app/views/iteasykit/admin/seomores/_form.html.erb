@@ -1,67 +1,74 @@
-<%= form_with(model: seomore, local: true) do |form| %>
-  <% if seomore.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(seomore.errors.count, "error") %> prohibited this seomore from being saved:</h2>
+<%= form.fields_for :iteasykit_seomore do |f| %>
 
-      <ul>
-        <% seomore.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="form-group">
+    <label class="control-label"><%= t('title') %></label>
+    <%= f.text_field :title, class: "form-control input-sm" %>
+    <span class="help-block"><small><%= t('title') %></small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('keywords') %></label>
+    <%= f.text_field :keywords, class: "form-control input-sm" %>
+    <span class="help-block"><small><%= t('keywords') %></small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('description') %></label>
+    <%= f.text_area :description, class: "form-control" %>
+    <span class="help-block"><small><%= t('description') %></small></span>
+  </div>
+  <div class="form-group">
+    <label class="control-label"><%= t('canonical') %></label>
+    <%= f.text_field :canonical, class: "form-control input-sm" %>
+    <span class="help-block"><small><%= t('canonical') %></small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('author') %></label>
+    <%= f.text_field :author, class: "form-control input-sm" %>
+    <span class="help-block"><small><%= t('author') %></small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('publisher') %></label>
+    <%= f.text_field :publisher, class: "form-control input-sm" %>
+    <span class="help-block"><small><%= t('publisher') %></small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('alternate') %></label>
+    <%= f.text_field :alternate, class: "form-control input-sm" %>
+    <span class="help-block"><small><%= t('alternate') %></small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('refresh') %></label>
+    <%= f.text_field :refresh, class: "form-control input-sm" %>
+    <span class="help-block"><small><%= t('refresh') %></small></span>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="control-label warning-color">
+          <%= t('noindex') %>
+          <%= f.check_box :noindex, class: "toggle toggle-success" %>
+          <i></i>
+        </label>
+      </div>
     </div>
-  <% end %>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="control-label warning-color">
 
-  <div class="field">
-    <%= form.label :noindex %>
-    <%= form.check_box :noindex %>
+          <%= t('nofollow') %>
+          <%= f.check_box :nofollow, class: "toggle toggle-success" %>
+          <i></i>
+        </label>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :nofollow %>
-    <%= form.check_box :nofollow %>
-  </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :keywords %>
-    <%= form.text_field :keywords %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :canonical %>
-    <%= form.text_field :canonical %>
-  </div>
-
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author %>
-  </div>
-
-  <div class="field">
-    <%= form.label :publisher %>
-    <%= form.text_field :publisher %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alternate %>
-    <%= form.text_field :alternate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :refresh %>
-    <%= form.text_field :refresh %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
