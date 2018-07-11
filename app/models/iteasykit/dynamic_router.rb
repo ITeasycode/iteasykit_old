@@ -4,15 +4,13 @@ class Iteasykit::DynamicRouter
       Rails.application.routes.draw do
         Iteasykit::EntityType.all.each do |rt|
           if ActiveRecord::Base.connection.column_exists?(:iteasykit_entity_types, :path_root_url)
-            if rt.path_root_url
-              if rt.rel_model == 'Iteasykit::Taxonomy'
-                 get '/*id', :to => "iteasykit/#{rt.rel_model.downcase.tableize}#show", :constraints => lambda { |r| Iteasykit::Taxonomy.friendly.find_by(iteasykit_entity_id: rt.id, url: r.params[:id]).present? }
+              if rt.path_root_url
+                  get '/:locale/:id', :to => "iteasykit/#{rt.rel_model.downcase.tableize}#show", :constraints => lambda { |r| ('Iteasykit::'+rt.rel_model).constantize.friendly.find_by(iteasykit_entity_type_id: rt.id, slug: r.params[:id]).present? }
+                  get '/:id', :to => "iteasykit/#{rt.rel_model.downcase.tableize}#show", :constraints => lambda { |r| ('Iteasykit::'+rt.rel_model).constantize.friendly.find_by(iteasykit_entity_type_id: rt.id, slug: r.params[:id]).present? }
               else
-                get '/:id', :to => "iteasykit/#{rt.rel_model.downcase.tableize}#show", :constraints => lambda { |r| rt.rel_model.constantize.friendly.find_by(iteasykit_entity_id: rt.id, url: r.params[:id]).present? }
+                get "/:locale/#{rt.machine_name}/:id", :to => "iteasykit/#{rt.rel_model.downcase.tableize}#show"
+                get "/#{rt.machine_name}/:id", :to => "iteasykit/#{rt.rel_model.downcase.tableize}#show"
               end
-            else
-              get "/#{rt.machine_name}/:id", :to => "iteasykit/#{rt.rel_model.downcase.tableize}#show"
-            end
           end
         end
       end
