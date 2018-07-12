@@ -17,6 +17,7 @@ require "rails_sortable"
 require "paper_trail"
 require "ckeditor"
 require "routing-filter"
+require "meta-tags"
 
 
 
