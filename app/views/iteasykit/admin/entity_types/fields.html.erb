@@ -1,4 +1,4 @@
-<% content_for :entity_title do %>Fields in<%= t('fields_in') %> <%= @entity_type.name %> entity types
+<% content_for :entity_title do %><%= t('fields_in') %> <%= t('entitys_type') %> - <%= @entity_type.name %>
 <% end %>
 <% content_for :pull_right do %>
   <%= link_to '<i class="zmdi zmdi-long-arrow-return zmdi-hc-fw"></i>'.html_safe, admin_entity_types_url %>

@@ -178,7 +178,7 @@
 
         <div class="content">
           <% Iteasykit::EntityType.where(rel_model: 'Cell').each do |cet| %>
-            <%= link_to "New "+cet.name, "", class: "btn btn-info waves-effect",
+            <%= link_to "+ "+cet.name, "", class: "btn btn-info waves-effect",
                         'data-toggle'=>"modal", 'data-target'=>"#modal-largenew#{cet.id}" %>
             <div class="modal fade" id="modal-largenew<%=cet.id %>" role="dialog" aria-hidden="true">
               <%= render 'iteasykit/admin/cells/popup_form', locals: [@entity_type=cet, @cell = Iteasykit::Cell.new, @objectrel=@entity] %>

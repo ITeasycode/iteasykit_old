@@ -2,7 +2,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title"><%= t('cell') %> <%= @entity_type.name %></h4>
+      <h4 class="modal-title"><%= t('cell') %> - <%= @entity_type.name %></h4>
     </div>
     <%= form_with(model: [:admin, @cell], local: true, multipart:true) do |form| %>
     <div class="modal-body">
@@ -91,7 +91,7 @@
       <%= hidden_field_tag 'object_relable', @objectrel.class.name %>
       <%= hidden_field_tag 'object_relable_id', @objectrel.id %>
     <div class="modal-footer">
-      <%= form.submit 'Save changes', class: "btn-info btn-lg" %>
+      <%= form.submit t('save'), class: "btn-info btn-lg" %>
       <button type="button" class="btn btn-lg btn-default m-b-5" data-dismiss="modal"><%= t('close') %></button>
     </div>
     <% end %>

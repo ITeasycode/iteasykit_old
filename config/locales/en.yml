@@ -106,6 +106,7 @@ en:
   admin_name: "Admin name"
   admin_description: "Admin description"
   region: "Region"
+  entitys_type: "Entity Type"
   entity_type: "Entity Type"
   no_edit: "No edit"
   machine_name_for_theme: "Machine name for theme"
@@ -196,6 +197,17 @@ en:
    comments, taxonomies, etc."
   new_type_object: "Here you can create a new object type"
   editing_category_news: "Here you can edit the news category"
+  keywords: "Keywords"
+  canonical: "Canonical"
+  author: "Author"
+  publisher: "Publisher"
+  alternate: "Alternate"
+  refresh: "Refresh"
+  noindex: "Noindex"
+  nofollow: "Nofollow"
+  editing_entity_type: "Editing entity type"
+  entity: "Entity"
+  fields_in_custom: "Fields in custom"
 
 
 

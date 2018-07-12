@@ -58,14 +58,13 @@ module Iteasykit
           if m
             ApplicationController.render(template: 'iteasykit/shared/fields/type/_multi_fci_images', layout: false, assigns: {m: m, f: self})
           else
-            "<input multiple type='file' name='fcis[#{id}[][fci_#{type_fci}[file]]' id='fcis_fci_#{type_fci}'  accept='image/*'>".html_safe
+            "<input multiple type='file' name='fcis[#{id}[][fci_#{type_fci}[file]]' id='fcis_fci_#{type_fci}'  accept=''>".html_safe
           end
         else
           if m
-            "<input type='file' name='fcis[#{id}[fci_#{type_fci}[file]]' id='fcis_fci_#{type_fci}'  accept='image/*'>".html_safe+
-            "<img src='#{Rails.application.routes.url_helpers.rails_representation_path(m.file.variant(resize: "100x100"), only_path: true)}'/>".html_safe
+            ApplicationController.render(template: 'iteasykit/shared/fields/type/_one_fci_image', layout: false, assigns: {m: m, f: self})
           else
-            "<input type='file' name='fcis[#{id}[fci_#{type_fci}[file]]' id='fcis_fci_#{type_fci}'  accept='image/*'>".html_safe
+            "<input type='file' name='fcis[#{id}[fci_#{type_fci}[file]]' id='fcis_fci_#{type_fci}'  accept=''>".html_safe
           end
         end
       end
