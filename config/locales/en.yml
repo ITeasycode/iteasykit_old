@@ -74,6 +74,7 @@ en:
   help: "Help"
   active: "Active"
   nesting: "Nesting:"
+  set_nesting: "Set nesting"
   relation: "Relation:"
   path_root_url: "Path root url:"
   comment: "Comment:"
@@ -209,6 +210,7 @@ en:
   entity: "Entity"
   fields_in_custom: "Fields in custom"
   group_forms: "Group Forms Available"
+  new_block: "New block"
 
 
 

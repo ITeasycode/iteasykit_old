@@ -76,6 +76,7 @@ ru:
   nesting: "Вложенность:"
   set_nesting: "Разрешить ячейки:"
   relation: "Связь:"
+  set_relation: "Разрешить вложенность"
   path_root_url: "URL-Адрес с корня:"
   comment: "Комментарий:"
   position: "Сортировка"
@@ -210,3 +211,4 @@ ru:
   entity: "объект"
   fields_in_custom: "Дополнительные поля в"
   group_forms: "Доступные группы"
+  new_block: "Новый блок"

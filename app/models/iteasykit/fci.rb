@@ -13,7 +13,7 @@ module Iteasykit
 
     default_scope { order("position ASC") }
 
-    validates :machine_name, uniqueness: true
+    #validates :machine_name, uniqueness: true
     validates :name, presence: true
 
     def translit

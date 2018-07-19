@@ -11,8 +11,6 @@ module Iteasykit
     accepts_nested_attributes_for   :iteasykit_seomore
 
 
-
-
     def field(name)
       fci = Iteasykit::Fci.find_by_machine_name(name)
       if fci
@@ -53,11 +51,13 @@ module Iteasykit
     end
 
     def title
-      if iteasykit_entity_type.id_title_fci.present?
-        fci = Iteasykit::Fci.find(iteasykit_entity_type.id_title_fci)
-        mf = FciString.find_by(iteasykit_fci_id: fci.id, fieldable_type: 'Iteasykit::Entity', fieldable_id: id)
-        if mf
-          mf.value.html_safe
+      if iteasykit_entity_type.present?
+        if iteasykit_entity_type.id_title_fci.present?
+          fci = Iteasykit::Fci.find(iteasykit_entity_type.id_title_fci)
+          mf = FciString.find_by(iteasykit_fci_id: fci.id, fieldable_type: 'Iteasykit::Entity', fieldable_id: id)
+          if mf
+            mf.value.html_safe
+          end
         end
       end
     end
