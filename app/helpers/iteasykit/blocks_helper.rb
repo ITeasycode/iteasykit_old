@@ -29,5 +29,19 @@ module Iteasykit
     end
   end
 
+  def geocods(d)
+    Rails.cache.fetch('helper_valuess') do
+    @arrr =[]
+    Iteasykit::FciString.where(iteasykit_fci_id: d).each do |string|
+        @results = Geocoder.coordinates(string.value)
+        unless @results.nil?
+            @results << string.fieldable_id
+            @arrr << @results
+        end
+    end
+    @arrr
+  end
+end
+
   end
 end
