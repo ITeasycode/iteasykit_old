@@ -27,7 +27,7 @@ module Iteasykit
           cookies.permanent[:theme] = params[:theme].presence
           cookies.permanent[:theme]
         else
-          'capital'
+          'kbetheme'
         end
       end
     end
@@ -46,7 +46,7 @@ module Iteasykit
           else
             locale_param = ((I18n.default_locale == loc) ? request.path.gsub(locale.to_s+'/', '') : request.path.gsub(locale.to_s, loc.to_s))
           end
-            concat content_tag(li, (link_to loc.to_s.upcase, locale_param, class: (locale == loc ? aclass : "")), class: liclass)
+            concat content_tag(li, (link_to loc.to_s.gsub("uk", 'ua').upcase, locale_param, class: (locale == loc ? aclass : "")), class: liclass)
         end
       end
     end

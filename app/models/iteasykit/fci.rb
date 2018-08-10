@@ -46,7 +46,7 @@ module Iteasykit
         "<input type='text' name='fcis[#{id}[fci_#{type_fci}]]' value='#{m}' id='fcis_fci_#{type_fci}' placeholder='#{placeholder}' class='form-control input-sm'>".html_safe
       when "text"
         mv = m.value if m
-        ApplicationController.render inline: "<%= cktext_area_tag 'fcis[#{id}[fci_#{type_fci}]]', '#{mv}', cols: 40 %>"
+        ApplicationController.render(template: 'iteasykit/shared/fields/type/_cktext_area_tag', layout: false, assigns: {m: m, f: self})
       when "integer"
         m = m.value if m
         "<input type='number' name='fcis[#{id}[fci_#{type_fci}]]' value='#{m}' id='fcis_fci_#{type_fci}' placeholder='#{placeholder}' class='form-control input-sm'>".html_safe

@@ -28,7 +28,7 @@ module Iteasykit
 
     # GET /entities/1/edit
     def edit
-      @object_list = @entity.rel_cells
+      @object_list = @entity.rel_cells.page params[:page]
       @entity.build_iteasykit_seomore if @entity.iteasykit_seomore.nil?
     end
 
