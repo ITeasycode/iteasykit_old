@@ -28,7 +28,8 @@ module Iteasykit
 
       if @form.save
         fci_saver(@form, params)
-        redirect_back(fallback_location: root_path)
+        request.headers["Referer"] = request.headers["Referer"]+'?answer=success'
+        redirect_back fallback_location: root_path
       else
         render :new
       end
