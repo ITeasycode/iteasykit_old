@@ -4,6 +4,7 @@ module Iteasykit
     set_sortable :position
 
     belongs_to :fciable, polymorphic: true, optional: true
+    has_many :iteasykit_fci_strings, foreign_key: :iteasykit_fci_id
 
     before_save :translit
     before_destroy :destroy_field
