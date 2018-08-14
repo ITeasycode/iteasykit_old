@@ -8,13 +8,25 @@ module Iteasykit
     def index
       @entities = Entity.all
       @global_search = Iteasykit::FciString.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
-      @lists = @global_search.result.page(params[:page])
+      @global_search2 = Iteasykit::FciText.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
+      if params[:q].present?
+        @qq = @global_search.result + @global_search2.result
+      else
+        @qq = @global_search.result
+      end
+      @lists = @qq.uniq
     end
 
     # GET /entities/1
     def show
       @global_search = Iteasykit::FciString.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
-      @lists = @global_search.result.page(params[:page])
+      @global_search2 = Iteasykit::FciText.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
+      if params[:q].present?
+        @qq = @global_search.result + @global_search2.result
+      else
+        @qq = @global_search.result
+      end
+      @lists = @qq.uniq { |p| p.fieldable_id }
     end
 
     # GET /entities/new

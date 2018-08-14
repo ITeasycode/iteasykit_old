@@ -1,6 +1,6 @@
 Iteasykit::Engine.routes.draw do
 
-  filter :pagination, :uuid
+  #filter :pagination, :uuid
   filter :locale
   mount Ckeditor::Engine => '/ckeditor'
   resources :forms
