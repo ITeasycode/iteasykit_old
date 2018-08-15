@@ -11,13 +11,15 @@ module Iteasykit
     has_many :rel_taxonomies, as: :relable, class_name: "Iteasykit::RelTaxonomy", foreign_key: :relable_id
     accepts_nested_attributes_for   :iteasykit_seomore
 
-    #before_save :translit
+    after_save :translit
 
     def translit
-      if self.slug.blank?
+      if slug.blank?
         if self.title.present?
           @translit = I18n.transliterate(self.title)
-          self.slug = @translit.parameterize(separator: "_")+fciable.id.to_s
+          update(slug: @translit.parameterize(separator: "_")+id.to_s)
+        else
+          update(slug: self.id)
         end
       end
     end
