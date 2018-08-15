@@ -1,7 +1,7 @@
 module Iteasykit
   class Cell < ApplicationRecord
     belongs_to :iteasykit_entity_type, class_name: "Iteasykit::EntityType"
-    has_many :fcis, through: :iteasykit_entity_type, class_name: "Iteasykit::Fci"
+    has_many :fcis, as: :fciable
     has_many :iteasykit_rel_cells, class_name: "Iteasykit::RelCell", foreign_key: :iteasykit_cell_id, dependent: :destroy
     #before_destroy :destroy_field
 
