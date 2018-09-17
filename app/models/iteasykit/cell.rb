@@ -35,7 +35,7 @@ module Iteasykit
 
     def field_name(name)
       fci = Iteasykit::Fci.find_by_machine_name(name)
-      fci.name if fci
+      fci.name.html_safe if fci
     end
 
     def title

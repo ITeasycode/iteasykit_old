@@ -4,7 +4,11 @@ module Iteasykit
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :set_paper_trail_whodunnit
     before_action :set_locale
-    #protect_from_forgery with: :null_session
+    #protect_from_forgery with: :null_session UnknownController
+    rescue_from Exception, :with => :render_404
+    rescue_from ActionController::RoutingError, :with => :render_404
+    rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+    rescue_from ActionController::ParameterMissing, :with => :render_404
 
     theme :theme_resolver
 
@@ -28,6 +32,7 @@ module Iteasykit
     def default_url_options(options={})
       {locale: I18n.locale}
     end
+    
 
     private
 
@@ -91,6 +96,10 @@ module Iteasykit
     end
 
     private
+    
+    def render_404(exception = nil)
+      redirect_to '/entities/error_404'
+    end
 
     def resource_name
       :user

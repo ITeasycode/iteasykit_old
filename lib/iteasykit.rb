@@ -18,7 +18,8 @@ require "paper_trail"
 require "ckeditor"
 require "routing-filter"
 require "meta-tags"
-
+require "carrierwave"
+require 'best_in_place'
 
 
 module Iteasykit

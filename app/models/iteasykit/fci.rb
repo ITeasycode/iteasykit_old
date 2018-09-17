@@ -53,7 +53,7 @@ module Iteasykit
         "<input type='number' name='fcis[#{id}[fci_#{type_fci}]]' value='#{m}' id='fcis_fci_#{type_fci}' placeholder='#{placeholder}' class='form-control input-sm'>".html_safe
       when "boolean"
         m = m.value if m
-        "<input class='toggle toggle-danger' type='checkbox' value='#{m}' name='fcis[#{id}[fci_#{type_fci}]]' id='fcis_fci_#{type_fci}'>".html_safe
+        "<input class='' type='checkbox' value='#{m}' name='fcis[#{id}[fci_#{type_fci}]]' id='fcis_fci_#{type_fci}'>".html_safe
       when 'image'
         if self.is_multi?
           if m
