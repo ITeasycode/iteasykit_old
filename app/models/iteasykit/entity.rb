@@ -76,7 +76,7 @@ module Iteasykit
     end
 
     def cells(mid)
-      rel_cells.joins(:iteasykit_cell).where(iteasykit_cells: {iteasykit_entity_type_id: mid}).each do |rel|
+      rel_cells.joins(:iteasykit_cell).where(iteasykit_cells: {iteasykit_entity_type_id: mid}).order('iteasykit_cells.created_at desc').each do |rel|
 				cell = rel.iteasykit_cell
         yield(cell)
       end
