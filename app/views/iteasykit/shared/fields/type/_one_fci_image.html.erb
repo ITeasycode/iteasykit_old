@@ -8,3 +8,6 @@
 <% end %>
 <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, admin_fci_destroy_fields_path(@f.id)+"?delfield=#{@m.id}&relabletype=Iteasykit::FciImage", class: "btn btn-danger raised icon waves-effect",
             data: {confirm: 'Are you sure?'} %>
+            <br>
+            <span> Title: <%= best_in_place @m, :title, :place_holder => "Click me to add content!" %></span>
+            <br>

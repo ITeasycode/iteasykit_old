@@ -60,7 +60,7 @@ module Iteasykit
     # DELETE /cells/1
     def destroy
       @cell.destroy
-      redirect_to admin_cells_url, notice: 'Cell was successfully destroyed.'
+      redirect_back(fallback_location: edit_admin_cell_url(@cell))
     end
 
     private

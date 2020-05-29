@@ -5,6 +5,12 @@ module Iteasykit
     has_many :iteasykit_rel_cells, class_name: "Iteasykit::RelCell", foreign_key: :iteasykit_cell_id, dependent: :destroy
     #before_destroy :destroy_field
 
+    Iteasykit::EntityType.where(rel_model: 'Cell').includes(:fcis).each do |et|
+      et.fcis.each do |fci|
+        has_many fci.machine_name.pluralize.to_sym, -> {where(fieldable_type: 'Iteasykit::Cell', iteasykit_fci_id: fci.id)}, class_name: "Iteasykit::Fci#{fci.type_fci.camelize}", foreign_key: :fieldable_id
+      end
+    end
+
     default_scope { order("position ASC") }
 
 
@@ -29,7 +35,7 @@ module Iteasykit
 
     def field_name(name)
       fci = Iteasykit::Fci.find_by_machine_name(name)
-      fci.name if fci
+      fci.name.html_safe if fci
     end
 
     def title

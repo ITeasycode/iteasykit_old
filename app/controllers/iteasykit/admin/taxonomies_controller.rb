@@ -63,9 +63,9 @@ module Iteasykit
 
     # DELETE /taxonomies/1
     def destroy
-      @entity_type = @entity.iteasykit_entity_type
+      @entity_type = @taxonomy.iteasykit_entity_type
       @taxonomy.destroy
-      redirect_to admin_entity_type_url(@entity_type), notice: 'Taxonomy was successfully destroyed.'
+      redirect_back(fallback_location: admin_entity_type_url(@entity_type))
     end
 
     private

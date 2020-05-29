@@ -9,6 +9,19 @@ module Iteasykit
     has_many :iteasykit_rel_taxonomies, class_name: "Iteasykit::RelTaxonomy", foreign_key: :iteasykit_taxonomy_id
     has_ancestry
 
+    after_save :translit
+
+    def translit
+      if slug.blank?
+        if self.title.present?
+          @translit = I18n.transliterate(self.title)
+          update(slug: @translit.parameterize(separator: "_")+id.to_s)
+        else
+          update(slug: self.id)
+        end
+      end
+    end
+
     def field(name)
       fci = Iteasykit::Fci.find_by_machine_name(name)
       if fci

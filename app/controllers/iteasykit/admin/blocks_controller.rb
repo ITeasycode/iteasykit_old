@@ -27,7 +27,7 @@ module Iteasykit
 
     # GET /blocks/1/edit
     def edit
-      @object_list = @block.rel_cells
+      @object_list = @block.rel_cells.page params[:page]
     end
 
     # POST /blocks

@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 5.2.0"
+  s.add_dependency "rails", "~> 5.2.1"
 
   s.add_development_dependency "meta_request"
   s.add_dependency "pg"
@@ -38,6 +38,8 @@ Gem::Specification.new do |s|
   s.add_dependency "ckeditor"
   s.add_dependency "routing-filter"
   s.add_dependency "meta-tags"
+  s.add_dependency 'carrierwave'
+  s.add_dependency 'best_in_place', '~> 3.0.1'
 
 
 end

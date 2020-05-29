@@ -1,6 +1,6 @@
 Iteasykit::Engine.routes.draw do
 
-  filter :pagination, :uuid
+  #filter :pagination, :uuid
   filter :locale
   mount Ckeditor::Engine => '/ckeditor'
   resources :forms
@@ -25,6 +25,7 @@ Iteasykit::Engine.routes.draw do
     resources :entity_types
 
   end
+  resources :fci_images
   get 'admin/dashboard' => 'admin/page#dashboard', as: 'admin_dashboard'
   get 'admin/help' => 'admin/page#help', as: 'admin_help'
   get 'admin/entity_types/:id/fields' => 'admin/entity_types#fields', as: 'admin_entity_type_fields'
@@ -35,5 +36,6 @@ Iteasykit::Engine.routes.draw do
 
 
   Iteasykit::DynamicRouter.load
+  
 
 end
