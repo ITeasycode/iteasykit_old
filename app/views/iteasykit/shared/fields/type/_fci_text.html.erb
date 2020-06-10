@@ -1,1 +1,9 @@
-<%= cktext_area_tag "fcis[#{@f.id}[fci_#{@f.type_fci}]]", "#{@m}", cols: 40 %>
+<%= text_area_tag "fcis[#{@f.id}[fci_#{@f.type_fci}]]", "#{@m.value if @m}", cols: 40, id: 'html'%>
+<script>
+$("#html").each(function() {
+CodeMirror.fromTextArea($(this).get(0), {
+lineNumbers: true,
+mode: "text/x-ruby"
+});
+});
+</script>

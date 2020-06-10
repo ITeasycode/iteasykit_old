@@ -16,5 +16,6 @@ gem 'sqlite3', group: [:development, :test]
 gem 'byebug', group: [:development, :test]
 gem 'listen', group: [:development, :test]
 gem 'globalize', git: 'https://github.com/globalize/globalize', branch: 'master'
+gem 'codemirror-rails'
 
 

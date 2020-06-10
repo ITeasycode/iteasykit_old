@@ -2,7 +2,11 @@
   <%= render 'iteasykit/shared/default/seomore', locale: @model=@entity %>
 <% end %>
 <% if @entity.machine_name.nil? || @entity.machine_name == '' %>
-  <%= render @entity.iteasykit_entity_type.machine_name %>
+  <% if FileTest.exists?('app/themes/'+theme_resolver+'/views/iteasykit/entities/_'+@entity.iteasykit_entity_type.machine_name+'.html.erb') %>
+    <%= render @entity.iteasykit_entity_type.machine_name %>
+  <% else %>
+    <%= render 'iteasykit/shared/fields/dynamic_field', locale: @model=@entity %>
+    <% end %>
 <% else %>
   <%= render @entity.machine_name %>
 <% end %>

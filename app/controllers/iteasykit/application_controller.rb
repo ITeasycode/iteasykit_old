@@ -5,10 +5,10 @@ module Iteasykit
     before_action :set_paper_trail_whodunnit
     before_action :set_locale
     #protect_from_forgery with: :null_session UnknownController
-    rescue_from Exception, :with => :render_404
-    rescue_from ActionController::RoutingError, :with => :render_404
-    rescue_from ActiveRecord::RecordNotFound, :with => :render_404
-    rescue_from ActionController::ParameterMissing, :with => :render_404
+    #rescue_from Exception, :with => :render_404
+    ##rescue_from ActionController::RoutingError, :with => :render_404
+    #rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+    #rescue_from ActionController::ParameterMissing, :with => :render_404
 
     theme :theme_resolver
 
@@ -37,7 +37,7 @@ module Iteasykit
     private
 
     def theme_resolver
-        'kbetheme'
+        'taxihohne'
     end
 
     def fci_saver(instance, params)

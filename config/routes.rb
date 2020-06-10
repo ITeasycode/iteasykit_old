@@ -4,7 +4,7 @@ Iteasykit::Engine.routes.draw do
   filter :locale
   mount Ckeditor::Engine => '/ckeditor'
   resources :forms
-  root :to => 'entities#index'
+  root :to => 'entities#show', id: 1
   resources :taxonomies
   resources :entities
   devise_for :users, class_name: "Iteasykit::User", module: :devise, :controllers => { :registrations => :registrations }

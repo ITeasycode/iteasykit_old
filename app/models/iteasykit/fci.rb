@@ -47,6 +47,9 @@ module Iteasykit
         "<input type='text' name='fcis[#{id}[fci_#{type_fci}]]' value='#{m}' id='fcis_fci_#{type_fci}' placeholder='#{placeholder}' class='form-control input-sm'>".html_safe
       when "text"
         mv = m.value if m
+        ApplicationController.render(template: 'iteasykit/shared/fields/type/_fci_text', layout: false, assigns: {m: m, f: self})
+      when 'full_text'
+        mv = m.value if m
         ApplicationController.render(template: 'iteasykit/shared/fields/type/_cktext_area_tag', layout: false, assigns: {m: m, f: self})
       when "integer"
         m = m.value if m

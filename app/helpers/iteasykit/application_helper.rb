@@ -27,7 +27,7 @@ module Iteasykit
           cookies.permanent[:theme] = params[:theme].presence
           cookies.permanent[:theme]
         else
-          'kbetheme'
+          'taxihohne'
         end
       end
     end
@@ -68,6 +68,35 @@ module Iteasykit
       end
 
     end
+    def cdnjs_include_tag(*args)
+      host = 'https://cdnjs.cloudflare.com/ajax/libs/'
+      content_for :cdnjs, javascript_include_tag(*args.map { |path| host + path.gsub(/^\/+/, '') })
+    end
 
+    def options_of_durations
+      @duration_options ||= [
+          *(2..23).map { |i| [pluralize(i, 'Stunden'), i.hour] },
+          *(1..14).map { |i| [pluralize(i, 'Tag'), i.day] },
+      ]
+    end
+
+    def options_of_hours
+      options_of_hours ||= (0..23).map { |i| [Time.parse("#{i}:00").strftime("%H (%-l %^P)"), '%02i' % i] }
+    end
+
+    def options_of_minutes
+      @options_of_minutes ||= (0..55).step(5).map { |i| ['%02i' % i] }
+    end
+
+    def car_price(type)
+      price = Car.determine_price(session[:booking], type)
+      number_to_currency price, locale: I18n.locale, unit: Car::PRICE_CURRENCY
+    end
+
+    def nav_link_to(name, path)
+      class_name = 'navigation__element navigation__element--primary'
+      class_name << ' navigation__element--active' if current_page?(path)
+      link_to name, path, class: class_name
+    end
   end
 end

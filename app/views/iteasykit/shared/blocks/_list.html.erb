@@ -1,18 +1,60 @@
 <% @blocks.each do |block| %>
     <% unless block.url.present? %>
-        <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
-    <% else %>
-        <% case block.type_url %>
+    <% case block.etl_type %>
 <% when 'none' %>
-            <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+      <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+    <% when 'only' %>
+      <% if block.entity_type_lists.split("\r\n").collect { |n| n == @entity.iteasykit_entity_type.machine_name }.include?(true) == true %>
+        <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+      <% end %>
+    <% when 'except' %>
+      <% if block.entity_type_lists.split("\r\n").collect { |n| n == @entity.iteasykit_entity_type.machine_name }.include?(true) != true %>
+        <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+      <% end %>
+    <% end %>    <% else %>
+        <% case block.type_url %>
+        <% when 'none' %>
+          <% case block.etl_type %>
+            <% when 'none' %>
+              <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+            <% when 'only' %>
+              <% if block.entity_type_lists.split("\r\n").collect { |n| n == @entity.iteasykit_entity_type.machine_name }.include?(true) == true %>
+                <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+              <% end %>
+            <% when 'except' %>
+              <% if block.entity_type_lists.split("\r\n").collect { |n| n == @entity.iteasykit_entity_type.machine_name }.include?(true) != true %>
+                <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+              <% end %>
+          <% end %>
         <% when 'only' %>
             <% if block.url.split("\r\n").collect { |n| n== request.path.gsub(locale.to_s+'/', '') }.include?(true) == true %>
-                <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
-            <% end %>
+        <% case block.etl_type %>
+<% when 'none' %>
+          <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+        <% when 'only' %>
+          <% if block.entity_type_lists.split("\r\n").collect { |n| n == @entity.iteasykit_entity_type.machine_name }.include?(true) == true %>
+            <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+          <% end %>
+        <% when 'except' %>
+          <% if block.entity_type_lists.split("\r\n").collect { |n| n == @entity.iteasykit_entity_type.machine_name }.include?(true) != true %>
+            <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+          <% end %>
+        <% end %>            <% end %>
         <% when 'except' %>
             <% if block.url.split("\r\n").collect { |n| n== request.path.gsub(locale.to_s+'/', '')}.include?(true) != true %>
-                <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
-            <% end %>
+        <% case block.etl_type %>
+<% when 'none' %>
+          <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+        <% when 'only' %>
+          <% if block.entity_type_lists.split("\r\n").collect { |n| n == @entity.iteasykit_entity_type.machine_name }.include?(true) == true %>
+            <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+          <% end %>
+        <% when 'except' %>
+          <% if block.entity_type_lists.split("\r\n").collect { |n| n == @entity.iteasykit_entity_type.machine_name }.include?(true) != true %>
+            <%= render 'iteasykit/shared/blocks/block', locals: @block = block %>
+          <% end %>
+        <% end %>
+      <% end %>
         <% end %>
     <% end %>
 <% end %>
