@@ -17,13 +17,12 @@ module Iteasykit
     def new
       @entity_type = Iteasykit::EntityType.find(params[:entity_type])
       @form = Form.new
-      @group_list = Iteasykit::Form.all.map{|e| e.group}.uniq
+      @group_list = Iteasykit::Form.all.map { |e| e.group }.uniq
     end
 
     # GET /forms/1/edit
     def edit
-      @group_list = Iteasykit::Form.all.map{|e| e.group}.uniq
-
+      @group_list = Iteasykit::Form.all.map { |e| e.group }.uniq
     end
 
     # POST /forms
@@ -50,20 +49,22 @@ module Iteasykit
 
     # DELETE /forms/1
     def destroy
+      id = @form.iteasykit_entity_type_id
       @form.destroy
-      redirect_to forms_url, notice: 'Form was successfully destroyed.'
+      redirect_to "/admin/entity_types/#{id}"
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_form
-        @form = Form.find(params[:id])
-        @entity_type = @form.iteasykit_entity_type
-      end
 
-      # Only allow a trusted parameter "white list" through.
-      def form_params
-        params.require(:form).permit(:iteasykit_entity_type_id, :active, :sticky, :position, :group, :machine_name, :iteasykit_seomore_id, :slug, :calc)
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_form
+      @form = Form.find(params[:id])
+      @entity_type = @form.iteasykit_entity_type
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def form_params
+      params.require(:form).permit(:iteasykit_entity_type_id, :active, :sticky, :position, :group, :machine_name, :iteasykit_seomore_id, :slug, :calc)
+    end
   end
 end

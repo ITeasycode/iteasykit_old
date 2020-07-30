@@ -9,6 +9,7 @@ module Iteasykit
     has_many :rel_cells, as: :relable, class_name: "Iteasykit::RelCell", foreign_key: :relable_id
     has_many :iteasykit_cells, through: :rel_cells
     has_many :rel_taxonomies, as: :relable, class_name: "Iteasykit::RelTaxonomy", foreign_key: :relable_id
+    has_many :relables, through: :rel_taxonomies
     accepts_nested_attributes_for   :iteasykit_seomore
 
     after_save :translit

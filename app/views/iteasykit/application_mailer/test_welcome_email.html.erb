@@ -1,0 +1,3 @@
+<% @entity.iteasykit_entity_type.fcis.each do |fci| %>
+  <%= @entity.field_name(fci.machine_name) %> : <%= @entity.field(fci.machine_name) %></br>
+<% end %>
