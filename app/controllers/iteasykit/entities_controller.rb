@@ -19,7 +19,10 @@ module Iteasykit
 
     # GET /entities/1
     def show
+<<<<<<< HEAD
       @form = Iteasykit::Form.new 
+=======
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
       @global_search = Iteasykit::FciString.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
       @global_search2 = Iteasykit::FciText.where(fieldable_type: 'Iteasykit::Entity').ransack(params[:q])
       if params[:q].present?

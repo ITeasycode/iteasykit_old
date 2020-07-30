@@ -7,7 +7,10 @@ module Iteasykit
     belongs_to :iteasykit_seomore, optional: true
     has_many :fcis, as: :fciable
     has_many :iteasykit_rel_taxonomies, class_name: "Iteasykit::RelTaxonomy", foreign_key: :iteasykit_taxonomy_id
+<<<<<<< HEAD
     has_many :relables, through: :iteasykit_rel_taxonomies
+=======
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
     has_ancestry
 
     after_save :translit

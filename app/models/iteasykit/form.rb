@@ -6,9 +6,12 @@ module Iteasykit
     belongs_to :iteasykit_entity_type, class_name: "Iteasykit::EntityType"
     belongs_to :iteasykit_seomore, optional: true
     has_many :fcis, as: :fciable
+<<<<<<< HEAD
     after_create :send_email_admin
     include Humanizer
     require_human_on :create
+=======
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
 
 
     def field(name)
@@ -32,6 +35,7 @@ module Iteasykit
       fci.name if fci
     end
 
+<<<<<<< HEAD
     def send_email_admin
       thr = Thread.new {
         sleep 10
@@ -42,6 +46,8 @@ module Iteasykit
       }
 
     end
+=======
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
 
 
   end

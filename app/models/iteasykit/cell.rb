@@ -13,6 +13,7 @@ module Iteasykit
 
     default_scope { order("position ASC") }
 
+<<<<<<< HEAD
     def geod
       if iteasykit_entity_type_id == 20
         if self.geodannye20s.present?
@@ -62,6 +63,10 @@ module Iteasykit
     end
 
     def field(name, clean = false)
+=======
+
+    def field(name)
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
       fci = Iteasykit::Fci.find_by_machine_name(name)
       if fci
         m = ('Iteasykit::Fci'+fci.type_fci.camelize).constantize
@@ -73,11 +78,15 @@ module Iteasykit
             if mf.value.class == Integer
               mfv = mf.value
             else
+<<<<<<< HEAD
 		if clean
                  mfv = mf.value
 else
  mfv = mf.value.html_safe
 end
+=======
+              mfv = mf.value.html_safe
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
             end
           end
         end

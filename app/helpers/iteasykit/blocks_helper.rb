@@ -16,12 +16,27 @@ module Iteasykit
     end
 
     def geocod(d)
+<<<<<<< HEAD
       lc = I18n.locale
       I18n.locale = :uk
       locations = Iteasykit::FciString.where(iteasykit_fci_id: d).where.not(value: '').map{|e|e.value+', '+e.fieldable_id.to_s}.map{|e| e.split(', ')}
       I18n.locale = lc
       locations
     end
+=======
+      Rails.cache.fetch('helper_value') do
+      @arrr =[]
+      Iteasykit::FciString.where(iteasykit_fci_id: d).each do |string|
+          @results = Geocoder.coordinates(string.value)
+          unless @results.nil?
+              @results << string.fieldable_id
+              @arrr << @results
+          end
+      end
+      @arrr
+    end
+  end
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
 
   def geocods(d)
     Rails.cache.fetch('helper_valuess') do

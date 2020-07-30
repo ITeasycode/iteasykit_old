@@ -6,6 +6,10 @@ module Iteasykit
     has_one_attached :file
     translates :title, :alt
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
     def self.update_or_create_by(args, attributes = nil)
       attributes = args
       obj = self.find_or_create_by(args)

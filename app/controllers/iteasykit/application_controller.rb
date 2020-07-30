@@ -1,6 +1,9 @@
 module Iteasykit
   class ApplicationController < ActionController::Base
+<<<<<<< HEAD
     force_ssl
+=======
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
     protect_from_forgery with: :exception
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :set_paper_trail_whodunnit
@@ -10,7 +13,11 @@ module Iteasykit
     rescue_from ActionController::RoutingError, :with => :render_404
     rescue_from ActiveRecord::RecordNotFound, :with => :render_404
     rescue_from ActionController::ParameterMissing, :with => :render_404
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
     theme :theme_resolver
 
     rescue_from CanCan::AccessDenied do |exception|

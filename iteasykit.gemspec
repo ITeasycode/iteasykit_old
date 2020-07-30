@@ -20,7 +20,11 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "meta_request"
   s.add_dependency "pg"
+<<<<<<< HEAD
   s.add_dependency "devise", ">= 3.4.3"
+=======
+  s.add_dependency "devise", '>= 3.4.3'
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
   s.add_dependency "friendly_id", "~> 5.2.4"
   #s.add_dependency "globalize", "~> 5.1.0"
   s.add_dependency "friendly_id-globalize"
@@ -38,8 +42,15 @@ Gem::Specification.new do |s|
   s.add_dependency "ckeditor"
   s.add_dependency "routing-filter"
   s.add_dependency "meta-tags"
+<<<<<<< HEAD
   s.add_dependency "carrierwave"
   s.add_dependency "best_in_place", "~> 3.0.1"
   s.add_dependency "recaptcha"
   s.add_dependency 'humanizer'
+=======
+  s.add_dependency 'carrierwave'
+  s.add_dependency 'best_in_place', '~> 3.0.1'
+
+
+>>>>>>> da5d6b72830a0014e83c8edcc709afe275c69b23
 end
