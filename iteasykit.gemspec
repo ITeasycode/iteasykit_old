@@ -38,8 +38,8 @@ Gem::Specification.new do |s|
   s.add_dependency "ckeditor"
   s.add_dependency "routing-filter"
   s.add_dependency "meta-tags"
-  s.add_dependency 'carrierwave'
-  s.add_dependency 'best_in_place', '~> 3.0.1'
-
-
+  s.add_dependency "carrierwave"
+  s.add_dependency "best_in_place", "~> 3.0.1"
+  s.add_dependency "recaptcha"
+  s.add_dependency 'humanizer'
 end

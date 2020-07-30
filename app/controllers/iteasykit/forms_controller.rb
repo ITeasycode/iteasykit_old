@@ -1,8 +1,8 @@
-require_dependency "iteasykit/application_controller"
+require_dependency 'iteasykit/application_controller'
 
 module Iteasykit
   class FormsController < ApplicationController
-    before_action :set_form, only: [:show, :edit, :update, :destroy]
+    before_action :set_form, only: %i[show edit update destroy]
 
     # GET /forms
     def index
@@ -10,8 +10,7 @@ module Iteasykit
     end
 
     # GET /forms/1
-    def show
-    end
+    def show; end
 
     # GET /forms/new
     def new
@@ -19,8 +18,7 @@ module Iteasykit
     end
 
     # GET /forms/1/edit
-    def edit
-    end
+    def edit; end
 
     # POST /forms
     def create
@@ -28,10 +26,10 @@ module Iteasykit
 
       if @form.save
         fci_saver(@form, params)
-        request.headers["Referer"] = request.headers["Referer"]+'?answer=success'
+        request.headers['Referer'] = request.headers['Referer'] + '?answer=success'
         redirect_back fallback_location: root_path
       else
-        render :new
+        redirect_back fallback_location: root_path
       end
     end
 
@@ -52,15 +50,17 @@ module Iteasykit
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_form
-        @form = Form.find(params[:id])
-        @entity_type = @form.iteasykit_entity_type
-      end
 
-      # Only allow a trusted parameter "white list" through.
-      def form_params
-        params.require(:form).permit(:iteasykit_entity_type_id, :active, :sticky, :position, :group, :machine_name, :iteasykit_seomore_id, :slug, :calc)
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_form
+      @form = Form.find(params[:id])
+      @entity_type = @form.iteasykit_entity_type
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def form_params
+      params.require(:form).permit(:iteasykit_entity_type_id, :active, :sticky, :position, :group,
+         :machine_name, :iteasykit_seomore_id, :slug, :calc, :humanizer_answer, :humanizer_question_id)
+    end
   end
 end
