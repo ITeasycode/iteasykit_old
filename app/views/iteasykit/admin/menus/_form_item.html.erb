@@ -1,0 +1,66 @@
+<div class="row"> <%= form_with(model: [:admin, @menu_item], local: true, remote: true) do |f| %>
+                    <div class="col-md-12">
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label"><%= t('title') %></label>
+                          <%= f.text_field :name, class: "form-control input-sm" %>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">Title</label>
+                          <%= f.text_field :title, class: "form-control input-sm" %>
+                          <span class="help-block"><small>Title</small></span>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="control-label"><%= t('element_html') %></label>
+                            <%= f.text_field :elementcls, class: "form-control input-sm" %>
+                            <span class="help-block"><small>span, p, etc. Default - div</small></span>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="control-label"><%= t('id_element') %></label>
+                            <%= f.text_field :idcls, class: "form-control input-sm" %>
+                            <span class="help-block"><small><%= t('not_default') %></small></span>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="control-label"><%= t('class_element') %></label>
+                            <%= f.text_field :csscls, class: "form-control input-sm" %>
+                            <span class="help-block"><small><%= t('default_machine_name') %></small></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label"><%= t('url') %></label>
+                          <%= f.text_field :url, class: "form-control input-sm" %>
+                          <span class="help-block"><small><%= t('admin_name') %></small></span>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label warning-color">
+                            <%= t('active') %>
+                            <%= f.check_box :active, class: "toggle toggle-danger" %>
+                            <i></i>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+
+                      <%= f.hidden_field :iteasykit_menu_id, value: @menu.id %>
+                      <div class="actions">
+                        <%= f.submit t('save'), class: "btn-warning raised waves-effect" %>
+                      </div>
+                    </div>
+                  <% end %>
+</div>

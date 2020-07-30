@@ -1,0 +1,31 @@
+
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+  <tr>
+    <th><%= t('title') %></th>
+    <th><%= t('active') %></th>
+    <th><%= t('position') %></th>
+    <th><%= t('blocked') %></th>
+    <th><%= t('sticky') %></th>
+    <th><%= t('action') %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @object_list.each do |taxonomy| %>
+  <tr>
+    <td><%= taxonomy.title %></td>
+    <td><i class="zmdi zmdi-<%= taxonomy.active ? 'check' : 'close' %>"></i></td>
+    <td><%= taxonomy.position %></td>
+    <td><i class="zmdi zmdi-<%= taxonomy.blocked ? 'check' : 'close' %>"></i></td>
+    <td><i class="zmdi zmdi-<%= taxonomy.sticky ? 'check' : 'close' %>"></i></td>
+    <td class="text-center">
+      <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, edit_admin_taxonomy_path(taxonomy), class: "btn btn-success raised icon waves-effect"  %>
+      <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, [:admin, taxonomy], class: "btn btn-danger raised icon waves-effect",
+                  method: :delete,
+                  data: {confirm: 'Are you sure?'} %></td>
+  </tr>
+  <% end %>
+
+  </tbody>
+</table>

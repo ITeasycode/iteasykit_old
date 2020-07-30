@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  machine_name: MyString
+  description: MyText
+  help: MyText
+  has_title: false
+  label_title: MyString
+  active: false
+  nesting: false
+  relation: false
+  path_root_url: false
+  comment: false
+  position: false
+
+two:
+  name: MyString
+  machine_name: MyString
+  description: MyText
+  help: MyText
+  has_title: false
+  label_title: MyString
+  active: false
+  nesting: false
+  relation: false
+  path_root_url: false
+  comment: false
+  position: false

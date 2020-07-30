@@ -1,0 +1,38 @@
+<% set_url = @only_id.nil? ? (@obj_current.slug || @obj_current.id unless @obj_current.nil?) : @obj_current.id %>
+<% @cfield = true if @cfield.nil? %>
+<ul class="nav nav-tabs text-right">
+    <% if current_user.role == "1" %>
+
+  <li <% if "/admin/#{@entity_type.rel_model.pluralize.downcase}/new" == request.path %>class="active"<% end %>>
+    <a href="/admin/<%= @entity_type.rel_model.pluralize.downcase %>/new?entity_type=<%= @entity_type.id %>" title="<%= t('new') %> <%= @entity_type.name %>"><i class="zmdi zmdi-plus"></i></a>
+  </li>
+  <% end %>
+  <% if @obj_current.present? %>
+    <% unless @obj_current.id.nil? %>
+  <li <% if "/admin/#{@entity_type.rel_model.pluralize.downcase}/#{set_url}/edit" == request.path %>class="active"<% end %>>
+    <a href="/admin/<%= @entity_type.rel_model.pluralize.downcase %>/<%= set_url %>/edit" title="<%= t('editing') %>"><i class="zmdi zmdi-border-color"></i></a>
+  </li>
+  <% if current_user.role == "1" %>
+
+      <% if @cfield == true %>
+  <li <% if "/admin/#{@entity_type.rel_model.downcase}/#{set_url}/custom_fields" == request.path %>class="active"<% end %>>
+    <a href="<%= "/admin/#{@entity_type.rel_model.downcase}/#{set_url}/custom_fields" %>" title="<%= t('custom_field') %> <%= @obj_current.machine_name %>" ><i class="zmdi zmdi-format-align-center"></i></a>
+  </li>
+      <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <li <% if admin_entity_type_path(@entity_type) == request.path %>class="active"<% end %>>
+    <a href="<%= admin_entity_type_url(@entity_type) %>" title="<%= t('list') %> <%= @entity_type.name %>"><i class="zmdi zmdi-view-list-alt"></i></a>
+  </li>
+  <% if current_user.role == "1" %>
+
+  <li <% if edit_admin_entity_type_path(@entity_type) == request.path %>class="active"<% end %>>
+    <a href="<%= edit_admin_entity_type_url(@entity_type) %>" title="<%= t('edit_entity_type') %> <%= @entity_type.name %>"><i class="zmdi zmdi-settings"></i></a>
+  </li>
+  <li <% if admin_entity_type_fields_path(@entity_type) == request.path %>class="active"<% end %>>
+    <a href="<%= admin_entity_type_fields_url(@entity_type) %>" title="<%= t('fields_entity_type') %> <%= @entity_type.name %>"><i class="zmdi zmdi-format-align-right"></i></a>
+  </li>
+<% end %>
+</ul>

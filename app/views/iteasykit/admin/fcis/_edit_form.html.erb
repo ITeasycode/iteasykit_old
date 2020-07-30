@@ -1,0 +1,35 @@
+
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= t('field') %> - <%= fci.name %></h4>
+      </div>
+      <%= form_with(model: [:admin, fci], local: true, class: 'form-horizontal') do |form| %>
+      <div class="modal-body">
+
+        <div class="row">
+
+    <% if fci.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(fci.errors.count, "error") %> prohibited this fci from being saved:</h2>
+
+        <ul>
+          <% fci.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+            <%= render 'iteasykit/admin/fcis/list_field', form: form %>
+
+</div>
+      </div>
+      <div class="modal-footer">
+        <%= form.submit t('save'), class: "btn-info btn-lg" %>
+        <button type="button" class="btn btn-lg btn-default m-b-5" data-dismiss="modal"><%= t('close') %></button>
+      </div>
+          <% end %>
+    </div>
+  </div>

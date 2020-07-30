@@ -1,0 +1,8 @@
+<% content_for :entity_title do %><%= t('editing') %> <%= @block.title %>
+<% end %>
+<% content_for :pull_right do %>
+  <%= link_to '<i class="zmdi zmdi-long-arrow-return zmdi-hc-fw"></i>'.html_safe, admin_blocks_url %>
+<% end %>
+<%= render 'iteasykit/shared/admin/type_tabs', locals: [@obj_current = @block, @cfield = false, @only_id = true] %>
+<%= render 'form', block: @block %>
+

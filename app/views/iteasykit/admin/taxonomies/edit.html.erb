@@ -1,0 +1,10 @@
+<% content_for :entity_title do %><%= t('edit') %> <%= @entity_type.name %>
+<% end %>
+<% content_for :pull_right do %>
+  <%= link_to '<i class="zmdi zmdi-long-arrow-return zmdi-hc-fw"></i>'.html_safe, admin_entity_type_url(@entity_type) %>
+<% end %>
+<%= render 'iteasykit/shared/admin/type_tabs', locals: [@obj_current = @taxonomy] %>
+<p><%= t(:editing_category_news) %></p>
+
+<%= render 'form', taxonomy: @taxonomy %>
+

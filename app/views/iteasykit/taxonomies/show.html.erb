@@ -1,0 +1,8 @@
+<%= content_for :seo do %>
+  <%= render 'iteasykit/shared/default/seomore', locale: @model=@taxonomy %>
+<% end %>
+<% if @taxonomy.machine_name.nil? || @taxonomy.machine_name == '' %>
+  <%= render @taxonomy.iteasykit_entity_type.machine_name %>
+<% else %>
+  <%= render @taxonomy.machine_name %>
+<% end %>

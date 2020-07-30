@@ -1,0 +1,80 @@
+<aside class="sidebar">
+  <ul class="nav metismenu">
+    <li><a href="/admin/page/dashboard"><i class="zmdi zmdi-view-dashboard"></i><%= t('dashboard') %></a></li>
+    <% if entity_type("Entity").present? %>
+    <li>
+      <a href="#"><i class="zmdi zmdi-collection-text"></i><%= t('entities') %><span class="zmdi arrow"></span></a>
+      <ul class="nav nav-inside collapse">
+        <li class="inside-title"><%= t('entities_list') %></li>
+        <% entity_type("Entity").each do |item| %>
+          <li><a href="<%= admin_entity_type_url(item) %>"><i class="zmdi zmdi-library"></i><%= t('list') %> <%= item.name %></a></li>
+        <% end %>
+        <li class="inside-title"><%= t('add_new_entity') %></li>
+        <% entity_type("Entity").each do |item| %>
+          <li><a href="/admin/<%= item.rel_model.pluralize.downcase %>/new?entity_type=<%= item.id %>">
+            <i class="zmdi zmdi-library"></i><%= t('new') %> <%= item.name %></a></li>
+        <% end %>
+      </ul>
+    </li>
+    <% end %>
+    <li><a href="<%= admin_entity_types_url %>"><i class="zmdi zmdi-library"></i><%= t('entities_type') %></a></li>
+    <li><a href="<%= admin_menus_url %>"><i class="zmdi zmdi-menu"></i><%= t('menu') %></a></li>
+    <li><a href="<%= admin_blocks_url %>"><i class="zmdi zmdi-collection-item"></i><%= t('blocks') %></a></li>
+    <% if entity_type("Taxonomy").present? %>
+    <li>
+      <a href="#"><i class="zmdi zmdi-bookmark"></i><%= t('taxonomies') %><span class="zmdi arrow"></span></a>
+      <ul class="nav nav-inside collapse">
+        <li class="inside-title"><%= t('taxonomies_list') %></li>
+        <% entity_type("Taxonomy").each do |item| %>
+          <li><a href="<%= admin_entity_type_url(item) %>"><i class="zmdi zmdi-library"></i><%= t('list') %> <%= item.name %></a></li>
+        <% end %>
+        <li class="inside-title"><%= t('add_new_taxonomy') %></li>
+        <% entity_type("Taxonomy").each do |item| %>
+          <li><a href="/admin/<%= item.rel_model.pluralize.downcase %>/new?entity_type=<%= item.id %>">
+            <i class="zmdi zmdi-library"></i><%= t('new') %> <%= item.name %></a></li>
+        <% end %>
+
+      </ul>
+    </li>
+      <% end %>
+    <% if entity_type("Form").present? %>
+      <li>
+        <a href="#"><i class="zmdi zmdi-assignment"></i><%= t('forms') %><span class="zmdi arrow"></span></a>
+        <ul class="nav nav-inside collapse">
+          <li class="inside-title"><%= t('forms_list') %></li>
+          <% entity_type("Form").each do |item| %>
+            <li><a href="<%= admin_entity_type_url(item) %>"><i class="zmdi zmdi-library"></i><%= t('list') %> <%= item.name %></a></li>
+          <% end %>
+          <li class="inside-title"><%= t('add_new_form') %></li>
+          <% entity_type("Form").each do |item| %>
+            <li><a href="/admin/<%= item.rel_model.pluralize.downcase %>/new?entity_type=<%= item.id %>">
+              <i class="zmdi zmdi-library"></i><%= t('new') %> <%= item.name %></a></li>
+          <% end %>
+
+        </ul></li>
+    <% end %>
+    <% if entity_type("Cell").present? %>
+    <li>
+      <a href="#"><i class="zmdi zmdi-layers"></i><%= t('cells') %><span class="zmdi arrow"></span></a>
+      <ul class="nav nav-inside collapse">
+        <li class="inside-title"><%= t('cells_list') %></li>
+        <% entity_type("Cell").each do |item| %>
+          <li><a href="<%= admin_entity_type_url(item) %>"><i class="zmdi zmdi-library"></i><%= t('list') %> <%= item.name %></a></li>
+        <% end %>
+        <li class="inside-title"><%= t('add_new_cell') %></li>
+        <% entity_type("Cell").each do |item| %>
+          <li><a href="/admin/<%= item.rel_model.pluralize.downcase %>/new?entity_type=<%= item.id %>">
+            <i class="zmdi zmdi-library"></i><%= t('new') %> <%= item.name %></a></li>
+        <% end %>
+
+      </ul></li>
+    <% end %>
+    <!--class="current-block active"-->
+    <li>
+      <a href="#"><i class="zmdi zmdi-settings"></i><%= t('settings') %><span class="zmdi arrow"></span></a>
+      <ul class="nav nav-inside collapse">
+        <li class="inside-title"><%= t('system_setting') %></li>
+      </ul>
+    </li>
+  </ul>
+</aside>

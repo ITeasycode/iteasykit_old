@@ -1,0 +1,32 @@
+<div class="row">
+  <%= form_with(model: [:admin, @fci], local: true, class: 'form-horizontal') do |form| %>
+    <% if @fci.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@fci.errors.count, "error") %> prohibited this fci from being saved:</h2>
+
+        <ul>
+          <% @fci.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= render 'iteasykit/admin/fcis/list_field', form: form %>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.hidden_field :fciable_type, value: @type %>
+
+
+
+          <%= form.hidden_field :fciable_id, value: @id %>
+
+
+          <%= form.submit t('save'), class: "btn-success btn-lg" %>
+
+
+      </div>
+    </div>
+  <% end %>
+</div>

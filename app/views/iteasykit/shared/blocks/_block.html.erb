@@ -1,0 +1,22 @@
+<% if @block.system? %>
+
+    <%= render 'iteasykit/shared/blocks/system/'+@block.machine_name, locale: @model=@block %>
+<% else %>
+    <% unless @block.iteasykit_entity_type_id.nil? %>
+        <% if FileTest.exists?('app/themes/'+theme_resolver+'/views/iteasykit/blocks/_'+@block.machine_name+'.html.erb') %>
+            <%= render 'iteasykit/blocks/'+@block.machine_name+'.html.erb', locale: @model=@block %>
+        <% else %>
+            <% if FileTest.exists?('app/themes/'+theme_resolver+'/views/iteasykit/blocks/_'+@block.iteasykit_entity_type.machine_name+'.html.erb') %>
+                <%= render 'iteasykit/blocks/'+@block.iteasykit_entity_type.machine_name+'.html.erb', locale: @model=@block %>
+            <% else %>
+                <%= render 'iteasykit/shared/fields/dynamic_field', locale: @model=@block %>
+            <% end %>
+        <% end %>
+    <% else %>
+        <% if FileTest.exists?('app/themes/'+theme_resolver+'/views/iteasykit/blocks/_'+@block.machine_name+'.html.erb') %>
+            <%= render 'iteasykit/blocks/'+@block.machine_name+'.html.erb', locale: @model=@block %>
+        <% else %>
+            <%= render 'iteasykit/shared/fields/dynamic_field', locale: @model=@block %>
+        <% end %>
+    <% end %>
+<% end %>

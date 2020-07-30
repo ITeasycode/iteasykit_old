@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Noindex:</strong>
+  <%= @seomore.noindex %>
+</p>
+
+<p>
+  <strong>Nofollow:</strong>
+  <%= @seomore.nofollow %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @seomore.title %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @seomore.keywords %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @seomore.description %>
+</p>
+
+<p>
+  <strong>Canonical:</strong>
+  <%= @seomore.canonical %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @seomore.author %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @seomore.publisher %>
+</p>
+
+<p>
+  <strong>Alternate:</strong>
+  <%= @seomore.alternate %>
+</p>
+
+<p>
+  <strong>Refresh:</strong>
+  <%= @seomore.refresh %>
+</p>
+
+<%= link_to 'Edit', edit_seomore_path(@seomore) %> |
+<%= link_to 'Back', seomores_path %>

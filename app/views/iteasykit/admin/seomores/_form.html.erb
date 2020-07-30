@@ -1,0 +1,74 @@
+<%= form.fields_for :iteasykit_seomore do |f| %>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('title') %></label>
+    <%= f.text_field :title, class: "form-control input-sm" %>
+    <span class="help-block"><small>Title</small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('keywords') %></label>
+    <%= f.text_field :keywords, class: "form-control input-sm" %>
+    <span class="help-block"><small>Keywords</small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('description') %></label>
+    <%= f.text_area :description, class: "form-control" %>
+    <span class="help-block"><small>description</small></span>
+  </div>
+  <div class="form-group">
+    <label class="control-label"><%= t('canonical') %></label>
+    <%= f.text_field :canonical, class: "form-control input-sm" %>
+    <span class="help-block"><small>canonical</small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('author') %></label>
+    <%= f.text_field :author, class: "form-control input-sm" %>
+    <span class="help-block"><small>author</small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('publisher') %></label>
+    <%= f.text_field :publisher, class: "form-control input-sm" %>
+    <span class="help-block"><small>publisher</small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('alternate') %></label>
+    <%= f.text_field :alternate, class: "form-control input-sm" %>
+    <span class="help-block"><small>alternate</small></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('refresh') %></label>
+    <%= f.text_field :refresh, class: "form-control input-sm" %>
+    <span class="help-block"><small>refresh</small></span>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="control-label warning-color">
+          <%= t('noindex') %>
+          <%= f.check_box :noindex, class: "toggle toggle-success" %>
+          <i></i>
+        </label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="control-label warning-color">
+
+          <%= t('nofollow') %>
+          <%= f.check_box :nofollow, class: "toggle toggle-success" %>
+          <i></i>
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+<% end %>

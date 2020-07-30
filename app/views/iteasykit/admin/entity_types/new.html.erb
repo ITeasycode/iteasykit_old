@@ -1,0 +1,7 @@
+<% content_for :entity_title do %><%= t('new_entity_type') %>
+<% end %>
+<p><%= t(:new_type_object) %></p>
+<% content_for :pull_right do %>
+  <%= link_to '<i class="zmdi zmdi-long-arrow-return zmdi-hc-fw"></i>'.html_safe, admin_entity_types_url %>
+<% end %>
+<%= render 'form', entity_type: @entity_type %>

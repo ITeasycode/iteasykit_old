@@ -1,0 +1,8 @@
+<%= content_for :seo do %>
+  <%= render 'iteasykit/shared/default/seomore', locale: @model=@entity %>
+<% end %>
+<% if @entity.machine_name.nil? || @entity.machine_name == '' %>
+  <%= render @entity.iteasykit_entity_type.machine_name %>
+<% else %>
+  <%= render @entity.machine_name %>
+<% end %>

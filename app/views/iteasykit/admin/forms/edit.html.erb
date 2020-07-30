@@ -1,0 +1,8 @@
+<% content_for :entity_title do %><%= t('editing') %> <%= @entity_type.name %>
+<% end %>
+<% content_for :pull_right do %>
+
+<% end %>
+<%= render 'iteasykit/shared/admin/type_tabs', locals: [@obj_current = @form, @cfield = false] %>
+<p><%= t(:edit_new_form) %></p>
+<%= render 'form', formt: @form %>

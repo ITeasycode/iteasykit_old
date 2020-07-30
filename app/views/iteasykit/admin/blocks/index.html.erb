@@ -1,0 +1,84 @@
+<% content_for :entity_title do %><%= t('list_blocks') %>
+<% end %>
+<% @block_entity_types.each do |bet| %>
+  <a href="/admin/blocks/new/?entity_type=<%= bet.id %>" class="btn btn-info btn-sm" style='color: white!important;'>
+    <%= t('new') %> <%= bet.name %>
+  </a>
+<% end %>
+<br><br>
+<div id="row">
+  <% theme_setting['regions'].each do |region, details| %>
+
+    <div class="content-box">
+      <div class="head head-border danger-color">
+        <h5 class="content-title danger-color"> <%= t('region_theme') %> - <%= details %></h5>
+      </div>
+
+      <div class="content">
+    <ul data-id="<%= region.downcase %>" id="sortable-head" class="sortable-block">
+      <li class="clearfix header dontsortme no-nest">
+        <div class="listitem-drag">
+          <i class="zmdi zmdi-arrows zmdi-hc-fw"></i>
+        </div>
+        <div class="listitem-name" style="width:80%;">
+          <%= t('block_info') %>
+        </div>
+        <div class="listitem-action" style="width:15%;">
+          <%= t(:action) %>
+        </div>
+      </li>
+    </ul>
+    <ul data-id="<%= region.downcase %>" class="sortable-block">
+      <% @blocks.where(region: region).each do |block| %>
+        <li data-id="<%= block.id %>" class="no-nest">
+          <div class="listitem-drag handle"><i class="zmdi zmdi-arrows zmdi-hc-fw"></i></div>
+          <div class="listitem-name" style="width:80%;">(<%= block.id %>) <b><%= block.admin_name %></b>
+            - <%= block.iteasykit_entity_type.name unless block.iteasykit_entity_type.nil? %> - <%= block.machine_name %></div>
+          <div class="listitem-action" style="width:15%;">
+            <%= link_to ' ', edit_admin_block_path(block), class: 'glyphicon glyphicon-pencil' %>
+            <%= link_to ' ', [:admin, block], method: :delete, data: {confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-remove' %>
+          </div>
+        </li><br>
+      <% end %>
+    </ul>
+    </br>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="content-box">
+    <div class="head head-border danger-color">
+      <h5 class="content-title danger-color">   <%= t('not_activated') %></h5>
+    </div>
+
+    <div class="content">
+  <ul id="sortable-head" class="sortable-block">
+    <li class="clearfix header dontsortme no-nest">
+      <div class="listitem-drag">
+        <i class="zmdi zmdi-arrows zmdi-hc-fw" ></i>
+      </div>
+      <div class="listitem-name" style="width:80%;">
+        <%= t('block_info') %>
+      </div>
+      <div class="listitem-action" style="width:15%;">
+        <%= t(:action) %>
+      </div>
+    </li>
+  </ul>
+  <ul data-id="" class="sortable-block">
+    <% @blocks.where("iteasykit_blocks.region = ? OR iteasykit_blocks.region = ?", '', 'undefined').each do |block| %>
+
+      <li data-id="<%= block.id %>" class="no-nest">
+        <div class="listitem-drag handle" ><i class="zmdi zmdi-arrows zmdi-hc-fw"></i></div>
+        <div class="listitem-name" style="width:80%;">(<%= block.id %>) <b><%= block.admin_name %></b>
+          - <%= block.iteasykit_entity_type.name unless block.iteasykit_entity_type.nil? %> - <%= block.machine_name %></div>
+        <div class="listitem-action" style="width:15%;">
+          <%= link_to ' ', edit_admin_block_path(block), class: 'glyphicon glyphicon-pencil' %>
+          <%= link_to ' ', [:admin, block], method: :delete, data: {confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-remove' %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+  </div>
+</div>

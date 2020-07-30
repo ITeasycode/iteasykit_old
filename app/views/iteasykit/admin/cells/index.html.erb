@@ -1,0 +1,16 @@
+{<% Iteasykit::Entity.find(16).cells(19) do |cell4| %>
+
+  <% cell = cell4 %>
+  <% id= cell.id %>
+  {
+"foto19": "<%= cell.field(:foto19).filename %>",
+"strana19" " <%= cell.field(:strana19) %>",
+      "sayt19": "<%= cell.field(:sayt19) %>",
+      "email19": "<%= cell.field(:email19) %>",
+      "geodannye19": "<%= cell.field(:geodannye19) %>",
+
+      "adres_na_karte19": "<%= cell.field(:adres_na_karte19) %>",
+                
+            "telefony19": "<%= cell.field(:telefony19, true) %>"
+  },
+<% end %>}

@@ -1,0 +1,110 @@
+<%= form_with(model: [:admin, entity_type], local: true) do |form| %>
+  <% if entity_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(entity_type.errors.count, "error") %> prohibited this entity_type from being saved:</h2>
+
+      <ul>
+        <% entity_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label"><%= t('name') %></label>
+      <%= form.text_field :name, class: "form-control input-sm" %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label"><%= t('machine_name') %></label>
+      <%= form.text_field :machine_name, class: "form-control input-sm" %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label"><%= t('type') %></label>
+      <%= form.select(:rel_model, ['Entity', 'Taxonomy', 'Block', 'Cell', 'Form'], {include_blank: false}, class: "form-control input-sm input-warning") %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label"><%= t('set_title') %></label>
+      <%= form.select(:id_title_fci, @entity_type.fcis.where(type_fci: 'string').map {|et| [et.name, et.id]},
+                      {include_blank: true}, class: "form-control input-sm input-warning") %>
+    </div>
+  </div>
+  <div class="col-md-6">
+
+    <div class="form-group">
+      <label class="control-label"><%= t('description') %></label>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label class="control-label"><%= t('help') %></label>
+      <%= form.text_area :help, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        <%= t('active') %>
+        <%= form.check_box :active, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        <%= t('set_nesting') %>
+        <%= form.check_box :nesting, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        <%= t('set_relation') %>
+        <%= form.check_box :relation, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        <%= t('path_root_url') %>
+        <%= form.check_box :path_root_url, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        <%= t('comment') %>
+        <%= form.check_box :comment, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label class="control-label text-color">
+        <%= t('position') %>
+        <%= form.check_box :position, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit t('save'), class: "btn-success btn-lg" %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  help: MyText
+  placeholder: MyString
+  value: MyText
+  prefix: MyString
+  suffix: MyString
+  elementcls: MyString
+  idcls: MyString
+  classcls: MyString
+  machine_name: MyString
+  active: false
+  is_required: false
+  position: 1
+  is_filter: false
+  is_multi: false
+  fciable_type: MyString
+  fciable_id: 1
+
+two:
+  name: MyString
+  help: MyText
+  placeholder: MyString
+  value: MyText
+  prefix: MyString
+  suffix: MyString
+  elementcls: MyString
+  idcls: MyString
+  classcls: MyString
+  machine_name: MyString
+  active: false
+  is_required: false
+  position: 1
+  is_filter: false
+  is_multi: false
+  fciable_type: MyString
+  fciable_id: 1

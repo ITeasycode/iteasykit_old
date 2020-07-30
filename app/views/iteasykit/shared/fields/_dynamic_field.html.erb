@@ -1,0 +1,15 @@
+<% (@model.fcis+@model.iteasykit_entity_type.fcis).each do |namefield| %>
+    <% if namefield.active? %>
+        <%= @model.field(namefield.machine_name) %>
+    <% end %>
+<% end %>
+<% if @model.iteasykit_entity_type.relation? %>
+  <% @model.rel_cells.each do |rel_cell| %>
+    <% cell = rel_cell.iteasykit_cell %>
+    <% (cell.fcis+cell.iteasykit_entity_type.fcis).each do |namefield| %>
+      <% if namefield.active? %>
+        <%= cell.field(namefield.machine_name) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

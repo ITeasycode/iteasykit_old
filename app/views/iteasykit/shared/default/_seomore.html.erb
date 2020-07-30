@@ -1,0 +1,21 @@
+<% unless @model.nil? %>
+        <% @seo=@model.iteasykit_seomore %>
+        <% unless @seo.nil? %>
+            <% if @seo.title.nil? %>
+                <% @sst=@model.title %>
+                <%= display_meta_tags :title => @sst %>
+            <% end %>
+            <%= display_meta_tags :title => @seo.title,
+                                  :description => @seo.description,
+                                  :keywords => @seo.keywords,
+                                  :author => @seo.author,
+                                  :publisher => @seo.publisher,
+                                  :refresh => @seo.refresh,
+                                  :canonical => @seo.canonical
+            %>
+            <%= display_meta_tags :noindex => true if @seo.noindex? %>
+        <% else %>
+            <% @sst=@model.title %>
+            <%= display_meta_tags :title => @sst %>
+        <% end %>
+<% end %>

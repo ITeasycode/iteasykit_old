@@ -1,0 +1,219 @@
+en:
+  i18n:
+    transliterate:
+      rule:
+        а: a
+        б: b
+        в: v
+        г: g
+        д: d
+        е: e
+        ж: zh
+        з: z
+        и: i
+        й: y
+        к: k
+        л: l
+        м: m
+        н: n
+        о: o
+        п: p
+        р: r
+        с: s
+        т: t
+        у: u
+        ф: f
+        х: h
+        ц: ts
+        ч: ch
+        ш: sh
+        щ: sch
+        ъ:
+        ы: y
+        ь:
+        э: e
+        ю: yu
+        я: ya
+        А: A
+        Б: B
+        В: V
+        Г: G
+        Д: D
+        Е: E
+        Ж: ZH
+        З: Z
+        И: I
+        Й: Y
+        К: K
+        Л: L
+        М: M
+        Н: N
+        О: O
+        П: P
+        Р: R
+        С: S
+        Т: T
+        У: U
+        Ф: F
+        Х: H
+        Ц: TS
+        Ч: CH
+        Ш: SH
+        Щ: SCH
+        Ъ:
+        Ы: Y
+        Ь:
+        Э: E
+        Ю: YU
+        Я: YA
+  name: "Name"
+  machine_name: "Machine name"
+  type: "Type"
+  set_title: "Set title"
+  description: "Description"
+  help: "Help"
+  active: "Active"
+  nesting: "Nesting:"
+  set_nesting: "Set nesting"
+  relation: "Relation:"
+  path_root_url: "Path root url:"
+  comment: "Comment:"
+  position: "Position"
+  new: "New"
+  list: "List"
+  edit_entity_type: "Edit entity type"
+  fields_entity_type: "Fields entity type"
+  drop: "Drop"
+  id: "Id"
+  is_required: "Is required"
+  is_multi: "Is multi"
+  is_filter: "Is filter"
+  action: "Action"
+  list_field: "List field"
+  add_new_field: "Add new field"
+  placeholder: "Placeholder"
+  value: "Value"
+  prefix: "Prefix"
+  suffix: "Suffix"
+  element_html: "Element html"
+  class: "Class"
+  field_and_objects: "Field and objects:"
+  visible_block: "Visible block"
+  type_url: "Type url"
+  url_list: "Url list"
+  type_entity_type: "Type Entity Type"
+  entity_type_lists: "Entity type lists"
+  settings: "Settings:"
+  admin_name: "Admin name"
+  admin_description: "Admin description"
+  region: "Region"
+  entitys_type: "Entity Type"
+  entity_type: "Entity Type"
+  no_edit: "No edit"
+  machine_name_for_theme: "Machine name for theme"
+  element: "Element"
+  system: "System:"
+  relation_cells: "Relation cells:"
+  edit_block: "Edit Block"
+  custom_field: "Custom field"
+  blocks_for_region: "Blocks for region"
+  entities: "Entities"
+  add_new_entity: "Add new entity"
+  entities_type: "Entities Type"
+  menu: "Menu"
+  blocks: "Blocks"
+  taxonomies: "Taxonomies"
+  taxonomies_list: "Taxonomies list"
+  add_new_taxonomy: "Add new taxonomy"
+  cells: "Cells"
+  cells_list: "Cells list"
+  add_new_cell: "Add new cell"
+  system_setting: "System setting"
+  entities_list: "Entities list"
+  group: "Group"
+  group_cells_available: "Group cells. Available:"
+  position_cells: "Position cells"
+  sticky: "Sticky"
+  close: "Close"
+  cell: "Cell"
+  title: "Title"
+  editing: "Editing"
+  url: "Url"
+  category_taxonomy: "Category|Taxonomy"
+  all_category: "all category"
+  model: "Model"
+  list_entity_types: "List entity types"
+  entity_list_in: "Entity list in"
+  field: "Field"
+  save: "Save"
+  edit_item: "Edit item"
+  id_element: "Id element"
+  not_default: "Not default"
+  class_element: "Class element"
+  default_machine_name: "Default - machine name"
+  editing_menu: "Editing menu"
+  list_menu_items: "List menu items"
+  add_new_item_menu: "Add new item menu"
+  list_menu: "List menu"
+  new_menu: "New Menu"
+  taxonomy_type: "Taxonomy Type"
+  position_on_list: "Position on list"
+  blocked: "Blocked"
+  edit: "Edit"
+  add_new: "Add new"
+  standard_fields: "Standard fields"
+  custom_current_entity_field: "Custom current entity field"
+  help_list_menu: "Help list menu"
+  create_new_menu: "Create a new menu"
+  control_menu: "Menu management. Here you can change the data of your menu, as well as manage the menu list"
+  help_list_entity: "List of records is models with their own paths, have their own menu items, meta tags and are available for self-viewing
+                     on the site. Used for pages, articles, blogs, products, etc."
+  add_new_object: "Add new object"
+  edit_type_objectnews: "Here you can edit the type of object and news"
+  field_type_object: "Here you can see the list of fields. Adding new fields for objects"
+  set_category: "Set category"
+  dashboard: "Dashboard"
+  total_entities: "Total Entities"
+  forms: "Forms"
+  forms_list: "List forms"
+  add_new_form: "Add new forms"
+  brand: "Logo"
+  navigation: "Navigation"
+  sidebar: "sidebar"
+  fixed_header: "Fixed header"
+  boxed_layout: "Boxed Layout"
+  fixed_sidebar: "Fixed Sidebar"
+  light_menu: "Light Menu"
+  icon_menu: "Icon Menu"
+  horizontal_icon_menu: "Horizontal Icon Menu"
+  reset: "Reset"
+  new_entity_type: "New entity type"
+  calc: "Calculation"
+  list_blocks: "List blocks"
+  region_theme: "Region theme"
+  block_info: "Block info"
+  not_activated: "Not activated"
+  fields_in: "Fields in"
+  list_of_type_object: "List of object types here you can create the necessary types of all kinds of site data (Pages, blocks,
+   comments, taxonomies, etc."
+  new_type_object: "Here you can create a new object type"
+  editing_category_news: "Here you can edit the news category"
+  keywords: "Keywords"
+  canonical: "Canonical"
+  author: "Author"
+  publisher: "Publisher"
+  alternate: "Alternate"
+  refresh: "Refresh"
+  noindex: "Noindex"
+  nofollow: "Nofollow"
+  editing_entity_type: "Editing entity type"
+  entity: "Entity"
+  fields_in_custom: "Fields in custom"
+  group_forms: "Group Forms Available"
+  new_block: "New block"
+
+
+
+
+
+

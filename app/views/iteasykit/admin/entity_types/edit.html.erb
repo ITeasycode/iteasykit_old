@@ -1,0 +1,8 @@
+<% content_for :entity_title do %><%= t('editing_entity_type') %> - <%= @entity_type.name %>
+<% end %>
+<% content_for :pull_right do %>
+  <%= link_to '<i class="zmdi zmdi-long-arrow-return zmdi-hc-fw"></i>'.html_safe, admin_entity_types_url %>
+<% end %>
+<%= render 'iteasykit/shared/admin/type_tabs' %>
+<p><%= t(:edit_type_objectnews) %></p>
+<%= render 'form', entity_type: @entity_type %>

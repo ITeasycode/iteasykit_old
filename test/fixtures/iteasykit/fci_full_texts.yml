@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shortvalue: MyText
+  value: MyText
+  format_field: MyString
+  iteasykit_fci: one
+  fieldable_type: MyString
+  fieldable_id: 1
+
+two:
+  shortvalue: MyText
+  value: MyText
+  format_field: MyString
+  iteasykit_fci: two
+  fieldable_type: MyString
+  fieldable_id: 1

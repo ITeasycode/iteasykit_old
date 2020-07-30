@@ -1,0 +1,117 @@
+
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('name') %></label>
+  <div class="col-sm-8">
+    <%= form.text_field :name, class: "form-control input-sm", required: true %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('type') %></label>
+  <div class="col-sm-8">
+    <%= form.select(:type_fci, [['String', 'string'], ['Full Text', 'full_text'], ['Text', 'text'],
+                                ['List String', 'list_string'], ['Integer', 'integer'], ['Boolean', 'boolean'], ['Image', 'image']],
+                    {include_blank: false}, class: "form-control input-sm input-warning") %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('help') %></label>
+  <div class="col-sm-8">
+    <%= form.text_area :help, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('placeholder') %></label>
+  <div class="col-sm-8">
+    <%= form.text_field :placeholder, class: "form-control input-sm" %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('value') %></label>
+  <div class="col-sm-8">
+    <%= form.text_field :value, class: "form-control input-sm" %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('prefix') %></label>
+  <div class="col-sm-8">
+    <%= form.text_field :prefix, class: "form-control input-sm" %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('suffix') %></label>
+  <div class="col-sm-8">
+    <%= form.text_field :suffix, class: "form-control input-sm" %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('element_html') %></label>
+  <div class="col-sm-8">
+    <%= form.text_field :elementcls, class: "form-control input-sm" %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('id') %> </label>
+  <div class="col-sm-8">
+    <%= form.text_field :idcls, class: "form-control input-sm" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('class') %> </label>
+  <div class="col-sm-8">
+    <%= form.text_field :classcls, class: "form-control input-sm" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('machine_name') %> </label>
+  <div class="col-sm-8">
+    <%= form.text_field :machine_name, class: "form-control input-sm" %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-sm-4 control-label"><%= t('position') %> </label>
+  <div class="col-sm-8">
+    <%= form.number_field :position, class: "form-control input-sm" %>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label text-color">
+        <%= t('active') %>
+        <%= form.check_box :active, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label text-color">
+        <%= t('is_required') %>
+        <%= form.check_box :is_required, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label text-color">
+        <%= t('is_filter') %>
+        <%= form.check_box :is_filter, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label text-color">
+        <%= t('is_multi') %>
+        <%= form.check_box :is_multi, class: "toggle toggle-success" %>
+        <i></i>
+      </label>
+    </div>
+  </div>
+</div>

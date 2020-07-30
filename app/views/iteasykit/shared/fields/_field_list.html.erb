@@ -1,0 +1,21 @@
+<% if @entity_type.fcis.present? %>
+<h4 style="border-bottom: 4px solid #49ceff;"><%= t('standard_fields') %></h4>
+<% @entity_type.fcis.each do |fci| %>
+  <div class="form-group">
+    <label class="control-label"><%= fci.name %></label>
+    <%= fci.type_field(@object) %>
+    <span class="help-block"><small><%= fci.help %></small></span>
+
+  </div>
+<% end %>
+<% end %>
+<% if @object.fcis.present? %>
+<h4 style="border-bottom: 4px solid #49ceff;"><%= t('custom_current_entity_field') %></h4>
+<% @object.fcis.each do |fci| %>
+  <div class="form-group">
+    <label class="control-label"><%= fci.name %></label>
+    <%= fci.type_field(@object) %>
+    <span class="help-block"><small><%= fci.help %></small></span>
+
+  </div>
+<% end %><% end %>

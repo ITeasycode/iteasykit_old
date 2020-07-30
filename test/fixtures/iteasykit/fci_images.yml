@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  alt: MyString
+  iteasykit_fci: one
+  fieldable_type: MyString
+  fieldable_id: 1
+
+two:
+  title: MyString
+  alt: MyString
+  iteasykit_fci: two
+  fieldable_type: MyString
+  fieldable_id: 1

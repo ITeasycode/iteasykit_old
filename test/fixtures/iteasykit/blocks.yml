@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admin_name: MyString
+  region: MyString
+  type_url: MyString
+  url: MyText
+  etl_type: MyString
+  entity_type_lists: MyText
+  description_admin: MyText
+  machine_name: MyString
+  active: 
+  position: 1
+  system: false
+  iteasykit_entity_type: one
+  elementcls: MyString
+  idcls: MyString
+  csscls: MyString
+
+two:
+  admin_name: MyString
+  region: MyString
+  type_url: MyString
+  url: MyText
+  etl_type: MyString
+  entity_type_lists: MyText
+  description_admin: MyText
+  machine_name: MyString
+  active: 
+  position: 1
+  system: false
+  iteasykit_entity_type: two
+  elementcls: MyString
+  idcls: MyString
+  csscls: MyString

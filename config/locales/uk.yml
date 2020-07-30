@@ -1,0 +1,213 @@
+uk:
+  i18n:
+    transliterate:
+      rule:
+        а: a
+        б: b
+        в: v
+        г: g
+        д: d
+        е: e
+        ж: zh
+        з: z
+        и: i
+        й: y
+        к: k
+        л: l
+        м: m
+        н: n
+        о: o
+        п: p
+        р: r
+        с: s
+        т: t
+        у: u
+        ф: f
+        х: h
+        ц: ts
+        ч: ch
+        ш: sh
+        щ: sch
+        ъ:
+        ы: y
+        ь:
+        э: e
+        ю: yu
+        я: ya
+        А: A
+        Б: B
+        В: V
+        Г: G
+        Д: D
+        Е: E
+        Ж: ZH
+        З: Z
+        И: I
+        Й: Y
+        К: K
+        Л: L
+        М: M
+        Н: N
+        О: O
+        П: P
+        Р: R
+        С: S
+        Т: T
+        У: U
+        Ф: F
+        Х: H
+        Ц: TS
+        Ч: CH
+        Ш: SH
+        Щ: SCH
+        Ъ:
+        Ы: Y
+        Ь:
+        Э: E
+        Ю: YU
+        Я: YA
+  name: "Им'я"
+  machine_name: "Системне ім'я"
+  type: "Тип"
+  set_title: "Встановити заголовок"
+  description: "Опис"
+  help: "Допомога"
+  active: "Активний"
+  nesting: "Вкладеність:"
+  set_nesting: "Дозволити осередок:"
+  relation: "Зв'язок:"
+  set_relation: "Дозволити вкладеність"
+  path_root_url: "URL-Адрес з корня:"
+  comment: "Комментарій:"
+  position: "Сортування"
+  new: "Новий"
+  list: "Перелік"
+  edit_entity_type: "Редагувати тип об'єкта"
+  fields_entity_type: "Поля типу об'єкта"
+  drop: "Переміщення"
+  id: "Id"
+  is_required: "Обов'язково"
+  is_multi: "Множинне"
+  is_filter: "Фільтр"
+  action: "Дія"
+  list_field: "Перелік полів"
+  add_new_field: "Додати нове поле"
+  placeholder: "Заповнювач"
+  value: "Значення"
+  prefix: "Префікс"
+  suffix: "Суфікс"
+  element_html: "Елемент html"
+  class: "Class"
+  field_and_objects: "Поля та об'єкти:"
+  visible_block: "Видимість блоку"
+  type_url: "Тип url"
+  url_list: "Url перелік"
+  type_entity_type: "Тип сутності об'єкта"
+  entity_type_lists: "Переліки типу об'єкта"
+  settings: "Налаштування"
+  admin_name: "Адміністративне ім'я"
+  admin_description: "Адміністративний опис"
+  region: "Регіон"
+  entity_type: "Тип об'єкта"
+  entitys_type: "типу об'єкта"
+  no_edit: "Не редагувати"
+  machine_name_for_theme: "Системне ім'я для теми"
+  element: "Елементи"
+  system: "Системний:"
+  relation_cells: "Підвязаний осередок:"
+  edit_block: "Редагувати блок"
+  custom_field: "Додаткове поле"
+  blocks_for_region: "Блок для регіону"
+  entities: "Об'єкти"
+  add_new_entity: "Додати новий об'єкт"
+  entities_type: "Тип об'єктів"
+  menu: "Меню"
+  blocks: "Блоки"
+  taxonomies: "Таксономія"
+  taxonomies_list: "Перелік таксономії"
+  add_new_taxonomy: "Додати нову таксономію"
+  cells: "Осередки"
+  cells_list: "Перелік осередків"
+  add_new_cell: "Додати новий осередок"
+  system_setting: "Системні налаштування"
+  entities_list: "Перелік об'єктів"
+  group: "Група"
+  group_cells_available: "Група осередків. Доступно:"
+  position_cells: "Сортування осередків"
+  sticky: "Закріплений"
+  close: "Закрити"
+  cell: "Осередок"
+  title: "Заголовок"
+  editing: "Редагування"
+  url: "Url"
+  category_taxonomy: "Категорія|Таксономія"
+  all_category: "всі категорії"
+  model: "Модель"
+  list_entity_types: "Перелік типу об'єктів"
+  entity_list_in: "Список об'єктів в"
+  field: "Поле"
+  save: "Зберегти"
+  edit_item: "Редагувати елемент"
+  id_element: "Id елемент"
+  not_default: "Відсутнє"
+  class_element: "Class елемент"
+  default_machine_name: "За замовчуванням - системне ім'я"
+  editing_menu: "Редагувати меню"
+  list_menu_items: "Перелік меню елементів"
+  add_new_item_menu: "Додати новий елемент меню"
+  list_menu: "Перелік меню"
+  new_menu: "Нове меню"
+  taxonomy_type: "Тип таксономії"
+  position_on_list: "Сортування в списку"
+  blocked: "Заблокований"
+  edit: "Редагування"
+  add_new: "Додати нову"
+  standard_fields: "Стандартні поля"
+  custom_current_entity_field: "Додаткові поля об'єкту"
+  help_list_menu: "Список меню на сайті, тут можна створювати та редагувати меню"
+  create_new_menu: "Створення нового меню"
+  control_menu: "Управління меню. Тут ви можете змінювати дані вашого меню а також управляти списком меню"
+  help_list_entity: "Список записів це моделі з власними шляхами, мають власні пункти меню, мета теги і доступні для
+   самостійного перегляду на сайті. Використовуються для сторінок, статей, блогів, продуктів і т.д."
+  add_new_object: "Додавання нового об'єкту"
+  edit_type_objectnews: "Тут ви можете редагувати тип об'єкту"
+  field_type_object: "Тут ви можете бачити список полів. Додавання нових полів для об'єкта"
+  set_category: "Вибрати категорію"
+  dashboard: "Дошка"
+  total_entities: "Всього об'єктів"
+  forms: "Форми"
+  forms_list: "Список форм"
+  add_new_form: "Додати нову форму"
+  logo: "Лого"
+  navigation: "Навігація"
+  sidebar: "Бокова панель"
+  fixed_header: "фіксована шапка"
+  boxed_layout: "Фіксований контент"
+  fixed_sidebar: "фіксована бокова панель"
+  light_menu: "Полегшене меню"
+  icon_menu: "Меню іконок"
+  horizontal_icon_menu: "Горизонтальне меню іконок"
+  reset: "Скинути"
+  new_entity_type: "Новий тип об'єкту"
+  calc: "Калькуляція"
+  list_blocks: "Список блоків"
+  region_theme: "Регіон теми"
+  block_info: "Информация"
+  not_activated: "Не активний"
+  fields_in: "Поля в"
+  list_of_type_object: "Список типів об'єктів тут ви можете створювати потрібні типи всіх видів даних сайту (сторінки, блоки,
+                        коментарі, таксономії і т.д.)"
+  new_type_object: "Тут можна створити новий тип об'экту"
+  editing_category_news: "Тут можна редагувати категорію новини"
+  keywords: "Ключові слова"
+  canonical: "Канонікал"
+  author: "Автор"
+  publisher: "Видавник"
+  alternate: "Альтернативний варіант"
+  refresh: "Оновлення"
+  noindex: "Noindex"
+  editing_entity_type: "Редагування типу об'єкта"
+  entity: "об'єкт"
+  fields_in_custom: "Додаткові поля в"
+  group_forms: "Доступні групи"
+  new_block: "Новий блок"

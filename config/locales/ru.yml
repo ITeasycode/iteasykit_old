@@ -1,0 +1,214 @@
+ru:
+  i18n:
+    transliterate:
+      rule:
+        а: a
+        б: b
+        в: v
+        г: g
+        д: d
+        е: e
+        ж: zh
+        з: z
+        и: i
+        й: y
+        к: k
+        л: l
+        м: m
+        н: n
+        о: o
+        п: p
+        р: r
+        с: s
+        т: t
+        у: u
+        ф: f
+        х: h
+        ц: ts
+        ч: ch
+        ш: sh
+        щ: sch
+        ъ:
+        ы: y
+        ь:
+        э: e
+        ю: yu
+        я: ya
+        А: A
+        Б: B
+        В: V
+        Г: G
+        Д: D
+        Е: E
+        Ж: ZH
+        З: Z
+        И: I
+        Й: Y
+        К: K
+        Л: L
+        М: M
+        Н: N
+        О: O
+        П: P
+        Р: R
+        С: S
+        Т: T
+        У: U
+        Ф: F
+        Х: H
+        Ц: TS
+        Ч: CH
+        Ш: SH
+        Щ: SCH
+        Ъ:
+        Ы: Y
+        Ь:
+        Э: E
+        Ю: YU
+        Я: YA
+  name: "Имя"
+  machine_name: "Системное имя"
+  type: "Тип"
+  set_title: "Установить заголовок"
+  description: "Описание"
+  help: "Помощь"
+  active: "Активный"
+  nesting: "Вложенность:"
+  set_nesting: "Разрешить ячейки:"
+  relation: "Связь:"
+  set_relation: "Разрешить вложенность"
+  path_root_url: "URL-Адрес с корня:"
+  comment: "Комментарий:"
+  position: "Сортировка"
+  new: "Новый"
+  list: "Список"
+  edit_entity_type: "Редактировать тип объекта"
+  fields_entity_type: "Поля типа объектов"
+  drop: "Перемещение"
+  id: "Id"
+  is_required: "Обязательно"
+  is_multi: "Множественное"
+  is_filter: "Фильтр"
+  action: "Действие"
+  list_field: "Список полей"
+  add_new_field: "Добавить новое поле"
+  placeholder: "Заполнитель"
+  value: "Значение"
+  prefix: "Префикс"
+  suffix: "Суфикс"
+  element_html: "Элемент html"
+  class: "Class"
+  field_and_objects: "Поля и обьекты:"
+  visible_block: "Видимость блока"
+  type_url: "Тип url"
+  url_list: "Url список"
+  type_entity_type: "Тип сущности объекта"
+  entity_type_lists: "Списки типов объекта"
+  settings: "Настройки"
+  admin_name: "Административное имя"
+  admin_description: "Административное описание"
+  region: "Регион"
+  entity_type: "Тип объекта"
+  entitys_type: "типе объекта"
+  no_edit: "Не редактировать"
+  machine_name_for_theme: "Системное имя для темы"
+  element: "Элементы"
+  system: "Системный:"
+  relation_cells: "Подвязаные ячейки:"
+  edit_block: "Редактировать блок"
+  custom_field: "Дополнительное поле"
+  blocks_for_region: "Блок для региона"
+  entities: "Объекты"
+  add_new_entity: "Добавить новый объект"
+  entities_type: "Тип объектов"
+  menu: "Меню"
+  blocks: "Блоки"
+  taxonomies: "Таксономия"
+  taxonomies_list: "Список таксономии"
+  add_new_taxonomy: "Добавить новую таксономию"
+  cells: "Ячейки"
+  cells_list: "Список ячеек"
+  add_new_cell: "Добавить новую ячейку"
+  system_setting: "Системные настройки"
+  entities_list: "Список объектов"
+  group: "Группа"
+  group_cells_available: "Группа ячеек. Доступно:"
+  position_cells: "Сортировка ячеек"
+  sticky: "Закрепленный"
+  close: "Закрыть"
+  cell: "Ячейка"
+  title: "Наименование"
+  editing: "Редактирование"
+  url: "Url"
+  category_taxonomy: "Категория|Таксономия"
+  all_category: "все категории"
+  model: "Модель"
+  list_entity_types: "Список типа объектов"
+  entity_list_in: "Список объектов в"
+  field: "Поле"
+  save: "Сохранить"
+  edit_item: "Изменить элемент"
+  id_element: "Id элемент"
+  not_default: "Отсутствует"
+  class_element: "Class элемент"
+  default_machine_name: "По умолчанию - системное имя"
+  editing_menu: "Редактировать меню"
+  list_menu_items: "Список меню элементов"
+  add_new_item_menu: "Добавить новый элемент меню"
+  list_menu: "Список меню"
+  new_menu: "Новое меню"
+  taxonomy_type: "Тип таксономии"
+  position_on_list: "Сортировка в списке"
+  blocked: "Блокированный"
+  edit: "Редактирование"
+  add_new: "Добавить новую"
+  standard_fields: "Стандартные поля"
+  custom_current_entity_field: "Дополнительные поля объекта"
+  help_list_menu: "Список меню на сайте, здесь можно создавать и редактировать меню"
+  create_new_menu: "Создание нового меню"
+  control_menu: "Управление меню. Сдесь вы можете изменять даные вашего меню, а также управлять списком меню"
+  help_list_entity: "Список записей это модели с собственными путями, имеют собственные пункты меню, мета теги и
+   доступны для самостоятельного просмотра на сайте. Используются для страниц, статей, блогов, продуктов и т.д."
+  add_new_object: "Добавление нового объекта"
+  edit_type_objectnews: "Здесь вы можете редактировать тип объекта"
+  field_type_object: "Здесь вы можете видеть список полей . Добавление новых полей для объекта "
+  set_category: "Выбрать категорию"
+  dashboard: "Панель"
+  total_entities: "Всего объектов"
+  forms: "Формы"
+  forms_list: "Список форм"
+  add_new_form: "Добавить новую форму"
+  logo: "Лого"
+  navigation: "Навигация"
+  sidebar: "Боковая панель"
+  fixed_header: "Фиксированая шапка"
+  boxed_layout: "Фиксированый конент"
+  fixed_sidebar: "Фиксированая боковая панель"
+  light_menu: "Облегченное меню"
+  icon_menu: "Меню иконок"
+  horizontal_icon_menu: "Горизонтальное меню иконок"
+  reset: "Сброс"
+  new_entity_type: "Новый тип объекта"
+  calc: "Калькуляция"
+  list_blocks: "Список блоков"
+  region_theme: "регион темы"
+  block_info: "Информация"
+  not_activated: "Не активный"
+  fields_in: "Поля в"
+  list_of_type_object: "Список типов объектов здесь вы можете создавать нужные типы всех видов данных сайта (Страницы, блоки,
+   комментарии, таксономии и т.д.)"
+  new_type_object: "Здесь можно создать новый тип объекта"
+  editing_category_news: "Здесь можно редактировать категорию новости"
+  keywords: "Ключевые слова"
+  canonical: "Каноникал"
+  author: "Автор"
+  publisher: "Издатель"
+  alternate: "Альтернативный вариант"
+  refresh: "Обновление"
+  noindex: "Noindex"
+  nofollow: "Nofollow"
+  editing_entity_type: "Редактирование типа объекта"
+  entity: "объект"
+  fields_in_custom: "Дополнительные поля в"
+  group_forms: "Доступные группы"
+  new_block: "Новый блок"

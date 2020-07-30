@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Iteasykit entity type:</strong>
+  <%= @cell.iteasykit_entity_type %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @cell.active %>
+</p>
+
+<p>
+  <strong>Sticky:</strong>
+  <%= @cell.sticky %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @cell.position %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @cell.group %>
+</p>
+
+<p>
+  <strong>Machine name:</strong>
+  <%= @cell.machine_name %>
+</p>
+
+<%= link_to 'Edit', edit_cell_path(@cell) %> |
+<%= link_to 'Back', cells_path %>

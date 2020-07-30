@@ -1,0 +1,15 @@
+<%= "<input multiple type='file' name='fcis[#{@f.id}[][fci_#{@f.type_fci}[file]]' id='fcis_fci_#{@f.type_fci}'  accept=''>".html_safe %>
+<% @m.each do |f| %>
+  <% if f.file.previewable? %>
+    <%= "<img src='#{Rails.application.routes.url_helpers.rails_representation_path( f.file.preview(resize: "100x100"), only_path: true)}'/>".html_safe %>
+  <% elsif f.file.variable? %>
+    <%= "<img src='#{Rails.application.routes.url_helpers.rails_representation_path( f.file.variant(resize: "100x100"), only_path: true)}'/>".html_safe %>
+  <% else %>
+    <%= link_to f.file.blob.filename.to_param, Rails.application.routes.url_helpers.rails_blob_path(f.file, disposition: "attachment", only_path: true) %>
+  <% end %>
+  <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, admin_fci_destroy_fields_path(@f.id)+"?delfield=#{f.id}&relabletype=Iteasykit::FciImage", class: "btn btn-danger raised icon waves-effect",
+              data: {confirm: 'Are you sure?'} %>
+              <br>
+              <span> Title: <%= best_in_place f, :title, :place_holder => "Click me to add content!" %></span>
+              <br>
+<% end %>

@@ -1,0 +1,19 @@
+<div class="sortable_tree_wrapper">
+  <ol class="sortable_tree" max-levels="<%= (options[:max_levels] || 5) %>" sortable-url="<%= options[:sort_url] %>">
+    <% items.each do |root, children| %>
+      <li id="cat_<%= root.id %>" class="head head-border info-color">
+        <div class="item">
+          <div class="cell left">
+            <i class="zmdi zmdi-arrows zmdi-hc-fw"></i>
+            <a href="<%= menu_item_url(root) %>"><%= root.send(options[:name_method] || :name) %></a>
+            <% if options[:controls_partial] %>
+              <%= render options[:controls_partial], item: root %>
+            <% end %>
+          </div>
+        </div>
+        <%= sortable_tree_render_nested_groups_custom(children, options.merge({list_tag: :ol, element_class: 'item'})) %>
+      </li>
+    <% end %>
+  </ol>
+</div>
+

@@ -1,0 +1,10 @@
+<% if @block.menus.empty? %>
+    <%= render 'shared/fields/dynamic_field', locale: @model=@block %>
+<% else %>
+    <% if FileTest.exists?('app/themes/'+theme_resolver+'/views/blocks/_'+@block.entity+'.html.erb') %>
+        <%= render 'blocks/'+@block.entity+'.html.erb', locale: @block %>
+    <% else %>
+
+        <%= get_menu_items(@block.machine_name) %>
+    <% end %>
+<% end %>

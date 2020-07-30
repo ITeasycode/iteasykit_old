@@ -1,0 +1,84 @@
+<div class="row">
+<%= form_with(model: [:admin, cell], local: true, multipart:true) do |form| %>
+  <% if cell.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cell.errors.count, "error") %> prohibited this cell from being saved:</h2>
+
+      <ul>
+      <% cell.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="col-md-8">
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color"><%= t('field_and_objects') %></h5>
+        </div>
+
+        <div class="content">
+          <%= render 'iteasykit/shared/fields/field_list', locals: [@entity_type, @object = @cell] %>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color"><%= t('settings') %></h5>
+        </div>
+
+        <div class="content">
+          <div class="form-group">
+            <label class="control-label"><%= t('entity_type') %></label>
+            <%= form.select(:iteasykit_entity_type_id, Iteasykit::EntityType.where(rel_model: 'Cell').map {|et| [et.name, et.id]},
+                            {include_blank: false}, class: "form-control input-sm input-warning") %>
+            <span class="help-block"><small><%= t('no_edit') %></small></span>
+          </div>
+          <div class="form-group">
+            <label class="control-label"><%= t('machine_name') %></label>
+            <%= form.text_field :machine_name, class: "form-control input-sm" %>
+            <span class="help-block"><small><%= t('machine_name_for_theme') %></small></span>
+          </div>
+          <div class="form-group">
+            <label class="control-label"><%= t('group') %></label>
+            <%= form.text_field :group, class: "form-control input-sm" %>
+            <span class="help-block"><small><%= t('group_cells_available') %> <%= @group_list.join(', ') %></small></span>
+          </div>
+          <div class="form-group">
+            <label class="control-label"><%= t('position') %></label>
+            <%= form.text_field :position, class: "form-control input-sm" %>
+            <span class="help-block"><small><%= t('position_cells') %></small></span>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label text-color">
+                  <%= t('active') %>
+                  <%= form.check_box :active, class: "toggle toggle-success" %>
+                  <i></i>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label text-color">
+
+                  <%= t('sticky') %>
+                  <%= form.check_box :sticky, class: "toggle toggle-success" %>
+                  <i></i>
+                </label>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      </div>
+    <div class="actions"  style="position: fixed;bottom: 0px;right: 0px;" >
+      <%= form.submit t('save'), class: "btn-success btn-lg"%>
+    </div>
+<% end %>
+</div>

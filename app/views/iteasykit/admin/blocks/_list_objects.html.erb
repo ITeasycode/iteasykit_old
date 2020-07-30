@@ -1,0 +1,34 @@
+
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+  <tr>
+    <th><%= t('id') %></th>
+    <th><%= t('admin_name') %></th>
+    <th><%= t('machine_name') %></th>
+    <th><%= t('description') %></th>
+    <th><%= t('region') %></th>
+    <th><%= t('active') %></th>
+    <th><%= t('system') %></th>
+    <th><%= t('action') %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @object_list.each do |block| %>
+    <tr>
+      <td><%= block.id %></td>
+      <td><%= block.admin_name %></td>
+      <td><%= block.machine_name %></td>
+      <td><%= block.description_admin %></td>
+      <td><%= block.region %></td>
+      <td><i class="zmdi zmdi-<%= block.active ? 'check' : 'close' %>"></i></td>
+      <td><i class="zmdi zmdi-<%= block.system ? 'check' : 'close' %>"></i></td>
+      <td class="text-center">
+        <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, edit_admin_block_path(block), class: "btn btn-success raised icon waves-effect" %>
+        <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, [:admin, block], class: "btn btn-danger raised icon waves-effect", method: :delete,
+                    data: {confirm: 'Are you sure?'} %>     </td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>

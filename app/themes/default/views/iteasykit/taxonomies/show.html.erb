@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ancestry:</strong>
+  <%= @taxonomy.ancestry %>
+</p>
+
+<p>
+  <strong>Ancestry depth:</strong>
+  <%= @taxonomy.ancestry_depth %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @taxonomy.active %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @taxonomy.position %>
+</p>
+
+<p>
+  <strong>Blocked:</strong>
+  <%= @taxonomy.blocked %>
+</p>
+
+<p>
+  <strong>Sticky:</strong>
+  <%= @taxonomy.sticky %>
+</p>
+
+<p>
+  <strong>Iteasykit entity type:</strong>
+  <%= @taxonomy.iteasykit_entity_type %>
+</p>
+
+<p>
+  <strong>Iteasykit seomore:</strong>
+  <%= @taxonomy.iteasykit_seomore %>
+</p>
+
+<%= link_to 'Edit', edit_taxonomy_path(@taxonomy) %> |
+<%= link_to 'Back', taxonomies_path %>

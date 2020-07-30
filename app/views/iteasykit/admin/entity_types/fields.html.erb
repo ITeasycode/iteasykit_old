@@ -1,0 +1,81 @@
+<% content_for :entity_title do %><%= t('fields_in') %> <%= t('entitys_type') %> - <%= @entity_type.name %>
+<% end %>
+<% content_for :pull_right do %>
+  <%= link_to '<i class="zmdi zmdi-long-arrow-return zmdi-hc-fw"></i>'.html_safe, admin_entity_types_url %>
+<% end %>
+
+<%= render 'iteasykit/shared/admin/type_tabs' %>
+<p><%= t(:field_type_object) %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-8">
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color"><%= t('list_field') %>
+            <a class="fullscreen-btn" href="#"><i class="zmdi zmdi-fullscreen"></i></a></h5>
+
+
+        </div>
+
+        <div class="content">
+          <table class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+              <th><%= t('drop') %></th>
+              <th><%= t('id') %></th>
+              <th><%= t('name') %></th>
+              <th><%= t('type') %></th>
+              <th><%= t('machine_name') %></th>
+              <th><%= t('help') %></th>
+
+              <th><%= t('active') %></th>
+
+              <th><%= t('action') %></th>
+            </tr>
+            </thead>
+            <tbody class="sortable">  <!-- sortable target -->
+            <% @fcis.each_with_sortable_id do |item, sortable_id| %>
+              <tr id="<%= sortable_id %>">  <!-- Needs id tag on sorting elements -->
+                <td><i class="zmdi zmdi-arrows zmdi-hc-fw"></i></td>
+                <td><%= item.id %></td>
+                <td><%= item.name %></td>
+                <td><%= item.type_fci %></td>
+                <td><%= item.machine_name %></td>
+                <td><%= item.help %></td>
+                <td><i class="zmdi zmdi-<%= item.active ? 'check' : 'close' %>"></i></td>
+                <td class="text-center">
+                  <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, "", class: "btn btn-success raised icon waves-effect",
+                              'data-toggle'=>"modal", 'data-target'=>"#modal-large#{item.id}" %>
+
+                  <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, [:admin, item], class: "btn btn-danger raised icon waves-effect", method: :delete,
+                              data: {confirm: 'Are you sure?'} %></td>
+              </tr>
+
+              <div class="modal fade" id="modal-large<%=item.id %>" role="dialog" aria-hidden="true">
+                      <%= render 'iteasykit/admin/fcis/edit_form', fci: item %>
+              </div>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color"><%= t('add_new_field') %></h5>
+        </div>
+
+        <div class="content">
+     
+             <%= render 'iteasykit/admin/fcis/form', locals: [@fci, @type = "Iteasykit::EntityType", @id = @entity_type.id] %>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>

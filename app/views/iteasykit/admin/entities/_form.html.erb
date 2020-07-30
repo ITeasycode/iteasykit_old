@@ -1,0 +1,197 @@
+<div class="row">
+  <%= form_with(model: [:admin, entity], local: true, multipart: true) do |form| %>
+    <% if entity.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
+
+        <ul>
+          <% entity.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="col-md-8">
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color"><%= t('field_and_objects') %></h5>
+        </div>
+
+        <div class="content">
+          <%= render 'iteasykit/shared/fields/field_list', locals: [@entity_type, @object = @entity] %>
+
+        </div>
+      </div>
+
+
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color"><%= t('SEO') %></h5>
+        </div>
+
+        <div class="content">
+
+          <%= render 'iteasykit/admin/seomores/form', form: form %>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color"><%= t('settings') %></h5>
+        </div>
+
+        <div class="content">
+
+          <div class="form-group">
+            <label class="control-label"><%= t('url') %></label>
+            <%= form.text_field :slug, class: "form-control input-sm" %>
+            <span class="help-block"><small><%= t('no_edit') %></small></span>
+          </div>
+          <div class="form-group">
+            <label class="control-label"><%= t('entity_type') %></label>
+            <%= form.select(:iteasykit_entity_type_id, Iteasykit::EntityType.where(rel_model: 'Entity').map {|et| [et.name, et.id]},
+                            {include_blank: false}, class: "form-control input-sm input-warning") %>
+            <span class="help-block"><small><%= t('no_edit') %></small></span>
+          </div>
+          <div class="form-group">
+            <label class="control-label"><%= t('machine_name') %></label>
+            <%= form.text_field :machine_name, class: "form-control input-sm" %>
+            <span class="help-block"><small><%= t('machine_name_for_theme') %></small></span>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Date</label>
+            <%= form.date_field :created_at, class: "form-control input-sm" %>
+            <span class="help-block"><small></small></span>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label warning-color">
+                  <%= t('active') %>
+                  <%= form.check_box :active, class: "toggle toggle-success" %>
+                  <i></i>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label warning-color">
+
+                  <%= t('sticky') %>
+                  <%= form.check_box :sticky, class: "toggle toggle-success" %>
+                  <i></i>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% taxonomies = Iteasykit::Taxonomy.all %>
+      <% if taxonomies.present? %>
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color"><%= t('category_taxonomy') %></h5>
+        </div>
+
+        <div class="content">
+          <%= link_to t('set_category'), "", class: "btn btn-success waves-effect",
+                                                 'data-toggle'=>"modal", 'data-target'=>"#modal-largecat" %>
+          <div class="modal fade" id="modal-largecat" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><%= t('all_category') %></h4>
+              </div>
+                <div class="modal-body">
+                  <% taxonomies.group_by {|t| t.iteasykit_entity_type.name }.each do |name, taxs| %>
+                    <h3><%= name %></h3>
+
+                    <table class="table table-bordered table-hover table-striped">
+                      <thead>
+                      <tr>
+                        <th><%= t('title') %></th>
+                        <th><%= t('action') %></th>
+                      </tr>
+                      </thead>
+
+                      <tbody>
+                      <% taxs.each do |taxonomy| %>
+                        <tr>
+                          <td><%= taxonomy.title %></td>
+                          <td class="text-center">
+                            <%= link_to "set", "/admin/taxonomies/#{taxonomy.id}?reltaxentity=#{@entity.id}&reltaxtype=Iteasykit::Entity" %>
+                           </td>
+                        </tr>
+                      <% end %>
+
+                      </tbody>
+                    </table>
+                  <% end %>
+                </div>
+            </div>
+          </div>
+          </div>
+          <br>
+          <br>
+          <table class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+              <th><%= t('title') %></th>
+              <th><%= t('action') %></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% @entity.rel_taxonomies.each do |rel| %>
+            <% taxonomy = rel.iteasykit_taxonomy %>
+              <tr>
+                <td><%= taxonomy.title %></td>
+                <td class="text-center">
+                  <%= link_to "destroy", "/admin/taxonomies/#{taxonomy.id}?delreltaxentity=#{@entity.id}&reltaxtype=Iteasykit::Entity" %>
+                </td>
+              </tr>
+            <% end %>
+
+            </tbody>
+          </table>
+
+        </div>
+        </div>
+      </div>
+    <% end %>
+
+    </div>
+      <div class="actions"  style="position: fixed;bottom: 0px;right: 0px;" >
+        <%= form.submit t('save'), class: "btn-success btn-lg"%>
+      </div>
+  <% end %>
+  </div>
+
+  <% if @entity_type.relation? %>
+    <% unless @object_list.nil? %>
+      <div class="content-box">
+        <div class="head head-border warning-color">
+          <h5 class="content-title warning-color"><%= t('relation_cells') %></h5>
+        </div>
+
+        <div class="content">
+          <% Iteasykit::EntityType.where(rel_model: 'Cell').each do |cet| %>
+            <%= link_to "+ "+cet.name, "", class: "btn btn-info waves-effect",
+                        'data-toggle'=>"modal", 'data-target'=>"#modal-largenew#{cet.id}" %>
+            <div class="modal fade" id="modal-largenew<%=cet.id %>" role="dialog" aria-hidden="true">
+              <%= render 'iteasykit/admin/cells/popup_form', locals: [@entity_type=cet, @cell = Iteasykit::Cell.new, @objectrel=@entity] %>
+            </div>
+          <% end %>
+          <br>
+          <br>
+          <%= render 'iteasykit/admin/cells/rel_list_objects', locals: [@object_list, ] %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>

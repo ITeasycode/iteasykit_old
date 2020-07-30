@@ -1,0 +1,5 @@
+regions:
+  header: Header
+  sidebar: Sidebar
+  content: Content
+  footer: Footer

@@ -1,0 +1,39 @@
+
+  <nav class="navbar navbar-cyan">
+    <div class="navbar-header container">
+      <a href="<%= root_url %>" class="menu-toggle"><i class="zmdi zmdi-menu"></i></a>
+      <a href="<%= root_url %>" class="logo"><img src="" alt="Logo ITeasykit"></a>
+      <a href="<%= root_url %>" class="icon-logo"></a>
+    </div>
+    <div class="navbar-container clearfix">
+      <div class="pull-left">
+        <a href="<%= root_url %>" class="page-title text-uppercase"><%= yield :title_navbar %></a>
+      </div>
+      <div class="pull-right">
+        <ul class="nav pull-right right-menu">
+        <li class="dropdown dropdown-language">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <%= I18n.locale %>
+            <i class="fa fa-angle-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-default">
+            <%= lang_switcher %>
+          </ul>
+        </li>
+
+          <li class="more-options dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+              <i class="zmdi zmdi-account-circle"></i>
+            </a>
+
+            <div class="more-opt-container dropdown-menu">
+              <a href="#"><i class="zmdi zmdi-account-o"></i>Account</a>
+              <a href="/users/sign_out"><i class="zmdi zmdi-run"></i>Exit</a>
+            </div>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>

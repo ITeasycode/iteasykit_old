@@ -1,0 +1,55 @@
+<%= form_with(model: [:admin, menu], local: true) do |form| %>
+  <% if menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+
+      <ul>
+        <% menu.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label class="control-label"><%= t('name') %></label>
+    <%= form.text_field :name, class: "form-control input-sm" %>
+  </div>
+  <div class="form-group">
+    <label class="control-label"><%= t('description') %></label>
+    <%= form.text_area :description, class: "form-control" %>
+    <span class="help-block"><small><%= t('admin_description') %></small></span>
+  </div>
+  <div class="form-group">
+    <label class="control-label"><%= t('machine_name') %></label>
+    <%= form.text_field :machine_name, class: "form-control input-sm" %>
+    <span class="help-block"><small><%= t('admin_name') %></small></span>
+  </div>
+  <div class="form-group">
+    <label class="control-label"><%= t('element_html') %></label>
+    <%= form.text_field :elementcls, class: "form-control input-sm" %>
+    <span class="help-block"><small>span, p, etc. Default - div</small></span>
+  </div>
+  <div class="form-group">
+    <label class="control-label"><%= t('id_element') %></label>
+    <%= form.text_field :idcls, class: "form-control input-sm" %>
+    <span class="help-block"><small><%= t('not_default') %></small></span>
+  </div>
+  <div class="form-group">
+    <label class="control-label"><%= t('class_element') %></label>
+    <%= form.text_field :csscls, class: "form-control input-sm" %>
+    <span class="help-block"><small><%= t('default_machine_name') %></small></span>
+  </div>
+  <div class="form-group">
+    <label class="control-label text-color">
+      <%= t('active') %>
+      <%= form.check_box :active, class: "toggle toggle-success" %>
+      <i></i>
+    </label>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit t('save'), class: "btn-success btn-lg" %>
+  </div>
+<% end %>
