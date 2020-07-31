@@ -6,7 +6,7 @@ module Iteasykit
 
     translates  :site, :phone, :address_map, :geodanniye, :country, :email, :cordinates
 
-    before_save :update_geo
+    #before_save :update_geo
 
     def update_geo
       unless cordinates.present?
