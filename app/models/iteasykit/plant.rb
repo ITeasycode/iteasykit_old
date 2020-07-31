@@ -9,9 +9,9 @@ module Iteasykit
     before_save :update_geo
 
     def update_geo
-      unless coordinates.present?
+      unless cordinates.present?
         g = Geocoder.coordinates(geodanniye)
-        self.coordinates = g.to_s.gsub('[','').gsub(']','')
+        self.cordinates = g.to_s.gsub('[','').gsub(']','')
       end
     end
     
@@ -31,10 +31,10 @@ module Iteasykit
     
                 telefony19 = cell.field(:telefony19, true)
 
-                cordinates = cell.field(:coordinates19, true)
+                cord = cell.field(:coordinates19, true)
 
         s = Iteasykit::Plant.new(site: sayt19, phone: telefony19, address_map: adres_na_karte19,
-           geodanniye: geodannye19, country: strana19, email: email19, cordinates: cordinates)
+           geodanniye: geodannye19, country: strana19, email: email19, cordinates: cord)
           
            s.save!
 s.file.attach \
