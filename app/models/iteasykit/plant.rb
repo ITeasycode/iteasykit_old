@@ -6,7 +6,14 @@ module Iteasykit
 
     translates  :site, :phone, :address_map, :geodanniye, :country, :email, :cordinates
 
+    before_save :update_geo
 
+    def update_geo
+      unless coordinates.present?
+        g = Geocoder.coordinates(geodanniye)
+        self.coordinates = g.to_s.gsub('[','').gsub(']','')
+      end
+    end
     
     def new_item
       

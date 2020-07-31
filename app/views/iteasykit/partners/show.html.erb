@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @partner.name %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @partner.site %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @partner.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @partner.address %>
+</p>
+
+<p>
+  <strong>Coordinates:</strong>
+  <%= @partner.coordinates %>
+</p>
+
+<p>
+  <strong>City ukr:</strong>
+  <%= @partner.city_ukr %>
+</p>
+
+<p>
+  <strong>City mold:</strong>
+  <%= @partner.city_mold %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @partner.active %>
+</p>
+
+<%= link_to 'Edit', edit_partner_path(@partner) %> |
+<%= link_to 'Back', partners_path %>
