@@ -20,7 +20,7 @@ module Iteasykit
     sayt = cell.field(:sayt20)
     phone = cell.field(:telefony20)
     addr = cell.field(:adres20)
-    coord = cell.field(:geodannye20)
+    coord = cell.field(:geodannie20)
     city_u = cell.field(:gorod20)
     city_m = cell.field(:gorodm)
 
