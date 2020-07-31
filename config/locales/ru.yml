@@ -212,3 +212,6 @@ ru:
   fields_in_custom: "Дополнительные поля в"
   group_forms: "Доступные группы"
   new_block: "Новый блок"
+  site: "Сайт"
+  phone: "Телефон"
+  address: "Адрес"
