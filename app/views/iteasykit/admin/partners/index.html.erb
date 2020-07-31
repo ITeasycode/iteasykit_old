@@ -2,7 +2,7 @@
 
 <h1>Partners</h1>
 
-<table>
+<table class="table table-bordered table-hover table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -13,7 +13,7 @@
       <th>City ukr</th>
       <th>City mold</th>
       <th>Active</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -28,9 +28,9 @@
         <td><%= partner.city_ukr %></td>
         <td><%= partner.city_mold %></td>
         <td><%= partner.active %></td>
-        <td><%= link_to 'Show', partner %></td>
-        <td><%= link_to 'Edit', edit_partner_path(partner) %></td>
-        <td><%= link_to 'Destroy', partner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, edit_admin_partner_path(partner), class: "btn btn-success raised icon waves-effect" %>
+          <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, [:admin, partner], class: "btn btn-danger raised icon waves-effect", method: :delete,
+                      data: {confirm: 'Are you sure?'} %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +38,4 @@
 
 <br>
 
-<%= link_to 'New Partner', new_partner_path %>
+<%= link_to 'New Partner', new_admin_partner_path, class: "btn btn-success btn-lg", style: 'color: white!important;' %>

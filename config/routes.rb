@@ -1,6 +1,5 @@
 Iteasykit::Engine.routes.draw do
 
-  resources :partners
   #filter :pagination, :uuid
   filter :locale
   mount Ckeditor::Engine => '/ckeditor'
@@ -10,6 +9,8 @@ Iteasykit::Engine.routes.draw do
   resources :entities
   devise_for :users, class_name: "Iteasykit::User", module: :devise, :controllers => { :registrations => :registrations }
   namespace :admin do
+    resources :partners
+
     resources :taxonomies
     resources :fcis
     resources :entities

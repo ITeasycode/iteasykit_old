@@ -1,0 +1,55 @@
+<%= form_with(model: [:admin, partner], local: true) do |form| %>
+  <% if partner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(partner.errors.count, "error") %> prohibited this partner from being saved:</h2>
+
+      <ul>
+      <% partner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <label class="control-label">Назва</label>
+    <%= form.text_field :name, class: "form-control input-sm input-warning" %>
+  </div>
+  <div class="form-group">
+    <label class="control-label">Сайт</label>
+    <%= form.text_field :site, class: "form-control input-sm input-warning" %>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Телефон</label>
+    <%= form.text_area :phone, class: "form-control input-sm input-warning" %>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Адрес</label>
+    <%= form.text_area :address, class: "form-control input-sm input-warning" %>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Координати</label>
+    <%= form.text_field :coordinates, class: "form-control input-sm input-warning" %>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Город Украина</label>
+    <%= form.text_field :city_ukr, class: "form-control input-sm input-warning" %>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Город Молдова</label>
+    <%= form.text_field :city_mold, class: "form-control input-sm input-warning" %>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Активно</label>
+    <%= form.check_box :active %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit  'Save', class: "btn-success btn-lg" %>
+  </div>
+<% end %>
