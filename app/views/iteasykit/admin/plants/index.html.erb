@@ -20,7 +20,7 @@
     <% @iteasykit_plants.each do |iteasykit_plant| %>
       <tr>
         <td><%= iteasykit_plant.site %></td>
-        <td><%= iteasykit_plant.phone %></td>
+        <td><%= iteasykit_plant.phone.html_safe %></td>
         <td><%= iteasykit_plant.address_map %></td>
         <td><%= iteasykit_plant.geodanniye %></td>
         <td><%= iteasykit_plant.country %></td>
