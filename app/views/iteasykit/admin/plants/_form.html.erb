@@ -12,12 +12,14 @@
     </div>
   <% end %>
   <%= form.file_field :file %>
+  <% if iteasykit_plant.file.attached? %>
 <% if iteasykit_plant.file.previewable? %>
   <%= "<img src='#{Rails.application.routes.url_helpers.rails_representation_path( iteasykit_plant.file.preview(resize: "100x100"), only_path: true)}'/>".html_safe %>
 <% elsif iteasykit_plant.file.variable? %>
   <%= "<img src='#{Rails.application.routes.url_helpers.rails_representation_path( iteasykit_plant.file.variant(resize: "100x100"), only_path: true)}'/>".html_safe %>
 <% else %>
   <%= link_to iteasykit_plant.file.blob.filename.to_param, Rails.application.routes.url_helpers.rails_blob_path(iteasykit_plant.file, disposition: "attachment", only_path: true) %>
+<% end %>
 <% end %>
 
  <div class="form-group">

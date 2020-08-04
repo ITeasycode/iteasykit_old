@@ -27,7 +27,7 @@ module Iteasykit
       @partner = Partner.new(partner_params)
 
       if @partner.save
-        redirect_to @partner, notice: 'Partner was successfully created.'
+        redirect_to admin_partners_url, notice: 'Partner was successfully created.'
       else
         render :new
       end
@@ -36,7 +36,7 @@ module Iteasykit
     # PATCH/PUT /partners/1
     def update
       if @partner.update(partner_params)
-        redirect_to @partner, notice: 'Partner was successfully updated.'
+        redirect_to admin_partners_url, notice: 'Partner was successfully updated.'
       else
         render :edit
       end
@@ -45,7 +45,7 @@ module Iteasykit
     # DELETE /partners/1
     def destroy
       @partner.destroy
-      redirect_to partners_url, notice: 'Partner was successfully destroyed.'
+      redirect_to admin_partners_url, notice: 'Partner was successfully destroyed.'
     end
 
     private

@@ -27,7 +27,7 @@ module Iteasykit
       @iteasykit_plant = Iteasykit::Plant.new(iteasykit_plant_params)
 
       if @iteasykit_plant.save
-        redirect_to @iteasykit_plant, notice: 'Iteasykit plant was successfully created.'
+        redirect_to admin_plants_url, notice: 'Iteasykit plant was successfully created.'
       else
         render :new
       end
@@ -36,7 +36,7 @@ module Iteasykit
     # PATCH/PUT /iteasykit_plants/1
     def update
       if @iteasykit_plant.update(iteasykit_plant_params)
-        redirect_to @iteasykit_plant, notice: 'Iteasykit plant was successfully updated.'
+        redirect_to admin_plants_url, notice: 'Iteasykit plant was successfully updated.'
       else
         render :edit
       end
@@ -45,7 +45,7 @@ module Iteasykit
     # DELETE /iteasykit_plants/1
     def destroy
       @iteasykit_plant.destroy
-      redirect_to iteasykit_plants_url, notice: 'Iteasykit plant was successfully destroyed.'
+      redirect_to admin_plants_url, notice: 'Iteasykit plant was successfully destroyed.'
     end
 
     private
@@ -56,7 +56,7 @@ module Iteasykit
 
       # Only allow a trusted parameter "white list" through.
       def iteasykit_plant_params
-        params.require(:iteasykit_plant).permit(:site, :phone, :address_map, :geodanniye, :country, :email, :cordinates, :active)
+        params.require(:plant).permit(:site, :phone, :address_map, :geodanniye, :country, :email, :cordinates, :active)
       end
   end
 end
