@@ -31,17 +31,17 @@
   </div>
 
   <div class="field">
-    <%= form.label :address_map %>
+    <label class="control-label">Адреса</label>
     <%= form.text_field :address_map, class: "form-control input-sm input-warning" %>
   </div>
 
   <div class="field">
-    <%= form.label :geodanniye %>
+    <label class="control-label">геодані</label>
     <%= form.text_field :geodanniye, class: "form-control input-sm input-warning" %>
   </div>
 
   <div class="field">
-    <%= form.label :country %>
+    <label class="control-label">Країна</label>
     <%= form.text_field :country, class: "form-control input-sm input-warning" %>
   </div>
 
@@ -51,16 +51,16 @@
   </div>
 
   <div class="field">
-    <%= form.label :cordinates %>
+    <label class="control-label">Координати</label>
     <%= form.text_field :cordinates, class: "form-control input-sm input-warning" %>
   </div>
 
   <div class="field">
-    <%= form.label :active %>
+    <label class="control-label">Активно</label>
     <%= form.check_box :active %>
   </div>
 
   <div class="actions">
-    <%= form.submit 'Save', class: "btn-success btn-lg" %>
+    <%= form.submit 'Зберегти', class: "btn-success btn-lg" %>
   </div>
 <% end %>
