@@ -4,7 +4,7 @@ module Iteasykit
   class Partner < ApplicationRecord
     translates :name, :site, :phone, :address, :city_ukr, :city_mold, :coordinates
 
-    before_save :update_geo
+    #before_save :update_geo
 
     def update_geo
       g = Geocoder.coordinates(address)
