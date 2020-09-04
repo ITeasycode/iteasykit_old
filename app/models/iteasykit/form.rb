@@ -7,8 +7,8 @@ module Iteasykit
     belongs_to :iteasykit_seomore, optional: true
     has_many :fcis, as: :fciable
     after_create :send_email_admin
-    include Humanizer
-    require_human_on :create
+    #include Humanizer
+    #require_human_on :create
 
 
     def field(name)
