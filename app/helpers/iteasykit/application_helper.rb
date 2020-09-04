@@ -27,7 +27,7 @@ module Iteasykit
           cookies.permanent[:theme] = params[:theme].presence
           cookies.permanent[:theme]
         else
-          'kbetheme'
+          'taxihiohne'
         end
       end
     end
