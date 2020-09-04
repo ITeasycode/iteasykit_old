@@ -37,7 +37,7 @@ module Iteasykit
     private
 
     def theme_resolver
-        'kbetheme'
+        'taxihohne'
     end
 
     def fci_saver(instance, params)
