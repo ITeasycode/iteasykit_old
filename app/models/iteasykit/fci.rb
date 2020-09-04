@@ -17,6 +17,7 @@ module Iteasykit
     #validates :machine_name, uniqueness: true
     validates :name, presence: true
 
+  
     def translit
       if self.machine_name.blank?
         @translit = I18n.transliterate(name)

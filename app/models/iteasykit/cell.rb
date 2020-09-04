@@ -13,8 +13,55 @@ module Iteasykit
 
     default_scope { order("position ASC") }
 
+    def geod
+      if iteasykit_entity_type_id == 20
+        if self.geodannye20s.present?
+          g = self.geodannye20s.first
+          if self.adres20s.present?
+            a = self.adres20s.first
+            p a.value
+            ga = Geocoder.coordinates(a.value)
+            p ga
+            g.update!(value: ga.to_s.gsub('[','').gsub(']',''))
+          end
+        else
+          if self.adres20s.present?
+            a = self.adres20s.first
+            p a.value
+            ga = Geocoder.coordinates(a.value)
+            p ga
+            Iteasykit::FciString.create(iteasykit_fci_id: 267, fieldable_type: "Iteasykit::Cell", fieldable_id: self.id, value: ga.to_s.gsub('[','').gsub(']',''))
+          end
 
-    def field(name)
+        end
+      end
+    end
+
+    def geoddee
+      if iteasykit_entity_type_id == 19
+        if self.coordinates19s.present?
+          g = self.coordinates19s.first
+          if self.geodannye19s.present?
+            a = self.geodannye19s.first
+            p a.value
+            ga = Geocoder.coordinates(a.value)
+            p ga
+            g.update!(value: ga.to_s.gsub('[','').gsub(']',''))
+          end
+        else
+          if self.geodannye19s.present?
+            a = self.geodannye19s.first
+            p a.value
+            ga = Geocoder.coordinates(a.value)
+            p ga
+            Iteasykit::FciString.create(iteasykit_fci_id: 270, fieldable_type: "Iteasykit::Cell", fieldable_id: self.id, value: ga.to_s.gsub('[','').gsub(']',''))
+          end
+
+        end
+      end
+    end
+
+    def field(name, clean = false)
       fci = Iteasykit::Fci.find_by_machine_name(name)
       if fci
         m = ('Iteasykit::Fci'+fci.type_fci.camelize).constantize
@@ -26,7 +73,11 @@ module Iteasykit
             if mf.value.class == Integer
               mfv = mf.value
             else
-              mfv = mf.value.html_safe
+		if clean
+                 mfv = mf.value
+else
+ mfv = mf.value.html_safe
+end
             end
           end
         end

@@ -1,0 +1,65 @@
+<%= form_with(model: [:admin, iteasykit_plant], local: true) do |form| %>
+  <% if iteasykit_plant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(iteasykit_plant.errors.count, "error") %> prohibited this iteasykit_plant from being saved:</h2>
+
+      <ul>
+      <% iteasykit_plant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.file_field :file %>
+<% if iteasykit_plant.file.previewable? %>
+  <%= "<img src='#{Rails.application.routes.url_helpers.rails_representation_path( iteasykit_plant.file.preview(resize: "100x100"), only_path: true)}'/>".html_safe %>
+<% elsif iteasykit_plant.file.variable? %>
+  <%= "<img src='#{Rails.application.routes.url_helpers.rails_representation_path( iteasykit_plant.file.variant(resize: "100x100"), only_path: true)}'/>".html_safe %>
+<% else %>
+  <%= link_to iteasykit_plant.file.blob.filename.to_param, Rails.application.routes.url_helpers.rails_blob_path(iteasykit_plant.file, disposition: "attachment", only_path: true) %>
+<% end %>
+
+  <div class="field">
+    <%= form.label :site %>
+    <%= form.text_field :site %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_map %>
+    <%= form.text_field :address_map %>
+  </div>
+
+  <div class="field">
+    <%= form.label :geodanniye %>
+    <%= form.text_field :geodanniye %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cordinates %>
+    <%= form.text_field :cordinates %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

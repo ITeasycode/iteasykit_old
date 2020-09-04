@@ -6,6 +6,9 @@ module Iteasykit
     belongs_to :iteasykit_entity_type, class_name: "Iteasykit::EntityType"
     belongs_to :iteasykit_seomore, optional: true
     has_many :fcis, as: :fciable
+    after_create :send_email_admin
+    include Humanizer
+    require_human_on :create
 
 
     def field(name)
@@ -29,6 +32,16 @@ module Iteasykit
       fci.name if fci
     end
 
+    def send_email_admin
+      thr = Thread.new {
+        sleep 10
+        subject = iteasykit_entity_type.name
+        @entity = self
+        ApplicationMailer.test_welcome_email("info.ua@profine-group.com", subject, @entity).deliver
+        ApplicationMailer.test_welcome_email('franckire62@gmail.com', subject, @entity).deliver
+      }
+
+    end
 
 
   end

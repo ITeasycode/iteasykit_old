@@ -16,6 +16,7 @@ Iteasykit::Engine.routes.draw do
     resources :forms
     resources :cells
     resources :menus
+    resources :plants
     resources :menu_items do
       post :sort, on: :collection
     end
