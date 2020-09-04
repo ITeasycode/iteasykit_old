@@ -1,7 +1,7 @@
 <% (@model.fcis+@model.iteasykit_entity_type.fcis).each do |namefield| %>
     <% if namefield.active? %>
       <% if namefield.type_fci == 'text' %>
-        <%= ERB.new(@model.field(namefield.machine_name)).result(binding).html_safe %>
+        <%= ERB.new(@model.field(namefield.machine_name)).result(binding)&.html_safe %>
       <% else %>
         <%= @model.field(namefield.machine_name) %>
       <% end %>

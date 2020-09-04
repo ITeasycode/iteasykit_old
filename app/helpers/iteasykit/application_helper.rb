@@ -76,7 +76,7 @@ module Iteasykit
     def options_of_durations
       @duration_options ||= [
           *(2..23).map { |i| [pluralize(i, 'Stunden'), i.hour] },
-          *(1..14).map { |i| [pluralize(i, 'Tag'), i.day] },
+          *(1..14).map { |i| [pluralize(i, 'Tage'), i.day] },
       ]
     end
 
