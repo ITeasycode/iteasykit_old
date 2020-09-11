@@ -4,6 +4,9 @@ module Iteasykit
   class EntitiesController < ApplicationController
     before_action :set_entity, only: [:show, :edit, :update, :destroy]
 
+    def error_404
+      redirect_to '/entities/error_404'
+    end
     # GET /entities
     def index
       @entities = Entity.all

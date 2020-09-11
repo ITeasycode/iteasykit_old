@@ -37,6 +37,9 @@ Iteasykit::Engine.routes.draw do
 
 
   Iteasykit::DynamicRouter.load
-  
+
+  match '*unmatched', to: 'entities#error_404', via: :all
+
+
 
 end
