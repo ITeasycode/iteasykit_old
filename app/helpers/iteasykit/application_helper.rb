@@ -76,7 +76,8 @@ module Iteasykit
     def options_of_durations
       @duration_options ||= [
           *(2..23).map { |i| [pluralize(i, 'Stunden'), i.hour] },
-          *(1..14).map { |i| [pluralize(i, 'Tage'), i.day] },
+          *(1...2).map { |i| [pluralize(i, 'Tag'), i.day] },
+          *(2..14).map { |i| [pluralize(i, 'Tage'), i.day] },
       ]
     end
 
@@ -97,6 +98,12 @@ module Iteasykit
       class_name = 'navigation__element navigation__element--primary'
       class_name << ' navigation__element--active' if current_page?(path)
       link_to name, path, class: class_name
+    end
+
+    # Use gem will_paginate
+    def pagination_entities(entity_type, per_page)
+      entities = Entity.where(iteasykit_entity_type_id: entity_type)
+      @entities_pag = entities.paginate(page: params[:page], per_page: per_page).order('created_at DESC')
     end
   end
 end
