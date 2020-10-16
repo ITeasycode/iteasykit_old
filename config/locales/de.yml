@@ -1,0 +1,213 @@
+--- 
+de: 
+  action: Operation
+  active: Aktiv
+  add_new: "Neue hinzufügen"
+  add_new_cell: "Neue Zelle hinzufügen"
+  add_new_entity: "Neue Entität hinzufügen"
+  add_new_field: "Neues feld hinzufügen"
+  add_new_form: "neues Formular hinzufügen"
+  add_new_item_menu: "neues Elementmenü hinzufügen"
+  add_new_object: "neues Objekt hinzufügen"
+  add_new_taxonomy: "Neue Taxonomie hinzufügen"
+  admin_description: "Administrator beschreibung"
+  admin_name: "Administrator name"
+  all_category: "alle Kategorie"
+  alternate: "alternative Variante"
+  author: Autor
+  block_info: Information
+  blocked: Blockiert
+  blocks: Blöcke
+  blocks_for_region: "Blöcke für Region"
+  boxed_layout: "Boxed Layout"
+  calc: Kalkulation
+  canonical: kanonisch
+  category_taxonomy: "Kategorie Taxonomie"
+  cell: Zelle
+  cells: Zellen
+  cells_list: Zellenliste
+  class: Klasse
+  class_element: "Klass Element"
+  close: Schließen
+  comment: "Kommentar:"
+  control_menu: "Office-Menü. Hier können Sie die Daten Ihres Menüs ändern sowie die Liste der Menüs verwalten"
+  create_new_menu: "neues Menü erstellen"
+  custom_current_entity_field: "zusätzliche Entitätsfelder"
+  custom_field: "Zusätzliches Feld"
+  dashboard: Dashboard
+  default_machine_name: Standard-Computername
+  description: Beschreibung
+  drop: Umsetzen
+  edit: Bearbeiten
+  edit_block: "Block bearbeiten"
+  edit_entity_type: "Entitätstyp bearbeiten"
+  edit_item: "Element bearbeiten"
+  edit_type_objectnews: "Hier können Sie den Objekttyp bearbeiten"
+  editing: Bearbeitung
+  editing_category_news: "Hier können Sie die Nachrichtenkategorie bearbeiten."
+  editing_entity_type: "Entitätstyp bearbeiten"
+  editing_menu: "Menu bearbeiten"
+  element: Elemente
+  element_html: HTML-Element
+  entities: Entitäten
+  entities_list: Entitätsliste
+  entities_type: Entitätstyp
+  entity: Entität
+  entity_list_in: "Entitätsliste in"
+  entity_type: "Entitäts typ"
+  entity_type_lists: Entitätstyplisten
+  entitys_type: "Entitäts typ"
+  field: Feld
+  field_and_objects: "Datenfeld  und  Objekte"
+  field_type_object: "Hier sehen Sie die Liste der Felder. Hinzufügen neuer Felder für ein Objekt"
+  fields_entity_type: "Felder Entitätstyp"
+  fields_in: "Felder in"
+  fields_in_custom: "zusätzliche Felder in"
+  fixed_header: "fester Header"
+  fixed_sidebar: "feste Sitebar"
+  forms: Formular
+  forms_list: Formularliste
+  group: Gruppe
+  group_cells_available: "Gruppenzellen verfügbar:"
+  group_forms: "verfügbare Gruppen"
+  help: Hilfe
+  help_list_entity: "Bei der Liste der Datensätze handelt es sich um Modelle mit eigenen Pfaden, eigenen Menüelementen und Meta-Tags, die auf der Website unabhängig angezeigt werden können. Wird für Seiten, Artikel, Blogs, Produkte usw. verwendet."
+  help_list_menu: Hilfemenüliste
+  horizontal_icon_menu: "horizontal Menu"
+  i18n: 
+    transliterate: 
+      rule: 
+        А: A
+        Б: B
+        В: V
+        Г: G
+        Д: D
+        Е: E
+        Ж: ZH
+        З: Z
+        И: I
+        Й: "Y"
+        К: K
+        Л: L
+        М: M
+        Н: "N"
+        О: O
+        П: P
+        Р: R
+        С: S
+        Т: T
+        У: U
+        Ф: F
+        Х: H
+        Ц: TS
+        Ч: CH
+        Ш: SH
+        Щ: SCH
+        Ъ: ~
+        Ы: "Y"
+        Ь: ~
+        Э: E
+        Ю: YU
+        Я: YA
+        а: a
+        б: b
+        в: v
+        г: g
+        д: d
+        е: e
+        ж: zh
+        з: z
+        и: i
+        й: "y"
+        к: k
+        л: l
+        м: m
+        н: "n"
+        о: o
+        п: p
+        р: r
+        с: s
+        т: t
+        у: u
+        ф: f
+        х: h
+        ц: ts
+        ч: ch
+        ш: sh
+        щ: sch
+        ъ: ~
+        ы: "y"
+        ь: ~
+        э: e
+        ю: yu
+        я: ya
+  icon_menu: Symbolmenü
+  id: Id
+  id_element: Id-Element
+  is_filter: Filter
+  is_multi: Multi
+  is_required: Erforderlich
+  keywords: Keywords
+  light_menu: "leichter Menu"
+  list: Liste
+  list_blocks: Blockliste
+  list_entity_types: Entitätstypenliste
+  list_field: "Felder liste"
+  list_menu: Menuliste
+  list_menu_items: Elementmenüliste
+  list_of_type_object: "Liste der Objekttypen Hier können Sie die erforderlichen Typen aller Arten von Site-Daten erstellen (Seiten, Blöcke, Kommentare, Taxonomien usw.)"
+  logo: Logo
+  machine_name: Systemname
+  machine_name_for_theme: "Maschinenname für Thema"
+  menu: Menu
+  model: Modell
+  name: Name
+  navigation: Navigation
+  nesting: "Einschachtelung:"
+  new: neu
+  new_block: "neuer Block"
+  new_entity_type: "neuer Entitätstyp"
+  new_menu: "neues Menü"
+  new_type_object: "Hier können Sie einen neuen Objekttyp erstellen"
+  no_edit: "Keine Bearbeitung"
+  nofollow: Nofollow
+  noindex: Noindex
+  not_activated: "nicht aktiviert"
+  not_default: Entfällt
+  path_root_url: "URL von root"
+  placeholder: Platzhalter
+  position: Position
+  position_cells: "Zellen positionieren"
+  position_on_list: "Position auf der Liste"
+  prefix: Prefix
+  publisher: Herausgeber
+  refresh: aktualisieren
+  region: Region
+  region_theme: Themenbereich
+  relation: "Verbindung:"
+  relation_cells: Beziehungszellen
+  reset: Reset
+  save: Speichern
+  set_category: "Kategorie einstellen"
+  set_nesting: "Zellen zulassen:"
+  set_relation: "Einschachtelung zulassen"
+  set_title: "Titel einstellen"
+  settings: Einstellungen
+  sidebar: Sitebar
+  standard_fields: Standardfelder
+  sticky: Klebrig
+  suffix: Suffix
+  system: "Systemeigen:"
+  system_setting: Systemeinstellung
+  taxonomies: Taxonomie
+  taxonomies_list: Taxonomieliste
+  taxonomy_type: Taxonomietyp
+  title: Name
+  total_entities: "Gesamtzahl der Entitäten"
+  type: Typ
+  type_entity_type: "Typ Entitätstyp"
+  type_url: URL-Typ
+  url: Url
+  url_list: URL-Liste
+  value: Wert
+  visible_block: "Sichtbarer Block"
